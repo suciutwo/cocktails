@@ -1,0 +1,2942 @@
+(dp0
+S'ale'
+p1
+(lp2
+S'grain'
+p3
+aS'hops'
+p4
+aS'yeast'
+p5
+aS'sparkling'
+p6
+asS'Worcestershire sauce'
+p7
+(lp8
+S'spices'
+p9
+asS'peach bitters'
+p10
+(lp11
+S'peach'
+p12
+asS'grape juice'
+p13
+(lp14
+S'grape'
+p15
+aS'sweet'
+p16
+asS'Creme of the Sky'
+p17
+(lp18
+S'orange'
+p19
+asS'Aperital'
+p20
+(lp21
+S'herbal'
+p22
+asS'egg white'
+p23
+(lp24
+sS'orange sherbet'
+p25
+(lp26
+S'orange'
+p27
+aS'sweet'
+p28
+asS'framboise liqueur'
+p29
+(lp30
+S'raspberry'
+p31
+asS'milk'
+p32
+(lp33
+S'milk'
+p34
+asS'vanilla bean'
+p35
+(lp36
+S'vanilla'
+p37
+asS'Welcome to CocktailDB!'
+p38
+(lp39
+sS'triple sec'
+p40
+(lp41
+S'orange'
+p42
+asS"Hostetter's bitters"
+p43
+(lp44
+sS'cayenne pepper'
+p45
+(lp46
+S'spicy'
+p47
+aS'hot'
+p48
+asS'Unicum'
+p49
+(lp50
+S'herbal'
+p51
+aS'medicinal'
+p52
+aS'bitter'
+p53
+asS'Asbach Uralt'
+p54
+(lp55
+S'brandy'
+p56
+aS'sweet'
+p57
+asS'Van der Hum'
+p58
+(lp59
+S'tangerine'
+p60
+aS'orange'
+p61
+asS'vanilla extract'
+p62
+(lp63
+S'vanilla'
+p64
+asS'ginger ale'
+p65
+(lp66
+S'ginger'
+p67
+aS'mild'
+p68
+aS'sparkling'
+p69
+asS'kummel'
+p70
+(lp71
+S'caraway'
+p72
+aS'sweet'
+p73
+asS'raspberry-flavored brandy liqueur'
+p74
+(lp75
+S'raspberry'
+p76
+asS'Cointreau'
+p77
+(lp78
+S'orange'
+p79
+asS'Canton Ginger'
+p80
+(lp81
+S'ginger'
+p82
+asS'Schweppes Bitter Lemon'
+p83
+(lp84
+S'lemon'
+p85
+aS'sour'
+p86
+asS'Haitian rum'
+p87
+(lp88
+S'rum'
+p89
+aS'medium'
+p90
+aS'delicate'
+p91
+asS'Armagnac'
+p92
+(lp93
+S'brandy'
+p94
+asS"Bogart's bitters"
+p95
+(lp96
+sS'ouzo'
+p97
+(lp98
+S'anise'
+p99
+asS'Caroni bitters'
+p100
+(lp101
+S'herbal'
+p102
+asS'tangerine juice'
+p103
+(lp104
+S'tangerine'
+p105
+asS"Gordon's Gin"
+p106
+(lp107
+S'gin'
+p108
+aS'dry'
+p109
+asS'Schroeder Bitters'
+p110
+(lp111
+sS'lemon sherbet'
+p112
+(lp113
+S'lemon'
+p114
+asS'Crown Royal'
+p115
+(lp116
+S'whiskey'
+p117
+aS'light'
+p118
+asS'151 proof rum'
+p119
+(lp120
+S'rum'
+p121
+aS'strong'
+p122
+asS'Mount Gay Barbados rum'
+p123
+(lp124
+S'rum'
+p125
+asS'grain alcohol'
+p126
+(lp127
+S'alcohol'
+p128
+asS'Hercules'
+p129
+(lp130
+S'anise'
+p131
+asS'Rhum Negrita'
+p132
+(lp133
+S'rum'
+p134
+aS'strong'
+p135
+asS'slice of  passion fruit'
+p136
+(lp137
+S'passion_fruit'
+p138
+asS'clam juice'
+p139
+(lp140
+S'clams'
+p141
+asS'Pernod'
+p142
+(lp143
+S'anise'
+p144
+asS'claret'
+p145
+(lp146
+S'wine'
+p147
+asS'East Indian Punch'
+p148
+(lp149
+sS'apple cider'
+p150
+(lp151
+S'apple'
+p152
+asS"Fior d'Alpi"
+p153
+(lp154
+S'floral'
+p155
+aS'herbal'
+p156
+asS'Cheri Suisse'
+p157
+(lp158
+S'chocolate'
+p159
+aS'cherry'
+p160
+aS'sweet'
+p161
+asS'tea'
+p162
+(lp163
+S'tea'
+p164
+asS'rose water'
+p165
+(lp166
+S'roses'
+p167
+asS'almond'
+p168
+(lp169
+S'almond'
+p170
+asS'grated orange zest'
+p171
+(lp172
+S'orange_essence'
+p173
+asS'sloe gin'
+p174
+(lp175
+S'berry'
+p176
+aS'plum'
+p177
+aS'sweet'
+p178
+asS'Lochan Ora'
+p179
+(lp180
+S'scotch_whisky'
+p181
+aS'honey'
+p182
+asS'apricot schnapps'
+p183
+(lp184
+S'apricot'
+p185
+asS'instant coffee'
+p186
+(lp187
+S'coffee'
+p188
+asS'St. Raphael'
+p189
+(lp190
+S'wine'
+p191
+aS'spice'
+p192
+aS'herbs'
+p193
+asS'banana cordial'
+p194
+(lp195
+S'banana'
+p196
+asS'espresso'
+p197
+(lp198
+S'coffee'
+p199
+aS'strong'
+p200
+asS'white wine'
+p201
+(lp202
+sS'ginger wine'
+p203
+(lp204
+S'ginger'
+p205
+asS'Punt e Mes'
+p206
+(lp207
+sS'kumquat slice'
+p208
+(lp209
+S'orange'
+p210
+aS'sour'
+p211
+aS'sweet'
+p212
+asS'L.B.W.'
+p213
+(lp214
+sS'raspberry schnapps liqueur'
+p215
+(lp216
+S'raspberry'
+p217
+asS'quinquina'
+p218
+(lp219
+S'quinine'
+p220
+asS'mango slice'
+p221
+(lp222
+S'mango'
+p223
+asS'cr\xc3\xa8me de cassis'
+p224
+(lp225
+S'black_currant'
+p226
+asS'Tokay wine'
+p227
+(lp228
+S'white_wine'
+p229
+aS'sweet'
+p230
+asS'water'
+p231
+(lp232
+S'flavorless'
+p233
+asS'Seven Fruits liqueur'
+p234
+(lp235
+sS'blackberry schnapps'
+p236
+(lp237
+S'blackberry'
+p238
+asS'Dubonnet'
+p239
+(lp240
+sS'vinegar'
+p241
+(lp242
+S'vinegar'
+p243
+asS'bianco vermouth'
+p244
+(lp245
+sS'Tequila'
+p246
+(lp247
+S'smokey'
+p248
+aS'agave'
+p249
+asS'goldwasser'
+p250
+(lp251
+S'herbal'
+p252
+asS'Chinese golden lime'
+p253
+(lp254
+S'lime'
+p255
+aS'citrus'
+p256
+asS'chili sauce'
+p257
+(lp258
+S'tomato'
+p259
+aS'spices'
+p260
+aS'vinegar'
+p261
+aS'sweet'
+p262
+asS'cinnamon'
+p263
+(lp264
+S'cinnamon'
+p265
+asS'piece of watermelon'
+p266
+(lp267
+S'watermelon'
+p268
+asS'coffee grounds'
+p269
+(lp270
+S'coffee'
+p271
+asS'traditional schnapps'
+p272
+(lp273
+sS'orange-flavored gin'
+p274
+(lp275
+S'orange'
+p276
+asS'liqueur'
+p277
+(lp278
+sS'black cherry'
+p279
+(lp280
+S'cherry'
+p281
+asS'raspberry'
+p282
+(lp283
+S'raspberry'
+p284
+asS'blackberry liqueur'
+p285
+(lp286
+S'blackberry'
+p287
+asS'sake'
+p288
+(lp289
+sS"Harvey's Bristol Cream"
+p290
+(lp291
+S'wine'
+p292
+aS'nuts'
+p293
+asS'garnish'
+p294
+(lp295
+sS'Canadian whiskey liqueur'
+p296
+(lp297
+S'canadian_whiskey'
+p298
+aS'sweet'
+p299
+asS'kola tonic'
+p300
+(lp301
+S'kola_nut'
+p302
+aS'spices'
+p303
+asS'apple juice'
+p304
+(lp305
+S'apple'
+p306
+asS'Bacardi white rum'
+p307
+(lp308
+S'rum'
+p309
+asS'Peychaud bitters'
+p310
+(lp311
+S'bitter'
+p312
+aS'herbal'
+p313
+aS'spicy'
+p314
+aS'cherry'
+p315
+aS'anise'
+p316
+asS'Bombay gin'
+p317
+(lp318
+S'dry_gin'
+p319
+asS'olive'
+p320
+(lp321
+S'olive_brine'
+p322
+asS'Cape of Good Hope Brandy'
+p323
+(lp324
+S'brandy'
+p325
+asS'Johnnie Walker'
+p326
+(lp327
+S'scotch_whisky'
+p328
+asS'cucumber slice'
+p329
+(lp330
+S'cucumber'
+p331
+asS'whisky'
+p332
+(lp333
+S'whisk(e)y'
+p334
+asS'Underberg bitters'
+p335
+(lp336
+sS'cr\xc3\xa8me de prunelle'
+p337
+(lp338
+S'prune'
+p339
+aS'raisin'
+p340
+aS'plum'
+p341
+asS'cr\xc3\xa8me de th\xc3\xa9'
+p342
+(lp343
+S'tea'
+p344
+asS'Aurum'
+p345
+(lp346
+S'orange'
+p347
+asS'New England rum'
+p348
+(lp349
+S'rum'
+p350
+aS'strong'
+p351
+asS'coconut piece'
+p352
+(lp353
+S'coconut'
+p354
+asS'Charbreux'
+p355
+(lp356
+sS'Tequila reposado'
+p357
+(lp358
+S'smokey'
+p359
+aS'agave'
+p360
+asS'cr\xc3\xa8me de moka'
+p361
+(lp362
+S'coffee'
+p363
+aS'chocolate'
+p364
+aS'sweet'
+p365
+asS'vodka'
+p366
+(lp367
+S'alcohol'
+p368
+asS'pear brandy'
+p369
+(lp370
+S'pear'
+p371
+asS'Pash'
+p372
+(lp373
+S'passion_fruit'
+p374
+asS'Irish cream'
+p375
+(lp376
+S'irish_whiskey'
+p377
+aS'heavy_cream'
+p378
+aS'sweet'
+p379
+asS'rosolio'
+p380
+(lp381
+S'roses'
+p382
+asS'honey'
+p383
+(lp384
+S'honey'
+p385
+asS"Booth's High and Dry"
+p386
+(lp387
+S'juniper'
+p388
+asS'Lillet Rouge'
+p389
+(lp390
+S'wine'
+p391
+aS'herbal'
+p392
+aS'orange'
+p393
+asS'turbinado sugar'
+p394
+(lp395
+S'unflavored'
+p396
+aS'sweet'
+p397
+asS'sugar cane\r'
+p398
+(lp399
+S'sweet\r'
+p400
+asS'Jamaican rum'
+p401
+(lp402
+S'rum'
+p403
+aS'strong'
+p404
+asS'cinnamon flavored vodka'
+p405
+(lp406
+sS'yellow gin'
+p407
+(lp408
+S'pungent'
+p409
+aS'smooth'
+p410
+aS'juniper'
+p411
+asS'Puerto Rican rum'
+p412
+(lp413
+S'rum'
+p414
+aS'light'
+p415
+asS'Capricot'
+p416
+(lp417
+S'apricot'
+p418
+asS'Metaxa'
+p419
+(lp420
+S'brandy'
+p421
+aS'sweet'
+p422
+asS'Vieille Cure'
+p423
+(lp424
+S'herbal'
+p425
+aS'spice'
+p426
+asS'tamarind\r'
+p427
+(lp428
+S'tamarind\r'
+p429
+asS'cr\xc3\xa8me de violette'
+p430
+(lp431
+S'violet_petals'
+p432
+asS'Greenopal'
+p433
+(lp434
+S'anise'
+p435
+asS'Scotch whisky'
+p436
+(lp437
+S'grain'
+p438
+aS'tannin'
+p439
+aS'oak'
+p440
+aS'smoked_peat_moss'
+p441
+asS'Chivas Regal'
+p442
+(lp443
+S'scotch_whisky'
+p444
+asS'Spanish brandy'
+p445
+(lp446
+sS'Jamaica Ginger'
+p447
+(lp448
+S'ginger'
+p449
+aS'pungent'
+p450
+asS'Peruvian bitters'
+p451
+(lp452
+sS'lemon liqueur'
+p453
+(lp454
+S'lemon'
+p455
+aS'sweet'
+p456
+asS'Okolehao'
+p457
+(lp458
+sS'mint-flavored gin'
+p459
+(lp460
+S'mint'
+p461
+aS'gin'
+p462
+asS'citron vodka'
+p463
+(lp464
+sS'slivovitz'
+p465
+(lp466
+S'plum'
+p467
+asS'fresh raspberry puree'
+p468
+(lp469
+S'raspberry'
+p470
+asS'strawberry schnapps liqueur'
+p471
+(lp472
+S'strawberry'
+p473
+asS'cherry-flavored vodka'
+p474
+(lp475
+sS'molasses'
+p476
+(lp477
+S'sweet'
+p478
+aS'rich'
+p479
+aS'smokey'
+p480
+asS'Passionfruit liqueur'
+p481
+(lp482
+sS'sambuca'
+p483
+(lp484
+S'licorice'
+p485
+aS'elderberry'
+p486
+asS'slice of banana'
+p487
+(lp488
+S'banana'
+p489
+asS'egg'
+p490
+(lp491
+sS'wine'
+p492
+(lp493
+sS'orange bitters'
+p494
+(lp495
+S'bitter'
+p496
+aS'orange'
+p497
+asS'Boonekamp bitters'
+p498
+(lp499
+sS'sour mix'
+p500
+(lp501
+S'lemon'
+p502
+aS'lime'
+p503
+aS'sweet'
+p504
+aS'sour'
+p505
+asS'Herbsaint'
+p506
+(lp507
+S'anise'
+p508
+asS'Plymouth gin'
+p509
+(lp510
+S'juniper'
+p511
+asS'sparkling wine'
+p512
+(lp513
+sS'Habanero'
+p514
+(lp515
+S'rum'
+p516
+aS'wine'
+p517
+aS'sweet'
+p518
+asS'nectarine slice'
+p519
+(lp520
+S'nectarine'
+p521
+asS'zwetschenwasser'
+p522
+(lp523
+S'plum'
+p524
+asS'Cerasella'
+p525
+(lp526
+S'cherry'
+p527
+asS'apricot liqueur'
+p528
+(lp529
+S'apricot'
+p530
+asS'cinnamon schnapps liqueur'
+p531
+(lp532
+S'cinnamon'
+p533
+asS'coffee'
+p534
+(lp535
+S'coffee'
+p536
+asS'Rompope'
+p537
+(lp538
+S'egg_nog'
+p539
+asS'anisette'
+p540
+(lp541
+S'anise'
+p542
+asS'cr\xc3\xa8me de vanille'
+p543
+(lp544
+S'vanilla'
+p545
+asS'orgeat'
+p546
+(lp547
+S'almond'
+p548
+aS'citrus'
+p549
+aS'marzipan'
+p550
+asS'stout'
+p551
+(lp552
+S'grain'
+p553
+aS'hops'
+p554
+aS'yeast'
+p555
+aS'sparkling'
+p556
+asS'Peach slice'
+p557
+(lp558
+S'peach'
+p559
+asS'ketchup'
+p560
+(lp561
+S'tomato'
+p562
+aS'spices'
+p563
+aS'vinegar'
+p564
+aS'sweet'
+p565
+asS'cider vinegar'
+p566
+(lp567
+S'vinegar'
+p568
+asS'Chartreuse Elixir'
+p569
+(lp570
+S'herbal'
+p571
+aS'spice'
+p572
+asS'Melon-flavored schnapps liqueur'
+p573
+(lp574
+S'watermelon'
+p575
+aS'honey_dew_melon'
+p576
+asS'cider'
+p577
+(lp578
+S'apple'
+p579
+asS'monastic liqueur'
+p580
+(lp581
+sS'White Horse Whisky'
+p582
+(lp583
+S'scotch_whisky'
+p584
+asS'Controy'
+p585
+(lp586
+S'orange'
+p587
+asS'blended whiskey'
+p588
+(lp589
+S'whiskey'
+p590
+asS'allspice'
+p591
+(lp592
+S'cinnamon'
+p593
+aS'clove'
+p594
+aS'nutmeg'
+p595
+asS'Benedictine'
+p596
+(lp597
+S'herbal'
+p598
+aS'spice'
+p599
+asS'Cognac'
+p600
+(lp601
+S'brandy'
+p602
+asS'amaretto'
+p603
+(lp604
+S'almond'
+p605
+aS'peach_pits'
+p606
+asS'Strega'
+p607
+(lp608
+S'herbal'
+p609
+asS'Barbados rum'
+p610
+(lp611
+S'rum'
+p612
+aS'medium'
+p613
+asS'flower'
+p614
+(lp615
+sS'Tangerinette'
+p616
+(lp617
+S'tangerine'
+p618
+asS'mint candy'
+p619
+(lp620
+S'peppermint'
+p621
+aS'spearmint'
+p622
+asS"Seagram's V.O."
+p623
+(lp624
+S'whiskey'
+p625
+aS'light'
+p626
+asS'curls\r'
+p627
+(lp628
+S''
+p629
+asS'Yellow Chartreuse'
+p630
+(lp631
+S'herbal'
+p632
+aS'spice'
+p633
+asS'strawberry-flavored liqueur'
+p634
+(lp635
+S'strawberry'
+p636
+asS'cr\xc3\xa8me de ananas'
+p637
+(lp638
+S'pineapple'
+p639
+asS'cranberry sauce'
+p640
+(lp641
+S'cranberry'
+p642
+asS'Clamato juice'
+p643
+(lp644
+S'clams'
+p645
+asS'Vandermint'
+p646
+(lp647
+sS'pineapple slice'
+p648
+(lp649
+S'pineapple'
+p650
+asS'apricot flavored brandy'
+p651
+(lp652
+S'apricot'
+p653
+asS'apple slice'
+p654
+(lp655
+S'apple'
+p656
+asS'cr\xc3\xa8me de banane'
+p657
+(lp658
+S'banana'
+p659
+asS'Aperitif Rossi'
+p660
+(lp661
+sS'root beer schnapps liqueur'
+p662
+(lp663
+S'cinnamon'
+p664
+asS'tomato juice'
+p665
+(lp666
+S'tomato'
+p667
+asS'Irish whiskey'
+p668
+(lp669
+S'grain'
+p670
+aS'tannin'
+p671
+aS'oak'
+p672
+asS'plum brandy'
+p673
+(lp674
+S'plum'
+p675
+asS'egg yolk'
+p676
+(lp677
+sS'vanilla ice cream'
+p678
+(lp679
+S'vanilla'
+p680
+asS'raisin'
+p681
+(lp682
+S'raisin'
+p683
+asS'Tia Maria'
+p684
+(lp685
+S'coffee'
+p686
+asS'Byrrh'
+p687
+(lp688
+sS'peach schnapps liqueur'
+p689
+(lp690
+S'apricot'
+p691
+asS'onion brine'
+p692
+(lp693
+S'olive_brine'
+p694
+asS'soda'
+p695
+(lp696
+S'water'
+p697
+aS'sparkling'
+p698
+asS'slice of apricot'
+p699
+(lp700
+S'apricot'
+p701
+asS'Dubonnet blonde'
+p702
+(lp703
+sS'chocolate flavored vodka'
+p704
+(lp705
+sS'sour apple-flavored liqueur'
+p706
+(lp707
+S'apple'
+p708
+asS'cochineal'
+p709
+(lp710
+S'unflavored'
+p711
+asS'groseille syrup'
+p712
+(lp713
+S'cherry'
+p714
+aS'berry'
+p715
+aS'mild'
+p716
+asS'chocolate-flavored liqueur'
+p717
+(lp718
+S'chocolate'
+p719
+asS'Japanese whisky'
+p720
+(lp721
+S'grain'
+p722
+aS'tannin'
+p723
+aS'oak'
+p724
+aS'smoked_peat_moss'
+p725
+asS'falernum'
+p726
+(lp727
+S'almond'
+p728
+aS'vanilla'
+p729
+aS'lime'
+p730
+aS'allspice'
+p731
+aS'clove'
+p732
+aS'ginger'
+p733
+asS'Swedish Punch/Punsch'
+p734
+(lp735
+S'rum'
+p736
+aS'smokey'
+p737
+aS'sweet'
+p738
+asS'lemon-flavored gin'
+p739
+(lp740
+S'gin'
+p741
+aS'lemon'
+p742
+aS'sweet'
+p743
+asS'watermelon juice'
+p744
+(lp745
+S'watermelon'
+p746
+asS'loganberry juice'
+p747
+(lp748
+S'loganberry'
+p749
+asS'pineapple flavored vodka'
+p750
+(lp751
+sS'whole strawberry'
+p752
+(lp753
+S'strawberry'
+p754
+asS'Courvoisier'
+p755
+(lp756
+S'brandy'
+p757
+asS'cranberry juice'
+p758
+(lp759
+S'cranberry'
+p760
+aS'tart'
+p761
+aS'bitter'
+p762
+aS'sweet'
+p763
+asS'sour apple schnapps liqueur'
+p764
+(lp765
+S'apple'
+p766
+asS'Sauterne'
+p767
+(lp768
+sS'Navy rum'
+p769
+(lp770
+S'rum'
+p771
+aS'strong'
+p772
+asS'aquavit'
+p773
+(lp774
+S'caraway'
+p775
+asS'Fernet Branca'
+p776
+(lp777
+S'bitter'
+p778
+aS'herbal'
+p779
+aS'menthol'
+p780
+aS'gentian'
+p781
+asS'liquor'
+p782
+(lp783
+sS'orange flower water'
+p784
+(lp785
+S'orange'
+p786
+aS'floral'
+p787
+asS'coffee bean'
+p788
+(lp789
+S'coffee'
+p790
+asS'lemon syrup'
+p791
+(lp792
+S'candied_lemon'
+p793
+asS'Tennessee whiskey'
+p794
+(lp795
+S'grain'
+p796
+aS'tannin'
+p797
+aS'oak'
+p798
+asS'Tonicola'
+p799
+(lp800
+S'kola_nut'
+p801
+aS'spices'
+p802
+asS'Ferro-China bitters'
+p803
+(lp804
+S'herbal'
+p805
+asS'gomme syrup'
+p806
+(lp807
+S'unflavored'
+p808
+asS'vatted whisky'
+p809
+(lp810
+S'scotch_whisky'
+p811
+asS'Manhattan bitters'
+p812
+(lp813
+sS'peppermint schnapps'
+p814
+(lp815
+S'mint'
+p816
+asS'prune'
+p817
+(lp818
+S'prune'
+p819
+asS'syrup'
+p820
+(lp821
+S'unflavored'
+p822
+asS'celery salt'
+p823
+(lp824
+S'celery_seed'
+p825
+aS'salt'
+p826
+asS'East India bitters'
+p827
+(lp828
+sS'brandied cherry'
+p829
+(lp830
+S'cherry'
+p831
+aS'brandy'
+p832
+aS'sweet'
+p833
+asS'red wine'
+p834
+(lp835
+sS'Batavia Arak'
+p836
+(lp837
+S'rum'
+p838
+aS'smokey'
+p839
+aS'sharp'
+p840
+asS'clairin'
+p841
+(lp842
+S'rum'
+p843
+aS'sharp'
+p844
+aS'strong'
+p845
+aS'raw'
+p846
+asS'Appleton Special Rum'
+p847
+(lp848
+S'rum'
+p849
+aS'strong'
+p850
+asS'banana-flavored brandy liqueur'
+p851
+(lp852
+S'banana'
+p853
+asS'Positana'
+p854
+(lp855
+sS'ginger'
+p856
+(lp857
+S'ginger'
+p858
+asS'lemon juice'
+p859
+(lp860
+S'lemon'
+p861
+asS'genever gin'
+p862
+(lp863
+S'juniper'
+p864
+asS'Apfel Korn'
+p865
+(lp866
+S'apple'
+p867
+aS'fruit'
+p868
+asS'Grand Marnier'
+p869
+(lp870
+S'orange'
+p871
+asS'clove'
+p872
+(lp873
+S'clove'
+p874
+asS'gold Tequila'
+p875
+(lp876
+S'smokey'
+p877
+aS'agave'
+p878
+asS'Sprite'
+p879
+(lp880
+S'lemon'
+p881
+aS'lime'
+p882
+aS'sweet'
+p883
+aS'sparkling'
+p884
+asS'sesame seed syrup'
+p885
+(lp886
+S'sesame_seed'
+p887
+aS'sweet'
+p888
+asS'coconut cream'
+p889
+(lp890
+S'coconut'
+p891
+asS'Bourbon liqueur'
+p892
+(lp893
+S'bourbon_whiskey'
+p894
+asS'framboise eau de vie'
+p895
+(lp896
+S'raspberry'
+p897
+asS'Bloody Mary mix'
+p898
+(lp899
+S'tomato'
+p900
+aS'spicy'
+p901
+asS'sugar cane aguardiente'
+p902
+(lp903
+sS'sirop de citron'
+p904
+(lp905
+S'lemon'
+p906
+aS'sweet'
+p907
+asS'cocktail onion'
+p908
+(lp909
+S'onion_brine'
+p910
+asS'coconut milk'
+p911
+(lp912
+S'coconut'
+p913
+asS'grenadine'
+p914
+(lp915
+S'cherry'
+p916
+aS'sweet'
+p917
+asS'pastis'
+p918
+(lp919
+S'anise'
+p920
+asS'Poire Williams'
+p921
+(lp922
+S'pear'
+p923
+asS'strawberry syrup'
+p924
+(lp925
+S'strawberry'
+p926
+asS'7-Up'
+p927
+(lp928
+S'lemon'
+p929
+aS'lime'
+p930
+aS'sweet'
+p931
+aS'sparkling'
+p932
+asS'Apry'
+p933
+(lp934
+S'apricot'
+p935
+asS'Abricotine'
+p936
+(lp937
+S'apricot'
+p938
+asS'St. James Rum'
+p939
+(lp940
+S'rum'
+p941
+aS'strong'
+p942
+asS'pimento dram'
+p943
+(lp944
+S'allspice'
+p945
+asS'King George IV Whisky'
+p946
+(lp947
+S'scotch_whisky'
+p948
+asS'parfait amour'
+p949
+(lp950
+S'vanilla'
+p951
+aS'citrus'
+p952
+aS'marshmallow'
+p953
+aS'jellybean'
+p954
+aS'spices'
+p955
+asS'Noilly Prat'
+p956
+(lp957
+S'wine'
+p958
+aS'herbs'
+p959
+asS'Coca Cola'
+p960
+(lp961
+sS'brine'
+p962
+(lp963
+sS'flavored vodka'
+p964
+(lp965
+sS'capillaire syrup'
+p966
+(lp967
+S'orange'
+p968
+aS'sweet'
+p969
+asS'sugar'
+p970
+(lp971
+S'sweet'
+p972
+asS'Barack Palinka'
+p973
+(lp974
+S'apricot'
+p975
+asS'cherry brandy'
+p976
+(lp977
+S'cherry'
+p978
+aS'dry'
+p979
+asS'beef bouillon'
+p980
+(lp981
+S'beef_broth'
+p982
+asS'Frangelico'
+p983
+(lp984
+S'hazelnut'
+p985
+asS'celery juice'
+p986
+(lp987
+S'celery'
+p988
+asS'Amourette'
+p989
+(lp990
+S'anise'
+p991
+asS"Pimm's Cup #6"
+p992
+(lp993
+S'vodka_sling'
+p994
+asS"Pimm's Cup #5"
+p995
+(lp996
+S'rye_whiskey_sling'
+p997
+asS"Pimm's Cup #4"
+p998
+(lp999
+S'rum_sling'
+p1000
+asS"Pimm's Cup #3"
+p1001
+(lp1002
+S'brandy_sling'
+p1003
+asS"Pimm's Cup #2"
+p1004
+(lp1005
+S'scotch_whisky'
+p1006
+asS"Pimm's Cup #1"
+p1007
+(lp1008
+S'gin_sling'
+p1009
+asS'applejack'
+p1010
+(lp1011
+S'whiskey'
+p1012
+aS'apple'
+p1013
+asS'bitters'
+p1014
+(lp1015
+sS'Caperitif'
+p1016
+(lp1017
+S'herbal'
+p1018
+aS'wine'
+p1019
+aS'spice'
+p1020
+asS'lemon flavored vodka'
+p1021
+(lp1022
+sS"Liqueur d'Or"
+p1023
+(lp1024
+S'herbal'
+p1025
+asS'Hawaiian Punch'
+p1026
+(lp1027
+S'fruit_punch'
+p1028
+asS'nutmeg'
+p1029
+(lp1030
+S'nutmeg_spice'
+p1031
+asS'blended Scotch'
+p1032
+(lp1033
+S'grain'
+p1034
+aS'tannin'
+p1035
+aS'oak'
+p1036
+aS'smoked_peat_moss'
+p1037
+asS'a\xc3\xb1ejo Tequila'
+p1038
+(lp1039
+S'smokey'
+p1040
+aS'agave'
+p1041
+asS'Hadacol'
+p1042
+(lp1043
+S'herbal'
+p1044
+aS'medicinal'
+p1045
+asS'Drambuie'
+p1046
+(lp1047
+S'scotch_whisky'
+p1048
+asS'dilly bean'
+p1049
+(lp1050
+S'dill'
+p1051
+aS'vinegar'
+p1052
+aS'spices'
+p1053
+asS'lemonade'
+p1054
+(lp1055
+S'lemon'
+p1056
+asS'coffee-flavored liqueur'
+p1057
+(lp1058
+S'coffee'
+p1059
+aS'chocolate'
+p1060
+asS'rye whiskey'
+p1061
+(lp1062
+S'grain'
+p1063
+aS'tannin'
+p1064
+aS'oak'
+p1065
+asS'celery bitters'
+p1066
+(lp1067
+sS'Dry Sack'
+p1068
+(lp1069
+S'wine'
+p1070
+aS'nuts'
+p1071
+asS'Bourbon'
+p1072
+(lp1073
+S'grain'
+p1074
+aS'tannin'
+p1075
+aS'oak'
+p1076
+asS'butterscotch schnapps'
+p1077
+(lp1078
+S'butterscotch'
+p1079
+asS"Abbott's bitters"
+p1080
+(lp1081
+sS'Campari'
+p1082
+(lp1083
+S'herbal'
+p1084
+asS'London dry gin'
+p1085
+(lp1086
+S'juniper'
+p1087
+asS'Demerara rum'
+p1088
+(lp1089
+S'rum'
+p1090
+aS'strong'
+p1091
+asS'Ojen'
+p1092
+(lp1093
+S'anise'
+p1094
+asS'prune juice\r'
+p1095
+(lp1096
+S'prune'
+p1097
+asS'single malt Scotch'
+p1098
+(lp1099
+sS'fresh grape'
+p1100
+(lp1101
+S'grape'
+p1102
+asS'amer'
+p1103
+(lp1104
+S'bitter'
+p1105
+aS'herbal'
+p1106
+asS'green Izarra'
+p1107
+(lp1108
+S'herbal'
+p1109
+aS'spice'
+p1110
+asS'May wine'
+p1111
+(lp1112
+S'woodruff'
+p1113
+aS'sweet'
+p1114
+asS'Rumola\r'
+p1115
+(lp1116
+S'rum\r'
+p1117
+asS'orange juice'
+p1118
+(lp1119
+S'orange'
+p1120
+asS'Stoughton bitters'
+p1121
+(lp1122
+sS'Calisaya bitters'
+p1123
+(lp1124
+S'herbal'
+p1125
+asS'limeade'
+p1126
+(lp1127
+S'lime'
+p1128
+asS'pomice brandy'
+p1129
+(lp1130
+sS'Secrestat bitters'
+p1131
+(lp1132
+S'herbal'
+p1133
+asS'Vat 69'
+p1134
+(lp1135
+S'scotch_whisky'
+p1136
+asS'blackberry jelly'
+p1137
+(lp1138
+S'blackberry'
+p1139
+asS'Amer Picon'
+p1140
+(lp1141
+S'bitter'
+p1142
+aS'herbal'
+p1143
+aS'orange'
+p1144
+asS'quetsch'
+p1145
+(lp1146
+S'plum'
+p1147
+asS'marc'
+p1148
+(lp1149
+S'brandy'
+p1150
+aS'grain'
+p1151
+asS'blueberry schnapps'
+p1152
+(lp1153
+S'blueberry'
+p1154
+asS'Tabasco sauce'
+p1155
+(lp1156
+S'hot_peppers'
+p1157
+aS'vinegar'
+p1158
+asS'sprig of mint'
+p1159
+(lp1160
+S'mint'
+p1161
+aS'peppermint'
+p1162
+aS'spearmint'
+p1163
+asS'beer'
+p1164
+(lp1165
+S'grain'
+p1166
+aS'hops'
+p1167
+aS'yeast'
+p1168
+aS'sparkling'
+p1169
+asS'lemon wheel'
+p1170
+(lp1171
+S'lemon'
+p1172
+asS'blueberry syrup'
+p1173
+(lp1174
+S'blueberry'
+p1175
+asS'lime wheel'
+p1176
+(lp1177
+S'lime_citrus'
+p1178
+asS'Pisang Ambon'
+p1179
+(lp1180
+S'banana'
+p1181
+asS'Wild Turkey 101'
+p1182
+(lp1183
+sS'Muscatel'
+p1184
+(lp1185
+S'sweet'
+p1186
+aS'musty'
+p1187
+asS'currant flavored vodka'
+p1188
+(lp1189
+sS'Cherry Heering'
+p1190
+(lp1191
+S'cherry'
+p1192
+asS'lime sherbet'
+p1193
+(lp1194
+S'lime'
+p1195
+asS'Cura\xc3\xa7ao'
+p1196
+(lp1197
+S'orange'
+p1198
+asS'white rum'
+p1199
+(lp1200
+S'rum'
+p1201
+aS'light'
+p1202
+asS'apple schnapps liqueur'
+p1203
+(lp1204
+S'apple'
+p1205
+asS'mango nectar'
+p1206
+(lp1207
+S'mango'
+p1208
+asS'Cola'
+p1209
+(lp1210
+sS'cacha\xc3\xa7a'
+p1211
+(lp1212
+S'rum'
+p1213
+aS'light'
+p1214
+aS'sharp'
+p1215
+asS'Lillet Blanc'
+p1216
+(lp1217
+S'wine'
+p1218
+aS'herbal'
+p1219
+aS'orange'
+p1220
+asS'tonic'
+p1221
+(lp1222
+S'quinine'
+p1223
+asS'mirabelle'
+p1224
+(lp1225
+S'plum'
+p1226
+asS'Souverain'
+p1227
+(lp1228
+sS'himbeergeist'
+p1229
+(lp1230
+S'raspberry'
+p1231
+asS'dry vermouth'
+p1232
+(lp1233
+S'wine'
+p1234
+aS'herbs'
+p1235
+asS'absinthe'
+p1236
+(lp1237
+S'bitter'
+p1238
+aS'anise'
+p1239
+aS'herbal'
+p1240
+asS'raspberry liqueur'
+p1241
+(lp1242
+S'raspberry'
+p1243
+asS'yellow Izarra'
+p1244
+(lp1245
+S'herbal'
+p1246
+asS'cherry Kijafa'
+p1247
+(lp1248
+S'cherry'
+p1249
+aS'wine'
+p1250
+asS'liqueur schnapps'
+p1251
+(lp1252
+sS'Vouvray'
+p1253
+(lp1254
+S'white_wine'
+p1255
+aS'dry'
+p1256
+asS'zubrowka'
+p1257
+(lp1258
+S'bison_grass'
+p1259
+asS'Jack Daniels'
+p1260
+(lp1261
+S'grain'
+p1262
+aS'tannin'
+p1263
+aS'oak'
+p1264
+asS'Tuaca'
+p1265
+(lp1266
+S'vanilla'
+p1267
+asS'Chambord'
+p1268
+(lp1269
+S'raspberry'
+p1270
+asS'rock candy syrup'
+p1271
+(lp1272
+S'sweet'
+p1273
+asS'riesling'
+p1274
+(lp1275
+S'wine'
+p1276
+aS'sweet'
+p1277
+aS'fruity'
+p1278
+asS'sweet vermouth'
+p1279
+(lp1280
+S'wine'
+p1281
+aS'spice'
+p1282
+aS'herbs'
+p1283
+asS'advocaat'
+p1284
+(lp1285
+S'egg_nog'
+p1286
+asS'Cinzano vermouth'
+p1287
+(lp1288
+sS'butter'
+p1289
+(lp1290
+S'butter'
+p1291
+asS'Santa Cruz rum'
+p1292
+(lp1293
+S'rum'
+p1294
+aS'light'
+p1295
+asS'Calisay liqueur'
+p1296
+(lp1297
+S'herbal'
+p1298
+aS'cinnamon'
+p1299
+aS'spice'
+p1300
+asS'apple-flavored brandy liqueur'
+p1301
+(lp1302
+sS'grappa'
+p1303
+(lp1304
+sS'Port'
+p1305
+(lp1306
+S'wine'
+p1307
+aS'spice'
+p1308
+aS'sweet'
+p1309
+aS'rich'
+p1310
+asS'Scotch-flavored liqueur'
+p1311
+(lp1312
+S'scotch_whisky'
+p1313
+aS'sweet'
+p1314
+asS'orange wheel'
+p1315
+(lp1316
+S'orange'
+p1317
+asS'rose wine'
+p1318
+(lp1319
+S'roses'
+p1320
+asS'cr\xc3\xa8me de rose'
+p1321
+(lp1322
+S'roses'
+p1323
+asS'kirsch'
+p1324
+(lp1325
+sS'Burgundy'
+p1326
+(lp1327
+sS'sparkling Burgundy'
+p1328
+(lp1329
+sS'Roiano\r'
+p1330
+(lp1331
+S'herbal\r'
+p1332
+aS'sweet\r'
+p1333
+asS'Rhine wine'
+p1334
+(lp1335
+sS'Calvados'
+p1336
+(lp1337
+S'armagnac'
+p1338
+aS'apple'
+p1339
+asS'Anis del Mono'
+p1340
+(lp1341
+S'anise'
+p1342
+asS"Cederlund's Caloric Punch"
+p1343
+(lp1344
+S'rum'
+p1345
+aS'smokey'
+p1346
+aS'sweet'
+p1347
+asS'cherry'
+p1348
+(lp1349
+S'sweet'
+p1350
+aS'flavorless'
+p1351
+aS'cherry'
+p1352
+asS'food coloring'
+p1353
+(lp1354
+S'unflavored'
+p1355
+asS'Marsala'
+p1356
+(lp1357
+sS'olive brine'
+p1358
+(lp1359
+S'olive_brine'
+p1360
+asS'anchovy'
+p1361
+(lp1362
+S'fish'
+p1363
+asS'green Chartreuse'
+p1364
+(lp1365
+S'herbal'
+p1366
+aS'spice'
+p1367
+asS'Tea Breeze'
+p1368
+(lp1369
+S'tea'
+p1370
+asS'cr\xc3\xa8me de noyeau'
+p1371
+(lp1372
+S'almond'
+p1373
+aS'apricot_pits'
+p1374
+aS'peach_pits'
+p1375
+asS'blackberry flavored brandy'
+p1376
+(lp1377
+S'blackberry'
+p1378
+asS'Rumona'
+p1379
+(lp1380
+S'rum'
+p1381
+aS'vanilla'
+p1382
+aS'smokey'
+p1383
+aS'sweet'
+p1384
+aS'light'
+p1385
+asS'amaro'
+p1386
+(lp1387
+S'bitter'
+p1388
+aS'herbal'
+p1389
+asS'maple syrup'
+p1390
+(lp1391
+S'maple_syrup'
+p1392
+asS'Alize'
+p1393
+(lp1394
+S'passion_fruit'
+p1395
+asS'Trinidad rum'
+p1396
+(lp1397
+S'rum'
+p1398
+aS'strong'
+p1399
+asS'Rum Pampero'
+p1400
+(lp1401
+S'rum'
+p1402
+aS'strong'
+p1403
+asS'prune syrup\r'
+p1404
+(lp1405
+S'prune'
+p1406
+asS'Godiva liqueur'
+p1407
+(lp1408
+S'chocolate'
+p1409
+asS'mescal'
+p1410
+(lp1411
+S'smokey'
+p1412
+aS'agave'
+p1413
+asS'Khoosh bitters'
+p1414
+(lp1415
+sS'Prosecco'
+p1416
+(lp1417
+sS'cr\xc3\xa8me de noisette'
+p1418
+(lp1419
+S'hazelnut'
+p1420
+asS'lager'
+p1421
+(lp1422
+S'grain'
+p1423
+aS'hops'
+p1424
+aS'yeast'
+p1425
+aS'sparkling'
+p1426
+asS'cr\xc3\xa8me de recco'
+p1427
+(lp1428
+S'tea'
+p1429
+asS'ginger-flavored brandy liqueur'
+p1430
+(lp1431
+S'ginger'
+p1432
+asS'blood orange slice'
+p1433
+(lp1434
+S'orange'
+p1435
+asS'pepper flavored vodka'
+p1436
+(lp1437
+sS'sorbet'
+p1438
+(lp1439
+sS'raspberry syrup'
+p1440
+(lp1441
+S'raspberry'
+p1442
+asS'Forbidden Fruit'
+p1443
+(lp1444
+S'citrus'
+p1445
+aS'brandy'
+p1446
+aS'honey'
+p1447
+asS"Myers's Rum"
+p1448
+(lp1449
+S'rum'
+p1450
+aS'strong'
+p1451
+asS'half & half (dairy)'
+p1452
+(lp1453
+sS'Champagne'
+p1454
+(lp1455
+sS'sugar cane syrup'
+p1456
+(lp1457
+S'unflavored'
+p1458
+asS'Squirt'
+p1459
+(lp1460
+S'grapefruit'
+p1461
+aS'lemon'
+p1462
+aS'sweet'
+p1463
+aS'sparkling'
+p1464
+asS'orchid'
+p1465
+(lp1466
+sS'Damiana'
+p1467
+(lp1468
+S'herbal'
+p1469
+asS'Malibu'
+p1470
+(lp1471
+S'coconut'
+p1472
+asS'old tom gin'
+p1473
+(lp1474
+S'juniper'
+p1475
+asS'pisco'
+p1476
+(lp1477
+S'raw'
+p1478
+aS'aguardiente'
+p1479
+asS'ice'
+p1480
+(lp1481
+S'flavorless'
+p1482
+asS'fruit garnish'
+p1483
+(lp1484
+sS'Acid phosphate'
+p1485
+(lp1486
+S'flavorless'
+p1487
+aS'dry'
+p1488
+aS'tart'
+p1489
+asS'Southern Comfort'
+p1490
+(lp1491
+sS'aperitif bitters'
+p1492
+(lp1493
+sS'corn whiskey'
+p1494
+(lp1495
+sS'porter'
+p1496
+(lp1497
+S'grain'
+p1498
+aS'hops'
+p1499
+aS'yeast'
+p1500
+aS'sparkling'
+p1501
+asS'Galliano'
+p1502
+(lp1503
+S'herbal'
+p1504
+asS'rum'
+p1505
+(lp1506
+S'rum'
+p1507
+asS'Martinique rum'
+p1508
+(lp1509
+S'rum'
+p1510
+aS'strong'
+p1511
+asS'cr\xc3\xa8me de cacao'
+p1512
+(lp1513
+S'chocolate'
+p1514
+asS'Cordial Medoc'
+p1515
+(lp1516
+sS'Navy Grog mix'
+p1517
+(lp1518
+sS'plum'
+p1519
+(lp1520
+S'plum'
+p1521
+asS'dark rum'
+p1522
+(lp1523
+S'rum'
+p1524
+aS'strong'
+p1525
+asS'Canadian whiskey'
+p1526
+(lp1527
+S'grain'
+p1528
+aS'tannin'
+p1529
+aS'oak'
+p1530
+asS'cranberry'
+p1531
+(lp1532
+S'cranberry'
+p1533
+asS'simple syrup'
+p1534
+(lp1535
+S'unflavored'
+p1536
+asS'Kahlua'
+p1537
+(lp1538
+S'coffee'
+p1539
+aS'sweet'
+p1540
+asS'pepsin bitters'
+p1541
+(lp1542
+sS'Tom & Jerry mix'
+p1543
+(lp1544
+sS'cocoa'
+p1545
+(lp1546
+S'chocolate'
+p1547
+asS'cocktail Sherry'
+p1548
+(lp1549
+S'wine'
+p1550
+aS'nuts'
+p1551
+asS'brown sugar'
+p1552
+(lp1553
+S'molasses'
+p1554
+asS'aromatic bitters'
+p1555
+(lp1556
+S'bitter'
+p1557
+aS'herbal'
+p1558
+aS'spicy'
+p1559
+aS'cinnamon'
+p1560
+aS'clove'
+p1561
+aS'anise'
+p1562
+asS'grapefruit juice'
+p1563
+(lp1564
+S'grapefruit'
+p1565
+asS'ros\xc3\xa9 wine'
+p1566
+(lp1567
+sS'eau de vie'
+p1568
+(lp1569
+sS'cr\xc3\xa8me de menthe'
+p1570
+(lp1571
+S'mint'
+p1572
+asS'gin'
+p1573
+(lp1574
+S'juniper'
+p1575
+aS'herbal'
+p1576
+aS'floral'
+p1577
+asS'Suze'
+p1578
+(lp1579
+S'gentian'
+p1580
+aS'honey'
+p1581
+asS'Venezuelan Rum'
+p1582
+(lp1583
+S'rum'
+p1584
+aS'strong'
+p1585
+asS'ginger beer'
+p1586
+(lp1587
+S'ginger'
+p1588
+aS'strong'
+p1589
+asS'American apple brandy'
+p1590
+(lp1591
+S'brandy'
+p1592
+aS'apple'
+p1593
+aS'whiskey'
+p1594
+asS'orange flavored vodka'
+p1595
+(lp1596
+sS'fruit nectar'
+p1597
+(lp1598
+sS'lime liqueur'
+p1599
+(lp1600
+S'lime'
+p1601
+aS'sweet'
+p1602
+asS'silver Tequila'
+p1603
+(lp1604
+S'smokey'
+p1605
+aS'agave'
+p1606
+asS'Vov'
+p1607
+(lp1608
+S'egg_nog'
+p1609
+asS'B & B'
+p1610
+(lp1611
+S'herbal'
+p1612
+asS'carrot juice'
+p1613
+(lp1614
+S'carrot'
+p1615
+aS'sweet'
+p1616
+asS'eau de melisse'
+p1617
+(lp1618
+S'lemon'
+p1619
+aS'floral'
+p1620
+asS'Cr\xc3\xa8me Yvette'
+p1621
+(lp1622
+S'violet_petals'
+p1623
+asS'vanilla flavored vodka'
+p1624
+(lp1625
+sS'black currant liqueur'
+p1626
+(lp1627
+S'black_currant'
+p1628
+asS'pineapple syrup'
+p1629
+(lp1630
+S'candied_pineapple'
+p1631
+asS'rock & rye'
+p1632
+(lp1633
+S'fruit'
+p1634
+aS'horehound'
+p1635
+aS'rye'
+p1636
+asS"Seagram's Gin"
+p1637
+(lp1638
+S'gin'
+p1639
+asS'twist'
+p1640
+(lp1641
+S'citrus_oil'
+p1642
+asS'peach-flavored brandy liqueur'
+p1643
+(lp1644
+S'peach'
+p1645
+aS'brandy'
+p1646
+aS'sweet'
+p1647
+asS'grape-based aguardiente'
+p1648
+(lp1649
+sS'cream'
+p1650
+(lp1651
+sS'Angostura bitters'
+p1652
+(lp1653
+S'bitter'
+p1654
+aS'herbal'
+p1655
+aS'spicy'
+p1656
+asS'mint-flavored liqueur or schnapps'
+p1657
+(lp1658
+S'mint'
+p1659
+asS'black sambuca'
+p1660
+(lp1661
+S'licorice'
+p1662
+aS'elderberry'
+p1663
+asS'Pricota'
+p1664
+(lp1665
+S'apricot'
+p1666
+asS'curry powder'
+p1667
+(lp1668
+S'curry'
+p1669
+asS'whipped cream'
+p1670
+(lp1671
+S'cream'
+p1672
+asS'lime juice'
+p1673
+(lp1674
+S'lime'
+p1675
+asS'guava nectar\r'
+p1676
+(lp1677
+S'guava'
+p1678
+asS'Tarkhuna'
+p1679
+(lp1680
+S'tarragon'
+p1681
+asS'gardenia'
+p1682
+(lp1683
+sS'raspberry flavored vodka'
+p1684
+(lp1685
+sS'apple brandy'
+p1686
+(lp1687
+S'apple'
+p1688
+aS'brandy'
+p1689
+asS'brandy'
+p1690
+(lp1691
+S'brandy'
+p1692
+asS'cherry liqueur'
+p1693
+(lp1694
+S'cherry'
+p1695
+asS'Sansilvestro'
+p1696
+(lp1697
+S'herbal'
+p1698
+asS"Boker's bitters"
+p1699
+(lp1700
+sS'Irish whiskey liqueur'
+p1701
+(lp1702
+S'irish_whiskey'
+p1703
+asS'cherry flavored brandy'
+p1704
+(lp1705
+S'cherry'
+p1706
+asS'Madeira'
+p1707
+(lp1708
+S'wine'
+p1709
+aS'spice'
+p1710
+aS'sweet'
+p1711
+aS'rich'
+p1712
+asS'gold rum'
+p1713
+(lp1714
+S'rum'
+p1715
+aS'medium'
+p1716
+asS'J\xc3\xa4germeister'
+p1717
+(lp1718
+S'herbal'
+p1719
+aS'spice'
+p1720
+asS'Carypton'
+p1721
+(lp1722
+S'rum'
+p1723
+aS'lime'
+p1724
+aS'spice'
+p1725
+asS'Rumpleminze'
+p1726
+(lp1727
+S'mint'
+p1728
+as.
