@@ -16,6 +16,7 @@ from copy import deepcopy
 from tsne import bh_sne
 from itertools import combinations
 import string
+import random
 
 def makeCorrelationWebpage(C, ns, names, outfile, n_clusters = 5, colors = None):
 	n = len(ns)
@@ -425,6 +426,37 @@ def normalizeByOneGrams(x, n_grams, one_gram_counts):
 		if one_gram_counts[t] < .001:
 			return 0
 	return original_val
+def generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, flavors, ingredient_frequencies, ingredients):
+	alpha = .3
+	flavors_in_recipe = [seed_flavor]
+	n_ingredients, n_flavors = ingredient_flavor.shape
+	n_ingredients, n_recipes = ingredient_recipe.shape	
+	flavor_idxs = [flavors.index(seed_flavor)]
+	while 1:
+		flavor_probs = np.ones([n_flavors,])
+		if random.uniform(0, 1)<alpha:
+			break
+		for j in range(len(flavor_idxs)):
+			flavor_probs = np.multiply(flavor_probs, conditional_flavor_probs[flavor_idxs[j], :])
+		if flavor_probs.sum() < 1e-8:
+			break
+		flavor_probs = flavor_probs/(flavor_probs.sum()+1e-10)
+		draw = np.nonzero(np.random.multinomial(1, flavor_probs))[0][0]
+		flavor_idxs.append(draw)
+	flavor_idxs = list(set(flavor_idxs))
+	flavor_names = [flavors[i] for i in flavor_idxs]
+	ingredient_names = []
+	for i in flavor_idxs:
+		candidate_ingredients = np.nonzero(ingredient_flavor[:, i])[0]
+		candidate_ingredient_names = [ingredients[i] for i in candidate_ingredients]
+		candidate_frequencies = ingredient_frequencies[candidate_ingredients]
+		candidate_frequencies = candidate_frequencies/(candidate_frequencies.sum() + 1e-10)
+		draw = np.nonzero(np.random.multinomial(1, candidate_frequencies))[0][0]
+		ingredient_names.append(candidate_ingredient_names[draw])
+	print 'Recipe:'
+	for i in range(len(flavor_names)):
+		print flavor_names[i], 'generated', ingredient_names[i]
+	print
 if __name__ == '__main__':
 	download = 0
 	if download:
@@ -433,8 +465,24 @@ if __name__ == '__main__':
 		#processIngredFile()
 		processRecipes()
 	else:
-		analyzeIngredients()
-		sdflkj
+		d = pickle.load(open('cleanedMatrices'))
+		ingredient_flavor = np.array(d['ingredient_flavor'])
+		ingredient_recipe = np.array(d['ingredient_recipe'])
+		flavor_recipe = np.dot(ingredient_flavor.transpose(), ingredient_recipe)
+		conditional_flavor_probs= np.dot(flavor_recipe, flavor_recipe.transpose()) # m[i][j] is probs of seeing j given that you saw i
+		flavor_frequency = flavor_recipe.sum(axis = 1)
+		ingredient_frequency = ingredient_recipe.sum(axis = 1)
+		for i in range(len(conditional_flavor_probs)):
+			conditional_flavor_probs[i, i] = 0
+			conditional_flavor_probs[i, :] = conditional_flavor_probs[i, :]/conditional_flavor_probs[i, :].sum()
+		for j, seed_flavor in enumerate(d['flavors']):
+			if flavor_frequency[j] < 30:
+				continue
+			print '\nGenerating flavors using seed', seed_flavor
+			for i in range(5):
+				generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, d['flavors'], ingredient_frequency, d['ingredients'])
+		#analyzeIngredients()
+		#sdflkj
 		
 		
 		#processRecipes()
