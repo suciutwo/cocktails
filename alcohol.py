@@ -410,7 +410,8 @@ def analyzeIngredients():
 	ylabel('Ingredient Correlation')
 	print pearsonr(x, y)
 	show()
-	sdflkj
+	d = {'flavors':flavor_labels, 'ingredients':ingredient_labels, 'ingredient_flavor':[list(a) for a in ingredient_flavor], 'ingredient_recipe':[list(a) for a in ingredient_recipe]}
+	pickle.dump(d, open('cleanedMatrices', 'wb'))
 		
 	print 'Flavor ingredient assocations', sum(counts.values())
 	
