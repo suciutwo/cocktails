@@ -14,6 +14,8 @@ from itertools import combinations
 import string
 import random
 
+from dataFormatting import topNGrams
+
 def makeCorrelationWebpage(C, ns, names, outfile, n_clusters = 5, colors = None):
 	n = len(ns)
 	
@@ -155,42 +157,8 @@ def pca():
 	else:
 		savefig('PCA_no_tf_idf.png')
 	print small_m
-def topNGrams(k = 2, normalize = False, verbose = False):
-	d = pickle.load(open("cleanedRecipes"))	
-	n_grams = {}
-	one_gram_counts = {}
-	for recipe in d:
-		ingredients = [processIngred(ingred[0]) for ingred in recipe]
-		for ingred in ingredients:
-			if ingred not in one_gram_counts:
-				one_gram_counts[ingred] = 0
-			one_gram_counts[ingred] += 1
-		these_n_grams = list(combinations(ingredients, k))
-		for combo in these_n_grams:
-			combo = '/'.join(sorted(combo))
-			if combo not in n_grams:
-				n_grams[combo] = 0
-			n_grams[combo] += 1
-	n = 1.*len(d)
-	unnormalized_n_grams = deepcopy(n_grams)
-	normalized_n_grams = {}
-	for n_gram in n_grams:
-		n_grams[n_gram] /= n
-	for n_gram in one_gram_counts:
-		one_gram_counts[n_gram] /= n
-	if verbose:
-		print 'Top %i-grams' % (k)
-	if not normalize:
-		for k in sorted(n_grams.keys(), key = lambda x:n_grams[x])[::-1]:
-			if verbose:
-				print '%-100s %5i' % (k, n_grams[k])
-		return unnormalized_n_grams
-	else:
-		for k in sorted(n_grams.keys(), key = lambda x:normalizeByOneGrams(x, n_grams, one_gram_counts))[::-1]:
-			if verbose:
-				print '%-100s %2.3f %5i' % (k, normalizeByOneGrams(k, n_grams, one_gram_counts), n_grams[k]*n)
-			normalized_n_grams[k] = normalizeByOneGrams(k, n_grams, one_gram_counts)
-		return normalized_n_grams
+
+
 def topConditional(k = 2, verbose = True, normalize = False):
 	d = pickle.load(open("cleanedRecipes"))
 	n_recipes = len(d)
