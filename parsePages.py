@@ -10,8 +10,7 @@ from scrapeCocktails import COCKTAILS_FILENAME, INGREDIENTS_FILENAME
 CLEANED_COCKTAILS_FILENAME = 'cleanedRecipes'
 CLEANED_INGREDIENTS_FILENAME = 'cleanedIngredients'
 
-
-def processRecipes():
+def processRecipesFile():
 	cocktailPages = pickle.load(open(COCKTAILS_FILENAME))
 	allRecipes = []
 	for i, cocktailPage in enumerate(cocktailPages):
@@ -32,21 +31,21 @@ def processRecipes():
 			print "FAILED TO SCRAPE THIS PAGE EARLIER IN THE PIPELINE"
 			continue
 
-	pickle.dump(all_recipes, open(CLEANED_COCKTAILS_FILENAME, 'wb'))
+	pickle.dump(allRecipes, open(CLEANED_COCKTAILS_FILENAME, 'wb'))
 
 
 def processIngredientsFile():
-	d = pickle.load(open(INGREDIENTS_FILENAME))
+	ingredientPages = pickle.load(open(INGREDIENTS_FILENAME))
 	all_ingredients = {}
-	for i, d_i in enumerate(d):
+	for i, ingredientPage in enumerate(ingredientPages):
 		
 		try:
-			l=d_i.split('flavor">')
-			print 'Ingredient %i' % (i)
+			rawText = ingredientPage.split('flavor">')
+			if (i % 1000 == 0): print 'Parsing ingredient ' + str(i)
 			flavors = []
-			for flavor in l[1:]:
+			for flavor in rawText[1:]:
 				flavors.append(flavor.split('<')[0].replace(',', '').replace(' ', '_').lower())
-			name = d_i.split('<div id="wellTitle">')[1].split('<h2>')[1].split('<')[0]
+			name = ingredientPage.split('<div id="wellTitle">')[1].split('<h2>')[1].split('<')[0]
 			#print l[1][:50]
 			print name, flavors
 			all_ingredients[name] = flavors
@@ -58,5 +57,5 @@ def processIngredientsFile():
 
 
 if __name__ == '__main__':
-	processRecipes()
+	processRecipesFile()
 	processIngredientsFile()

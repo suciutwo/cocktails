@@ -57,10 +57,6 @@ def makeCorrelationWebpage(C, ns, names, outfile, n_clusters = 5, colors = None)
 	g.write(f % ('%s.json' % outfile))
 	print 'Saved website as', full_outfile_name
 	
-def scanRecipe():
-	soup=BeautifulSoup(urlopen(url))
-	l=soup.findAll('li', {'class':'ingredient'})
-
 
 def processIngred(s):
 	s = s.replace('fresh', '').strip()
@@ -343,19 +339,19 @@ def generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_r
 
 
 if __name__ == '__main__':
-		d = pickle.load(open('cleanedMatrices'))
-		ingredient_flavor = np.array(d['ingredient_flavor'])
-		ingredient_recipe = np.array(d['ingredient_recipe'])
-		flavor_recipe = np.dot(ingredient_flavor.transpose(), ingredient_recipe)
-		conditional_flavor_probs= np.dot(flavor_recipe, flavor_recipe.transpose()) # m[i][j] is probs of seeing j given that you saw i
-		flavor_frequency = flavor_recipe.sum(axis = 1)
-		ingredient_frequency = ingredient_recipe.sum(axis = 1)
-		for i in range(len(conditional_flavor_probs)):
-			conditional_flavor_probs[i, i] = 0
-			conditional_flavor_probs[i, :] = conditional_flavor_probs[i, :]/conditional_flavor_probs[i, :].sum()
-		for j, seed_flavor in enumerate(d['flavors']):
-			if flavor_frequency[j] < 30:
-				continue
-			print '\nGenerating flavors using seed', seed_flavor
-			for i in range(5):
-				generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, d['flavors'], ingredient_frequency, d['ingredients'])
+	d = pickle.load(open('cleanedMatrices'))
+	ingredient_flavor = np.array(d['ingredient_flavor'])
+	ingredient_recipe = np.array(d['ingredient_recipe'])
+	flavor_recipe = np.dot(ingredient_flavor.transpose(), ingredient_recipe)
+	conditional_flavor_probs= np.dot(flavor_recipe, flavor_recipe.transpose()) # m[i][j] is probs of seeing j given that you saw i
+	flavor_frequency = flavor_recipe.sum(axis = 1)
+	ingredient_frequency = ingredient_recipe.sum(axis = 1)
+	for i in range(len(conditional_flavor_probs)):
+		conditional_flavor_probs[i, i] = 0
+		conditional_flavor_probs[i, :] = conditional_flavor_probs[i, :]/conditional_flavor_probs[i, :].sum()
+	for j, seed_flavor in enumerate(d['flavors']):
+		if flavor_frequency[j] < 30:
+			continue
+		print '\nGenerating flavors using seed', seed_flavor
+		for i in range(5):
+			generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, d['flavors'], ingredient_frequency, d['ingredients'])
