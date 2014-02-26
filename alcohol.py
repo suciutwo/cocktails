@@ -1,8 +1,4 @@
-from bs4 import BeautifulSoup
-import urllib2
-from threading import Thread
-import pickle
-import Queue
+
 from scipy.stats import pearsonr
 from sklearn.decomposition import PCA, SparsePCA
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -65,129 +61,15 @@ def scanRecipe():
 	soup=BeautifulSoup(urlopen(url))
 	l=soup.findAll('li', {'class':'ingredient'})
 
-COCKTAILS_ON_DATABASE = 4758
-INTERNET_DB_URL = 'http://www.cocktaildb.com/recipe_detail?id='
-INGREDIENTS_IN_DATABASE = 558
-INGREDIENT_DB_URL = 'http://www.cocktaildb.com/ingr_detail?id='
 
-def downloadAllPages():
-	WORKERS = 20
-
-	urls = []
-	for i in range(1, COCKTAILS_ON_DATABASE):
-		urls.append(INTERNET_DB_URL+str(i))
-
-	results = [None]*len(urls)
-
-	def worker():
-		n_read = 0
-		while True:
-			i, url = q.get()
-			try: 
-				results[i] = (urllib2.urlopen(url).read())
-				print i, n_read
-				n_read+=1
-			except Exception as e:
-				print "failed on " + str(i)
-				print e
-
-
-			q.task_done()
-
-	q = Queue.Queue()
-	for i in range(WORKERS):
-		t = Thread(target=worker)
-		t.daemon = True
-		t.start()
-
-	for i, url in enumerate(urls):
-		q.put((i, url))
-
-	q.join()
-
-	print len(results)
-	pickle.dump(results, open("savedCocktails", 'wb'))
-
-def downloadAllIngredients():
-	WORKERS = 10
-
-	urls = []
-	for i in range(1, INGREDIENTS_IN_DATABASE):
-		urls.append(INGREDIENT_DB_URL+str(i))
-
-	results = [None]*len(urls)
-
-	def worker():
-		n_read = 0
-		while True:
-			i, url = q.get()
-			try: 
-				results[i] = (urllib2.urlopen(url).read())
-				print i, n_read
-				n_read+=1
-			except Exception as e:
-				print "failed on " + str(i)
-				print e
-
-
-			q.task_done()
-
-	q = Queue.Queue()
-	for i in range(WORKERS):
-		t = Thread(target=worker)
-		t.daemon = True
-		t.start()
-
-	for i, url in enumerate(urls):
-		q.put((i, url))
-
-	q.join()
-
-	print len(results)
-	pickle.dump(results, open("savedIngredients", 'wb'))
-def processRecipes():
-	d = pickle.load(open("savedCocktails"))
-	all_recipes = []
-	for i, d_i in enumerate(d):
-		
-		try:
-			soup=BeautifulSoup(d_i)
-			l=soup.findAll('div', {'class':'recipeMeasure'})
-			print 'Recipe %i' % (i)
-			recipe = []
-			for ingredient in l:
-				comps = str(ingredient).split('>')
-				amount = comps[1].split('<')[0].strip()
-				ingredient = comps[2].split('<')[0].strip()
-				recipe.append([ingredient, amount])
-			all_recipes.append(recipe)
-		except:
-			continue
-	pickle.dump(all_recipes, open("cleanedRecipes", 'wb'))	
-def processIngredFile():
-	d = pickle.load(open("savedIngredients"))
-	all_ingredients = {}
-	for i, d_i in enumerate(d):
-		
-		try:
-			l=d_i.split('flavor">')
-			print 'Ingredient %i' % (i)
-			flavors = []
-			for flavor in l[1:]:
-				flavors.append(flavor.split('<')[0].replace(',', '').replace(' ', '_').lower())
-			name = d_i.split('<div id="wellTitle">')[1].split('<h2>')[1].split('<')[0]
-			#print l[1][:50]
-			print name, flavors
-			all_ingredients[name] = flavors
-		except:
-			continue
-	print all_ingredients
-	pickle.dump(all_ingredients, open("cleanedIngredients", 'wb'))	
 def processIngred(s):
 	s = s.replace('fresh', '').strip()
 	s = s.translate(string.maketrans("",""), string.punctuation)
 	s = s.lower().replace(' ', '_')
 	return s
+
+
+
 def pca():
 	d = pickle.load(open("cleanedRecipes"))	
 	tf_idf = True
@@ -457,14 +339,10 @@ def generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_r
 	for i in range(len(flavor_names)):
 		print flavor_names[i], 'generated', ingredient_names[i]
 	print
+
+
+
 if __name__ == '__main__':
-	download = 0
-	if download:
-		#downloadAllIngredients()
-		#downloadAllPages()
-		#processIngredFile()
-		processRecipes()
-	else:
 		d = pickle.load(open('cleanedMatrices'))
 		ingredient_flavor = np.array(d['ingredient_flavor'])
 		ingredient_recipe = np.array(d['ingredient_recipe'])
@@ -481,8 +359,3 @@ if __name__ == '__main__':
 			print '\nGenerating flavors using seed', seed_flavor
 			for i in range(5):
 				generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, d['flavors'], ingredient_frequency, d['ingredients'])
-		#analyzeIngredients()
-		#sdflkj
-		
-		
-		#processRecipes()
