@@ -262,16 +262,7 @@ def analyzeIngredients():
 		
 	print 'Flavor ingredient assocations', sum(counts.values())
 	
-def normalizeByOneGrams(x, n_grams, one_gram_counts):
-	terms = x.split('/')
-	original_val = 1.*n_grams[x]
-	if original_val < .001:
-		return 0
-	for t in terms:
-		original_val = original_val/one_gram_counts[t]
-		if one_gram_counts[t] < .001:
-			return 0
-	return original_val
+
 def generativeModel1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, flavors, ingredient_frequencies, ingredients):
 	alpha = .3
 	flavors_in_recipe = [seed_flavor]

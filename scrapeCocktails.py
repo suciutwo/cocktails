@@ -1,5 +1,5 @@
 '''
-This is only concerned with downloading pages from the website, not processing them.
+This code is concerned with downloading pages from the website, not processing them.
 '''
 
 import urllib2
@@ -12,7 +12,7 @@ COCKTAIL_DB_URL = 'http://www.cocktaildb.com/recipe_detail?id='
 INGREDIENTS_IN_DATABASE = 558
 INGREDIENT_DB_URL = 'http://www.cocktaildb.com/ingr_detail?id='
 
-MAXIMUM_WORKERS = 10
+MAXIMUM_WORKERS = 10 #number of simultaneous connections
 
 COCKTAILS_FILENAME = 'savedCocktails'
 INGREDIENTS_FILENAME = 'savedIngredients'
@@ -30,7 +30,6 @@ def downloadAllCocktails():
 ##With MAXIMUM_WORKERS parallel connections, tries to download pages 
 ## prints failures instead of retrying
 def downloadAllPages(urlPrefix, numberOfItems, outputFilename):
-	MAXIMUM_WORKERS = 10
 
 	urls = []
 	for i in range(1, numberOfItems+1):
