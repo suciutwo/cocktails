@@ -1,7 +1,7 @@
 Directory Structure:
-data - coctail/ingredient data
-src - source code
-results - algorithm output
+	data - coctail/ingredient data
+	src - source code
+	results - algorithm output
 
 
 
@@ -9,6 +9,7 @@ results - algorithm output
 Data Collection Pipeline:
 Gets data from the website and makes it (basically) accessible
 
+	Steps:
 	1) run scrapeCocktails: script for downloading raw html from the website
 	2) run parsePages: script for parsing downloaded raw html
 
