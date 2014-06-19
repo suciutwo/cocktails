@@ -1,9 +1,8 @@
 Directory Structure:
+
 	data - coctail/ingredient data
 	src - source code
 	results - algorithm output
-
-
 
 
 Data Collection Pipeline:
