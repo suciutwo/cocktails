@@ -1,6 +1,8 @@
 import os
 import pickle
+import heapq
 import numpy as np
+from sklearn.decomposition import ProjectedGradientNMF
 from parsePages import CLEANED_COCKTAILS_FILENAME, CLEANED_INGREDIENTS_FILENAME
 
 AMOUNT_PARSING_GUIDE = 'data/amountParsingMapping'
@@ -26,25 +28,85 @@ def ingredientsFlavorMatrix():
 Processes the result of parsePages and
 returns a cocktails by ingredients matrix (numpy)
 
-if exactAmounts, then returns the measurement of each ingredient 
+if exact_amounts, then returns the measurement of each ingredient 
 instead of mere presence (i.e. floats instead of [0, 1])
 '''
-def recipeMatrix():
-	print 'TODO'
+def recipeMatrix(recipe_name_index=None, exact_amounts=True):
+	print "Building recipe matrix"
+	if os.path.isfile(AMOUNT_PARSING_GUIDE):
+		associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
+	else:
+		print "Couldn't find AMOUNT_PARSING_GUIDE, please run buildAmountParsingMapping first"
+		return None
+	print "...loading recipe list from file, run parsePages to generate a new version of the file"
+	recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME, 'rb'))
+	index = RecipeNameIndex(recipes)
+	resulting_matrix = np.zeros(shape=(index.count_cocktails(), index.count_ingreds()))
+	for cocktail_name, ingredient_tuples in recipes.iteritems():
+		cocktail_idx = index.title_idx(cocktail_name)
+		for tup in ingredient_tuples:
+			ingred_name = tup[0]
+			ingred_idx = index.ingred_idx(ingred_name)
+			if exact_amounts:
+				ingred_amount = associations[tup[1].strip()+tup[2].strip()]
+			else:
+				ingred_amount = 1
+			resulting_matrix[cocktail_idx, ingred_idx] = ingred_amount
+	return resulting_matrix, index
 
 
+class RecipeNameIndex:
+	def __init__(self, recipe_list):
+		self.titleToNumber = {}
+		self.numberToTitle = {}
+		self.ingredToNumber = {}
+		self.numberToIngred = {}
+		titleIdx = 0
+		ingredIdx = 0
+		for title, ingredients in recipe_list.iteritems():
+			if title not in self.titleToNumber:
+				self.titleToNumber[title] = titleIdx
+				self.numberToTitle[str(titleIdx)] = title
+				titleIdx += 1
+			for tup in ingredients:
+				ingred_name = tup[0]
+				if ingred_name not in self.ingredToNumber:
+					self.ingredToNumber[ingred_name] = ingredIdx
+					self.numberToIngred[str(ingredIdx)] = ingred_name
+					ingredIdx += 1
+
+	def get_name(self, integer_index):
+		return self.numberToTitle[str(integer_index)]
+
+	def get_ingred(self, integer_index):
+		return self.numberToIngred[str(integer_index)]
+
+	def ingred_idx(self, ingred_name):
+		return self.ingredToNumber[ingred_name]
+
+	def title_idx(self, title_string):
+		return self.titleToNumber[title_string]
+
+	def count_cocktails(self):
+		return len(self.titleToNumber)
+
+	def count_ingreds(self):
+		return len(self.ingredToNumber)
+
+			
 
 '''
 Creates a map (in AMOUNT_PARSING_GUIDE) that goes from strings -> ingredients. Human generated.
+Relies on the result of parsePages
 '''
-def buildAmountParsingMapping(exactAmounts = False):
+def buildAmountParsingMapping():
 	associations = {}
 	if os.path.isfile(AMOUNT_PARSING_GUIDE):
 		associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
 	
 	print "...loading recipe list from file, run parsePages to generate a new version of the file"
 	recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME, 'rb'))
-	for idx, recipe in enumerate(recipes):
+	for idx, recipe in enumerate(recipes.values()):
 		for tup in recipe:
 			print tup
 			print " number: " + str(idx+1)
@@ -128,6 +190,24 @@ def normalizeByOneGrams(x, n_grams, one_gram_counts):
 			return 0
 	return original_val
 
+def dirty_test_of_NMF():
+	print 'this is a small demo of the new matrix generation code'
+	m, index = recipeMatrix(exact_amounts=True)
+	ing_by_ing = np.transpose(m).dot(m)
+	model = ProjectedGradientNMF(n_components=8, init='random', random_state=0)
+	model.fit(ing_by_ing)
+	for idx, component in enumerate(model.components_):
+		print '-----------'
+		print 'Component %d' % idx
+		n = 10
+		top_n_indices = np.argsort(-1*component)[0:n]
+		for i in top_n_indices:
+			print '\t %s: %d' % (index.get_ingred(i), component[i])
+		
+
 
 if __name__ == '__main__':
-	buildAmountParsingMapping()
+	i = ingredientsFlavorMatrix()
+	m = recipeMatrix()
+	dirty_test_of_NMF()
+

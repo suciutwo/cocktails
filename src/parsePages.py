@@ -17,10 +17,11 @@ tuples that compose a recipe; pickles the list.
 '''
 def processRecipesFile():
 	cocktailPages = pickle.load(open(COCKTAILS_FILENAME))
-	allRecipes = []
+	allRecipes = {}
 	for i, cocktailPage in enumerate(cocktailPages):
 		try:
 			soup = BeautifulSoup(cocktailPage)
+			title = soup.findAll('h2')[0].string.strip()
 			measurements = soup.findAll('div', {'class':'recipeMeasure'})
 			if (i % 1000 == 0): print 'Parsing recipe ' + str(i)
 			recipe = []
@@ -30,7 +31,7 @@ def processRecipesFile():
 				ingredient = comps[2].split('<')[0].strip()
 				alternativeAmount = comps[4].split('<')[0].strip()
 				recipe.append([ingredient, amount, alternativeAmount])
-			allRecipes.append(recipe)
+			allRecipes[title] = recipe
 		except Exception as e:
 			print e
 			print "FAILED TO SCRAPE THIS PAGE EARLIER IN THE PIPELINE"
@@ -66,4 +67,4 @@ def processIngredientsFile():
 
 if __name__ == '__main__':
 	processRecipesFile()
-	processIngredientsFile()
+	#processIngredientsFile()
