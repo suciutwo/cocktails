@@ -1,8 +1,9 @@
+import os
 import pickle
 import numpy as np
 from parsePages import CLEANED_COCKTAILS_FILENAME, CLEANED_INGREDIENTS_FILENAME
 
-AMOUNT_PARSING_GUIDE = 'amountParsingMapping'
+AMOUNT_PARSING_GUIDE = 'data/amountParsingMapping'
 
 '''
 KEY METHODS:
@@ -28,27 +29,49 @@ returns a cocktails by ingredients matrix (numpy)
 if exactAmounts, then returns the measurement of each ingredient 
 instead of mere presence (i.e. floats instead of [0, 1])
 '''
+def recipeMatrix():
+	print 'TODO'
 
-def recipeMatrix(exactAmounts = False):
 
+
+'''
+Creates a map (in AMOUNT_PARSING_GUIDE) that goes from strings -> ingredients. Human generated.
+'''
+def buildAmountParsingMapping(exactAmounts = False):
 	associations = {}
+	if os.path.isfile(AMOUNT_PARSING_GUIDE):
+		associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
 	
-	print "...creating recipe matrix from file, run parsePages to generate a few version of the file"
+	print "...loading recipe list from file, run parsePages to generate a new version of the file"
 	recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME, 'rb'))
-	for recipe in recipes:
+	for idx, recipe in enumerate(recipes):
 		for tup in recipe:
 			print tup
-			if not (tup[1].strip() in associations):
-				print tup[1]
-				res = raw_input()
-				if res == 'no':
-					break
-				associations[tup[1].strip()] = float(res)
-	recipeMatrix = np.array(recipes)
+			print " number: " + str(idx+1)
+			key = tup[1].strip() + tup[2].strip()
+			if not (key in associations):
+				print tup[1] + tup[2]
+				user_input = raw_input()
+				if user_input == 'pass':
+					continue
+				if user_input == 'quit':
+					pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
+					return	
+				if user_input == 'err':
+					return
+				if user_input[0] == 'd': #dash
+					associations[key] = len(user_input)*03125 
+				elif user_input[0] == 't': #teaspoon
+					associations[key] = len(user_input)*0.125
+				elif user_input[0] == 'T': #tablespoon
+					associations[key] = len(user_input)*0.5
+				else:
+					associations[key] = float(user_input)
+		if (idx % 10 == 0):
+			pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
+			print "***%f done***" % (idx*1.0/len(recipes))
 	pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
 	
-
-
 
 def processIngred(s):
 	s = s.replace('fresh', '').strip()
@@ -107,4 +130,4 @@ def normalizeByOneGrams(x, n_grams, one_gram_counts):
 
 
 if __name__ == '__main__':
-	recipeMatrix()
+	buildAmountParsingMapping()

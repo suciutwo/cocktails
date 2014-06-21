@@ -28,8 +28,8 @@ def processRecipesFile():
 				comps = str(ingredient).split('>')
 				amount = comps[1].split('<')[0].strip()
 				ingredient = comps[2].split('<')[0].strip()
-				#alternativeAmount = comps[4].split('<')[0].strip()
-				recipe.append([ingredient, amount])
+				alternativeAmount = comps[4].split('<')[0].strip()
+				recipe.append([ingredient, amount, alternativeAmount])
 			allRecipes.append(recipe)
 		except Exception as e:
 			print e
