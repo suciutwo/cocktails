@@ -1,8 +1,6 @@
 import os
 import pickle
-import heapq
 import numpy as np
-from sklearn.decomposition import ProjectedGradientNMF
 from parsePages import CLEANED_COCKTAILS_FILENAME, CLEANED_INGREDIENTS_FILENAME
 
 AMOUNT_PARSING_GUIDE = 'data/amountParsingMapping'
@@ -134,22 +132,6 @@ def buildAmountParsingMapping():
 			print "***%f done***" % (idx*1.0/len(recipes))
 	pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
 	
-
-
-def dirty_test_of_NMF():
-	print 'this is a small demo of the new matrix generation code'
-	m, index = recipeMatrix(exact_amounts=True)
-	ing_by_ing = np.transpose(m).dot(m)
-	model = ProjectedGradientNMF(n_components=8, init='random', random_state=0)
-	model.fit(ing_by_ing)
-	for idx, component in enumerate(model.components_):
-		print '-----------'
-		print 'Component %d' % idx
-		n = 10
-		top_n_indices = np.argsort(-1*component)[0:n]
-		for i in top_n_indices:
-			print '\t %s: %d' % (index.get_ingred(i), component[i])
-		
 
 
 if __name__ == '__main__':

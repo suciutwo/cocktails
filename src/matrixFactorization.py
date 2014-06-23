@@ -5,7 +5,6 @@ from matrixGeneration import recipeMatrix
 import matplotlib.pyplot as plt
 
 
-
 BEST_N_COMPONENTS_FOR_EXACT_AMOUNTS = 155
 BEST_N_COMPONENTS_FOR_INEXACT_AMOUNTS = 105
 
