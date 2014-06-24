@@ -120,7 +120,7 @@ def buildAmountParsingMapping():
 				if user_input == 'err':
 					return
 				if user_input[0] == 'd': #dash
-					associations[key] = len(user_input)*03125 
+					associations[key] = len(user_input)*0.03125 
 				elif user_input[0] == 't': #teaspoon
 					associations[key] = len(user_input)*0.125
 				elif user_input[0] == 'T': #tablespoon
@@ -131,8 +131,8 @@ def buildAmountParsingMapping():
 			pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
 			print "***%f done***" % (idx*1.0/len(recipes))
 	pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
-	
 
+	
 
 if __name__ == '__main__':
 	i = ingredientsFlavorMatrix()

@@ -12,13 +12,12 @@ BEST_N_COMPONENTS_FOR_INEXACT_AMOUNTS = 105
 Adjust the range to see reconstruction_err_ at different n_components.
 '''
 def select_component_count_NMF():
-	m, inex = recipeMatrix(exact_amounts=True)
-	ing_by_ing = np.transpose(m).dot(m)
-	rng = range(80, 200, 25)
+	m, index = recipeMatrix(exact_amounts=True)
+	rng = range(10, 200, 10)
 	results = []
 	for i in rng:
 		model = ProjectedGradientNMF(n_components=i, init='random', random_state=0)
-		model.fit(ing_by_ing)	
+		model.fit(m)	
 		print i, model.reconstruction_err_
 		results.append(model.reconstruction_err_)
 	plt.plot(rng, results)
@@ -30,9 +29,8 @@ First test of NMF
 '''
 def dirty_test_of_NMF(number_of_components, exact_amounts):
 	m, index = recipeMatrix(exact_amounts=exact_amounts)
-	ing_by_ing = np.transpose(m).dot(m)
 	model = ProjectedGradientNMF(n_components=number_of_components, init='random', random_state=0)
-	model.fit(ing_by_ing)
+	model.fit(m)
 	print_top_components(model.components_, index)	
 	
 '''
@@ -48,6 +46,30 @@ def print_top_components(components, name_index):
 			print '\t %s: %d' % (name_index.get_ingred(i), component[i])
 	
 
+
+def expose_how_unnormalized_the_data_is():
+	m, index = recipeMatrix(exact_amounts=True)
+	res = []
+	names = []
+	
+	for i in range(516):
+		s = max(m[:, i])
+		names.append(index.get_ingred(i))
+		res.append(s)
+
+	order = np.argsort(res)
+	print order
+
+	for i in order:
+		print names[i], res[i]
+
+
+
+	plt.hist(filter(lambda x: x<500000, res))
+	plt.savefig(open('results/hist', 'w'))	
+
+
 if __name__ == '__main__':
-	dirty_test_of_NMF(BEST_N_COMPONENTS_FOR_EXACT_AMOUNTS, False)
+	expose_how_unnormalized_the_data_is()
+	#dirty_test_of_NMF(5, True)
 	#select_component_count_NMF()

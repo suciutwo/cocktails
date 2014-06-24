@@ -2,75 +2,75 @@
 S"1/4 Booth's(3/4 oz, 2 cl, 3/16 gills)"
 p1
 F0.75
-sS'1 3/4 ozdry vermouth'
-p2
-F1.75
 sS'1bourbon whisky'
-p3
+p2
 F0.5
 sS'2/5 Fresh(1 1/4 oz, 3.5 cl, 5/16 gills)'
-p4
+p3
 F1.25
 sS'Build, fill glass 1/2 with(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p5
+p4
 F1.5
 sS'1 dashes'
-p6
-I1621
+p5
+F0.03125
 sS'1/2 Martini(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p7
+p6
 F1.5
 sS'1 piece of(1/2 oz, 1.5 cl, 1/8 gills)'
-p8
+p7
 F0.5
 sS'Add 2 slices ripe(1 oz, 3 cl, 1/4 gills)'
-p9
+p8
 F1.0
 sS'3/4 ozcream'
-p10
+p9
 F0.75
 sS'1/6 White(1/2 oz, 1.5 cl, 1/8 gills)'
-p11
+p10
 F0.5
 sS'1 slice(1/2 oz, 1.5 cl, 1/8 gills)'
-p12
+p11
 F0.5
 sS'1 1/2 ozPernod'
-p13
+p12
 F1.5
 sS'Float 3/4 oz(2 cl, 3/16 gills)'
-p14
+p13
 F0.75
 sS"3/4 ozRose's"
-p15
+p14
 F0.75
-sS'1/3Noilly Prat'
-p16
-F1.0
+sS'1 3/4 oz Polish(5 cl, 7/16 gills)'
+p15
+F1.75
 sS'1/10 N.Z. Sweet(1/4 oz, 1 cl, 1/16 gills)'
-p17
+p16
 F0.25
 sS'1 1/2 ozbourbon'
-p18
+p17
 F1.5
 sS'1/4 ozanisette'
-p19
+p18
 F0.25
 sS'For a Brut, French style 4 dashes'
-p20
-I6484
+p19
+F0.125
 sS'4 oz chilled(12 cl, 1 gills)'
-p21
+p20
 F4.0
 sS'Shake in iced cocktail shaker &amp; strain 1/2 oz(1.5 cl, 1/8 gills)'
-p22
+p21
 F0.5
-sS'1/2 tsplemon juice'
-p23
-I3242
-sS'2 ozOld Tom gin'
-p24
+sS'2 ozBourbon whiskey'
+p22
 F2.0
+sS"1/3 Baczewski's Pearl(1 oz, 3 cl, 1/4 gills)"
+p23
+F1.0
+sS'1 1/2 ozapple juice'
+p24
+F1.5
 sS'Muddle quartered &amp; peeled lemon with 2 tsp(1 cl, 1/16 gills)'
 p25
 F0.25
@@ -124,7 +124,7 @@ p41
 F1.0
 sS'1/4 tsporange curacao'
 p42
-I1621
+F0.03125
 sS'1/6brandy'
 p43
 F0.5
@@ -134,1878 +134,1878 @@ F0.5
 sS'1/2 with(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p45
 F1.5
-sS'1/4 ozframboise eau de vie'
+sS'Build, fill glass 1/3 with crushed(1 oz, 3 cl, 1/4 gills)'
 p46
+F1.0
+sS'1/4 ozframboise eau de vie'
+p47
 F0.25
 sS"1/4 Seager's(3/4 oz, 2 cl, 3/16 gills)"
-p47
-F0.75
-sS'1/3whisky'
 p48
-F1.0
-sS'3/4 tsp(3 dashes)'
+F0.75
+sS'Add lemon wedge ( 1/2 dipped in1/2'
 p49
-I4863
-sS'Muddle 1 tsplemon twist'
+F1.5
+sS'3/4 tsp(3 dashes)'
 p50
+F0.09375
+sS'Muddle 1 tsplemon twist'
+p51
 F0.125
 sS'1 largeice'
-p51
+p52
 F1.0
 sS'3/11(3/4 oz, 2.5 cl, 3/16 gills)'
-p52
+p53
 F0.75
 sS"4/11 Booth's(1 oz, 3 cl, 1/4 gills)"
-p53
-F1.0
-sS'1/3 fresh(1 oz, 3 cl, 1/4 gills)'
 p54
 F1.0
-sS'1 1/2 ozrye whiskey'
+sS'1 1/2(3/4 oz, 2 cl, 3/16 gills)'
 p55
+F0.75
+sS'1/3 fresh(1 oz, 3 cl, 1/4 gills)'
+p56
+F1.0
+sS'1 1/2 ozrye whiskey'
+p57
 F1.5
 sS'1/4 3(1 3/4 oz, 5 cl, 3/8 gills)'
-p56
-F1.75
-sS'4/10whisky'
-p57
-F1.25
-sS'1 3/4 ozBourbon whiskey'
 p58
 F1.75
-sS'1/3 Latvianvodka'
+sS"2/5 Seager's(1 1/4 oz, 3.5 cl, 5/16 gills)"
 p59
+F1.25
+sS'1 3/4 ozBourbon whiskey'
+p60
+F1.75
+sS'1/3 Latvianvodka'
+p61
 F1.0
 sS'1 or 2 pieces(1/2 oz, 1.5 cl, 1/8 gills)'
-p60
+p62
 F0.5
 sS'Float 1 tsp(4 dashes)'
-p61
+p63
 F0.125
 sS'1 ozfresh lemon juice'
-p62
+p64
 F1.0
 sS'1/2 oz Forbidden Add(1.5 cl, 1/8 gills)'
-p63
+p65
 F0.5
+sS"5/10 Booth's(1 1/2 oz, 4.5 cl, 3/8 gills)"
+p66
+F1.5
 sS'2/10 Daiquiri(1/2 oz, 2 cl, 1/8 gills)'
-p64
+p67
 F0.5
 sS'1/3(1 oz, 3 cl, 1/4 gills)'
-p65
+p68
 F1.0
 sS'2 scoops(1 oz, 3 cl, 1/4 gills)'
-p66
-F1.0
-sS'1/2 tspsoda'
-p67
-I3242
-sS'1 1/4 ozbourbon'
-p68
-F1.25
-sS'2 lumpswater'
 p69
 F1.0
-sS'1 dashorange bitters'
+sS'1/2 tspsoda'
 p70
-I1621
-sS'Top with 1 beaten(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.0625
+sS'3/7(1 1/4 oz, 4 cl, 5/16 gills)'
 p71
-F0.5
-sS'6 oz(18 cl, 1 1/2 gills)'
+F1.25
+sS'3/4 oz white(2 cl, 3/16 gills)'
 p72
-F6.0
-sS'3 skeweredgarnish'
+F0.75
+sS'3/4 ozCampari'
 p73
+F0.75
+sS'Top with 1 beaten(1/2 oz, 1.5 cl, 1/8 gills)'
+p74
+F0.5
+sS'3 ozeau de vie'
+p75
+F3.0
+sS'3 skeweredgarnish'
+p76
 F0.25
 sS'12(6 oz, 18 cl, 1 1/2 gills)'
-p74
+p77
 F6.0
 sS'2 1/2 oz boiling(7.5 cl, 5/8 gills)'
-p75
+p78
 F2.5
 sS'2/3 High and(2 oz, 6 cl, 1/2 gills)'
-p76
+p79
 F2.0
 sS'1/10 Juice of fresh(1/4 oz, 1 cl, 1/16 gills)'
-p77
+p80
 F0.25
 sS'Fill with 7 up,(3 1/2 oz, 10.5 cl, 7/8 gills)'
-p78
+p81
 F3.5
 sS"1/3 Walker'swhisky"
-p79
+p82
 F1.0
 sS'1 dash of'
-p80
-I1621
-sS'1/2 oz Creme de(1.5 cl, 1/8 gills)'
-p81
-F0.5
-sS'1/6 Martini(1/2 oz, 1.5 cl, 1/8 gills)'
-p82
-F0.5
-sS"1/3 Seagram's(1 oz, 3 cl, 1/4 gills)"
 p83
-F1.0
-sS'1 egg 2 1/2 oz(3 cl, 1/4 gills)'
+F0.03125
+sS'1/2 oz Creme de(1.5 cl, 1/8 gills)'
 p84
+F0.5
+sS'1/2 with chilled(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p85
+F1.5
+sS'1 egg 2 1/2 oz(3 cl, 1/4 gills)'
+p86
 F2.5
 sS'3 oz(9 cl, 3/4 gills)'
-p85
+p87
 F3.0
 sS'1 1/2 ozsweet &amp; sour mix'
-p86
-F1.5
-sS'1 1/2 ozliqueur'
-p87
-F1.5
-sS'1 1/2 ozrye'
 p88
 F1.5
-sS'6/10(1 3/4 oz, 5.5 cl, 7/16 gills)'
+sS'1 1/2 ozliqueur'
 p89
+F1.5
+sS'1 1/2 ozrye'
+p90
+F1.5
+sS'6/10(1 3/4 oz, 5.5 cl, 7/16 gills)'
+p91
 F1.75
 sS'Build 2/3 glass crushed(2 oz, 6 cl, 1/2 gills)'
-p90
+p92
 F2.0
 sS'2 dashesAngostura bitters'
-p91
-I3242
+p93
+F0.0625
 sS'1/4 ozapple brandy'
-p92
+p94
 F0.25
 sS'1 dash blue'
-p93
-I1621
-sS"1/4 Martell's XXX(3/4 oz, 2 cl, 3/16 gills)"
-p94
-F0.75
-sS'2 dashes pure'
 p95
-I3242
-sS'3/4 ounce(2 cl, 3/16 gills)'
+F0.03125
+sS"1/4 Martell's XXX(3/4 oz, 2 cl, 3/16 gills)"
 p96
 F0.75
-sS'1/7 light(1/2 oz, 1 cl, 1/8 gills)'
+sS'2 dashes pure'
 p97
+F0.0625
+sS'3/4 ounce(2 cl, 3/16 gills)'
+p98
+F0.75
+sS'2/5whisky'
+p99
+F1.25
+sS'1/7 light(1/2 oz, 1 cl, 1/8 gills)'
+p100
 F0.5
 sS'1 ounce green(3 cl, 1/4 gills)'
-p98
-F1.0
-sS'1 1/2 oz dry(4.5 cl, 3/8 gills)'
-p99
-F1.5
-sS'1 1/2 ounces white(4.5 cl, 3/8 gills)'
-p100
-F1.5
-sS'1 ozfresh lime juice'
 p101
 F1.0
-sS'2/3 Brown(2 oz, 6 cl, 1/2 gills)'
+sS'1 1/2 oz dry(4.5 cl, 3/8 gills)'
 p102
+F1.5
+sS'1 1/2 ounces white(4.5 cl, 3/8 gills)'
+p103
+F1.5
+sS'1 ozfresh lime juice'
+p104
+F1.0
+sS'2/3 Brown(2 oz, 6 cl, 1/2 gills)'
+p105
 F2.0
 sS'8 to 10 fresh(4 oz, 12 cl, 1 gills)'
-p103
+p106
 F4.0
+sS'1 fresh(1/2 oz, 1.5 cl, 1/8 gills)'
+p107
+F0.5
 sS'1/2 ozPapaya juice'
-p104
+p108
 F0.5
 sS'4 ounces(12 cl, 1 gills)'
-p105
+p109
 F4.0
 sS'Float 1/2 oz(1.5 cl, 1/8 gills)'
-p106
+p110
 F0.5
 sS"2/3 Seager's(2 oz, 6 cl, 1/2 gills)"
-p107
+p111
 F2.0
 sS'1 dash fresh'
-p108
-I1621
+p112
+F0.03125
 sS'1/8 Bols(1/2 oz, 1 cl, 1/8 gills)'
-p109
+p113
 F0.5
 sS'Decorate with 1/21/2'
-p110
+p114
 F1.5
 sS'1/4 Teaspoonfulsyrup'
-p111
-I1621
+p115
+F0.03125
 sS'1 1/2 oz dark(4.5 cl, 3/8 gills)'
-p112
+p116
 F1.5
 sS'1/4 sweetlemon juice'
-p113
+p117
 F0.75
 sS'1/2 ozorange slice'
-p114
-F0.5
-sS'1/4 ozCointreau'
-p115
-F0.25
-sS'(Optional: add 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p116
-F0.5
-sS'1 1/2 oz Old Forester(4.5 cl, 3/8 gills)'
-p117
-F1.5
-sS'] 1/2 oz(1.5 cl, 1/8 gills)'
 p118
 F0.5
-sS'1 dashsugar syrup'
+sS'1/4 ozCointreau'
 p119
-I1621
-sS'1 oz Inca(3 cl, 1/4 gills)'
-p120
-F1.0
-sS'add 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p121
-F0.5
-sS"1/10 Pollen's White(1/4 oz, 1 cl, 1/16 gills)"
-p122
 F0.25
-sS'3/10(1 oz, 2.5 cl, 1/4 gills)'
+sS'(Optional: add 1(1/2 oz, 1.5 cl, 1/8 gills)'
+p120
+F0.5
+sS'1 1/2 oz Old Forester(4.5 cl, 3/8 gills)'
+p121
+F1.5
+sS'] 1/2 oz(1.5 cl, 1/8 gills)'
+p122
+F0.5
+sS'1 dashsugar syrup'
 p123
-F1.0
-sS'1 ozlime juice'
+F0.03125
+sS'1 oz Inca(3 cl, 1/4 gills)'
 p124
 F1.0
-sS'2/5 White(1 1/4 oz, 3.5 cl, 5/16 gills)'
+sS'add 1(1/2 oz, 1.5 cl, 1/8 gills)'
 p125
+F0.5
+sS"1/10 Pollen's White(1/4 oz, 1 cl, 1/16 gills)"
+p126
+F0.25
+sS'3/10(1 oz, 2.5 cl, 1/4 gills)'
+p127
+F1.0
+sS'1 ozlime juice'
+p128
+F1.0
+sS'2/5 White(1 1/4 oz, 3.5 cl, 5/16 gills)'
+p129
 F1.25
 sS"1/5 Booth's(1/2 oz, 2 cl, 1/8 gills)"
-p126
+p130
 F0.5
 sS'2/5 Martini White(1 1/4 oz, 3.5 cl, 5/16 gills)'
-p127
+p131
 F1.25
 sS'1 small scoopice'
-p128
+p132
 F0.5
 sS'Muddle &amp; add 4 sliceslemon twist'
-p129
+p133
 F2.0
 sS'Separate 12(6 oz, 18 cl, 1 1/2 gills)'
-p130
+p134
 F6.0
 sS'1/3 Dunville(1 oz, 3 cl, 1/4 gills)'
-p131
+p135
 F1.0
 sS"3/5 Booth's(1 3/4 oz, 5.5 cl, 7/16 gills)"
-p132
+p136
 F1.75
 sS'1 dashpastis'
-p133
-I1621
-sS'1 large(1/2 oz, 1.5 cl, 1/8 gills)'
-p134
-F0.5
-sS'3 7(5 oz, 15 cl, 1 1/4 gills)'
-p135
-F5.0
-sS'3/4 oz tawny(2 cl, 3/16 gills)'
-p136
-F0.75
-sS'3/4 oz darkcr\xc3\xa8me de Cacao'
 p137
-F0.75
-sS'1/6 Dry(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.03125
+sS'1 large(1/2 oz, 1.5 cl, 1/8 gills)'
 p138
 F0.5
-sS'2 ouncesgin'
+sS'3 7(5 oz, 15 cl, 1 1/4 gills)'
 p139
+F5.0
+sS'3/4 oz tawny(2 cl, 3/16 gills)'
+p140
+F0.75
+sS'3/4 oz darkcr\xc3\xa8me de Cacao'
+p141
+F0.75
+sS'2 ouncesgin'
+p142
 F2.0
 sS'1 oz(3 cl, 1/4 gills)'
-p140
+p143
 F1.0
 sS'3/4(2 1/4 oz, 6.5 cl, 9/16 gills)'
-p141
+p144
 F2.25
 sS'1/4 oz flaming(6 dashes, 1/16 gills)'
-p142
+p145
 F0.25
 sS'2 oz Red(6 cl, 1/2 gills)'
-p143
+p146
 F2.0
 sS'Fill glass 1/2 withale'
-p144
+p147
 F4.0
-sS'2 ozcream'
-p145
-F2.0
 sS'1/4 oz more dark(6 dashes, 1/16 gills)'
-p146
+p148
 F0.25
 sS'1(1/2 oz, 1.5 cl, 1/8 gills)'
-p147
+p149
 F0.5
 sS'3 drops(1 dash)'
-p148
-I1621
-sS'1/4 Daiquiri(3/4 oz, 2 cl, 3/16 gills)'
-p149
-F0.75
-sS'1/2 ozkirsch'
 p150
-F0.5
-sS'1 small scoop(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.09375
+sS'1/4 Daiquiri(3/4 oz, 2 cl, 3/16 gills)'
 p151
-F0.5
-sS'Muddle 4(2 oz, 6 cl, 1/2 gills)'
+F0.75
+sS'7/10whisky'
 p152
 F2.0
-sS'9/20 Adet(1 1/4 oz, 4 cl, 5/16 gills)'
+sS'1/2 ozkirsch'
 p153
+F0.5
+sS'1 small scoop(1/2 oz, 1.5 cl, 1/8 gills)'
+p154
+F0.5
+sS'Muddle 4(2 oz, 6 cl, 1/2 gills)'
+p155
+F2.0
+sS'9/20 Adet(1 1/4 oz, 4 cl, 5/16 gills)'
+p156
 F1.25
 sS'1 1/2 ounces(4.5 cl, 3/8 gills)'
-p154
+p157
 F1.5
 sS'1/4lime'
-p155
+p158
 F0.75
 sS'1 ozbourbon'
-p156
+p159
 F1.0
 sS'2 ozrye'
-p157
+p160
 F2.0
 sS'Beat 11'
-p158
+p161
 F0.5
 sS'Float 1/4 ozbrandy'
-p159
-F0.25
-sS'1/2 ozBourbon whiskey'
-p160
-F0.5
-sS'Fill with 1/2 with crushed(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p161
-F1.5
-sS'1 1/4 oz oloroso(3.5 cl, 5/16 gills)'
 p162
-F1.25
-sS'1 1/2 ozapple brandy'
+F0.25
+sS'Build, fill glass 1/2 with crushed(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p163
 F1.5
-sS'5/10gin'
+sS'1/2 ozPrunella'
 p164
+F0.5
+sS'1/2 ozBourbon whiskey'
+p165
+F0.5
+sS'Fill with 1/2 with crushed(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p166
+F1.5
+sS'1 1/4 oz oloroso(3.5 cl, 5/16 gills)'
+p167
+F1.25
+sS'1 1/2 ozapple brandy'
+p168
+F1.5
+sS'5/10gin'
+p169
 F1.5
 sS'1/8 oz(3 dashes)'
-p165
-I6484
+p170
+F0.09375
 sS'1 oz Red(3 cl, 1/4 gills)'
-p166
+p171
 F1.0
 sS'3/4 oz juice of a(2 cl, 3/16 gills)'
-p167
+p172
 F0.75
 sS'1 small dash'
-p168
-I1621
+p173
+F0.03125
 sS'1/10orange'
-p169
+p174
 F0.25
 sS'Dissolve 1 lump ofwater'
-p170
+p175
 F0.5
 sS'1/4lime juice'
-p171
+p176
 F0.75
-sS'2 lumps(1 oz, 3 cl, 1/4 gills)'
-p172
-F1.0
+sS'1/12 Daiquiri(1/4 oz, 5 dashes, 6 dashes)'
+p177
+F0.25
 sS'1/2 ozwater'
-p173
+p178
 F0.5
 sS'1 lb.(1/2 oz, 1.5 cl, 1/8 gills)'
-p174
+p179
 F0.5
 sS'1/4 Golden(3/4 oz, 2 cl, 3/16 gills)'
-p175
+p180
 F0.75
+sS'Add 1 dash'
+p181
+F0.03125
 sS'Fill blender 2/3 with crushed(2 oz, 6 cl, 1/2 gills)'
-p176
+p182
 F2.0
 sS'1 cube of(1/2 oz, 1.5 cl, 1/8 gills)'
-p177
+p183
 F0.5
 sS'1 dashAngostura'
-p178
-I1621
-sS'1/2 with cold(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p179
-F1.5
-sS'1 314 oz(932.5 cl, 78 3/4 gills)'
-p180
-F1.75
-sS'4/10 Daiquiri(1 1/4 oz, 3.5 cl, 5/16 gills)'
-p181
-F1.25
-sS'1 1/2 ozbrandy'
-p182
-F1.5
-sS'1/3 Danzig Silver(1 oz, 3 cl, 1/4 gills)'
-p183
-F1.0
-sS'4/10(1 1/4 oz, 3.5 cl, 5/16 gills)'
 p184
-F1.25
-sS'1/2 or 3/4 oz dark(1.5 cl, 1/8 gills)'
+F0.03125
+sS'2 dashes'
 p185
-F0.75
-sS'1/2bourbon whisky'
+F0.0625
+sS'1/2 with cold(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p186
 F1.5
-sS'1/2 ozframboise eau de vie'
+sS'1 314 oz(932.5 cl, 78 3/4 gills)'
 p187
-F0.5
-sS'1/8 White(1/2 oz, 1 cl, 1/8 gills)'
+F1.75
+sS'4/10 Daiquiri(1 1/4 oz, 3.5 cl, 5/16 gills)'
 p188
-F0.5
-sS'1/3 Martini(1 oz, 3 cl, 1/4 gills)'
+F1.25
+sS'1/3 Danzig Silver(1 oz, 3 cl, 1/4 gills)'
 p189
 F1.0
-sS'1 oz Forbidden Add(3 cl, 1/4 gills)'
+sS'4/10(1 1/4 oz, 3.5 cl, 5/16 gills)'
 p190
-F1.0
-sS'6/10 Daiquiri(1 3/4 oz, 5.5 cl, 7/16 gills)'
-p191
-F1.75
-sS'3/10 Bols(1 oz, 2.5 cl, 1/4 gills)'
-p192
-F1.0
-sS'1/2 slice fresh(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p193
-F1.5
-sS'1 1/4 oz Red(3.5 cl, 5/16 gills)'
-p194
 F1.25
-sS"2/6 Seager's(1 oz, 3 cl, 1/4 gills)"
+sS'1/2 or 3/4 oz dark(1.5 cl, 1/8 gills)'
+p191
+F0.75
+sS'1/2bourbon whisky'
+p192
+F1.5
+sS'1/37-Up'
+p193
+F1.0
+sS'1/8 White(1/2 oz, 1 cl, 1/8 gills)'
+p194
+F0.5
+sS'1/3 Martini(1 oz, 3 cl, 1/4 gills)'
 p195
 F1.0
-sS'1/8(1/2 oz, 1 cl, 1/8 gills)'
+sS'1 oz Forbidden Add(3 cl, 1/4 gills)'
 p196
+F1.0
+sS'6/10 Daiquiri(1 3/4 oz, 5.5 cl, 7/16 gills)'
+p197
+F1.75
+sS'2 dashesAngostura'
+p198
+F0.0625
+sS'1/2 slice fresh(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p199
+F1.5
+sS'1 1/4 oz Red(3.5 cl, 5/16 gills)'
+p200
+F1.25
+sS"2/6 Seager's(1 oz, 3 cl, 1/4 gills)"
+p201
+F1.0
+sS'1/8(1/2 oz, 1 cl, 1/8 gills)'
+p202
 F0.5
 sS'1/11 Cusenier(1/4 oz, 1 cl, 1/16 gills)'
-p197
-F0.25
-sS'1/2 tsp(2 dashes)'
-p198
-I3242
-sS'1/4 fresh(3/4 oz, 2 cl, 3/16 gills)'
-p199
-F0.75
-sS'1/2gin'
-p200
-F1.5
-sS'Insert 1 entire(1/2 oz, 1.5 cl, 1/8 gills)'
-p201
-F0.5
-sS'3/4 oz dark(2 cl, 3/16 gills)'
-p202
-F0.75
-sS'(optional 1/2 oz(1.5 cl, 1/8 gills)'
 p203
-F0.5
-sS'1 ozgrenadine'
+F0.25
+sS'1/3milk'
 p204
 F1.0
-sS'1/3apple jack brandy'
+sS'1 1/4 oz(3.5 cl, 5/16 gills)'
 p205
-F1.0
-sS'1/2 light(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F1.25
+sS'1/2gin'
 p206
 F1.5
-sS"1/8Cederlund's"
+sS'8/16(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p207
-F0.5
-sS'1 ozsugar'
-p208
-F1.0
-sS"1/3 Seager's(1 oz, 3 cl, 1/4 gills)"
-p209
-F1.0
-sS'1 1/2 ozfresh lemon juice'
-p210
 F1.5
-sS'1 pinch(1/2 oz, 1.5 cl, 1/8 gills)'
+sS'3/4 ozsweet vermouth'
+p208
+F0.75
+sS'1/2 ozsugar'
+p209
+F0.5
+sS'1/4 ounce(6 dashes, 1/16 gills)'
+p210
+F0.25
+sS'1/8 Bols White(1/2 oz, 1 cl, 1/8 gills)'
 p211
 F0.5
-sS'1 1/4 ozLondon dry gin'
+sS'1 ozgrenadine'
 p212
-F1.25
-sS"1/2 Siegert's Bouquet(1 1/2 oz, 4.5 cl, 3/8 gills)"
+F1.0
+sS'1/3apple jack brandy'
 p213
-F1.5
-sS'Add 1/2orange'
+F1.0
+sS'1/2 ozCointreau'
 p214
-F1.5
-sS'1 beaten(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.5
+sS"1/8Cederlund's"
 p215
 F0.5
-sS'1/4 of ripe(3/4 oz, 2 cl, 3/16 gills)'
+sS'1 ozsugar'
 p216
-F0.75
-sS'3/4 oz creme de mandarine or other mandarine(2 cl, 3/16 gills)'
+F1.0
+sS"1/3 Seager's(1 oz, 3 cl, 1/4 gills)"
 p217
-F0.75
-sS'1 1/4 oz fino(3.5 cl, 5/16 gills)'
+F1.0
+sS'1 1/2 ozfresh lemon juice'
 p218
-F1.25
-sS"1/2 Booth's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p219
 F1.5
-sS"4/10 Booth's(1 1/4 oz, 3.5 cl, 5/16 gills)"
+sS'1 pinch(1/2 oz, 1.5 cl, 1/8 gills)'
+p219
+F0.5
+sS'1 1/4 ozLondon dry gin'
 p220
 F1.25
-sS'1 pat(1/2 oz, 1.5 cl, 1/8 gills)'
+sS"1/2 Siegert's Bouquet(1 1/2 oz, 4.5 cl, 3/8 gills)"
 p221
-F0.5
-sS'3 teaspoonsful(1.5 cl, 1/8 gills)'
+F1.5
+sS'Add 1/2orange'
 p222
-F0.375
-sS'1/4 juice of alemon'
+F1.5
+sS'1 beaten(1/2 oz, 1.5 cl, 1/8 gills)'
 p223
-F0.75
-sS'3/4 ozfresh lemon juice'
+F0.5
+sS'1/4 of ripe(3/4 oz, 2 cl, 3/16 gills)'
 p224
 F0.75
-sS'2/6(1 oz, 3 cl, 1/4 gills)'
+sS'1/9 Bols(1/4 oz, 1 cl, 1/16 gills)'
 p225
-F1.0
-sS'3/6(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p226
-F1.5
-sS'1 1/2 oz Red(4.5 cl, 3/8 gills)'
-p227
-F1.5
-sS'9/20(1 1/4 oz, 4 cl, 5/16 gills)'
-p228
-F1.25
-sS'1/37-Up'
-p229
-F1.0
-sS'1/4 ozpineapple'
-p230
 F0.25
-sS'1 3/4 ozblended whiskey'
+sS'3/4 oz creme de mandarine or other mandarine(2 cl, 3/16 gills)'
+p226
+F0.75
+sS'1 1/4 oz fino(3.5 cl, 5/16 gills)'
+p227
+F1.25
+sS"1/2 Booth's(1 1/2 oz, 4.5 cl, 3/8 gills)"
+p228
+F1.5
+sS"4/10 Booth's(1 1/4 oz, 3.5 cl, 5/16 gills)"
+p229
+F1.25
+sS'1 pat(1/2 oz, 1.5 cl, 1/8 gills)'
+p230
+F0.5
+sS'3 teaspoonsful(1.5 cl, 1/8 gills)'
 p231
-F1.75
-sS'1/2 oz white(1.5 cl, 1/8 gills)'
+F0.375
+sS'1/4 juice of alemon'
 p232
-F0.5
-sS'(Substitute hot water for ice &amp; add 1(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.75
+sS'3/4 ozfresh lemon juice'
 p233
-F0.5
-sS'Build 1 1/2 oz(4.5 cl, 3/8 gills)'
+F0.75
+sS'3/6(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p234
 F1.5
-sS'1 dash Markiza'
+sS'1 1/2 oz Red(4.5 cl, 3/8 gills)'
 p235
-I1621
-sS'1 Scoop(1/2 oz, 1.5 cl, 1/8 gills)'
+F1.5
+sS'9/20(1 1/4 oz, 4 cl, 5/16 gills)'
 p236
+F1.25
+sS'1/2 ozframboise eau de vie'
+p237
+F0.5
+sS'1/4 ozpineapple'
+p238
+F0.25
+sS'1 3/4 ozblended whiskey'
+p239
+F1.75
+sS'1/2 oz white(1.5 cl, 1/8 gills)'
+p240
+F0.5
+sS'(Substitute hot water for ice &amp; add 1(1/2 oz, 1.5 cl, 1/8 gills)'
+p241
+F0.5
+sS'Build 1 1/2 oz(4.5 cl, 3/8 gills)'
+p242
+F1.5
+sS'1 dash Markiza'
+p243
+F0.03125
+sS'1 Scoop(1/2 oz, 1.5 cl, 1/8 gills)'
+p244
 F0.5
 sS'1/10 Silverwasser ((1/4 oz, 1 cl, 1/16 gills)'
-p237
+p245
 F0.25
 sS'1 glass(1/2 oz, 1.5 cl, 1/8 gills)'
-p238
+p246
 F0.5
 sS'3/4 ozCordial'
-p239
+p247
 F0.75
 sS'1/3gin'
-p240
+p248
 F1.0
 sS'1/4(3/4 oz, 2 cl, 3/16 gills)'
-p241
+p249
 F0.75
 sS'1 dashAngostura bitters'
-p242
-I1621
-sS'1/3 Fockink(1 oz, 3 cl, 1/4 gills)'
-p243
-F1.0
-sS'3/4 oz light(2 cl, 3/16 gills)'
-p244
-F0.75
+p250
+F0.03125
+sS'1/9 Cusenier(1/4 oz, 1 cl, 1/16 gills)'
+p251
+F0.25
 sS'3/10Noilly Prat'
-p245
+p252
 F1.0
-sS'1 1/4 oz Jamaican(3.5 cl, 5/16 gills)'
-p246
-F1.25
 sS'3 teaspoonfuls(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p247
+p253
 F0.375
 sS'White of 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p248
+p254
 F0.5
 sS'1/4 French Vermouth, 1 dash'
-p249
-I1621
-sS'5 oz(15 cl, 1 1/4 gills)'
-p250
-F5.0
+p255
+F0.03125
+sS'3/16(1/2 oz, 1.5 cl, 1/8 gills)'
+p256
+F0.5
 sS'Prepare glasses with 4 dashescherry'
-p251
-I6484
+p257
+F0.125
 sS'1/4 oz(6 dashes, 1/16 gills)'
-p252
+p258
 F0.25
 sS'Top with 2 oz(6 cl, 1/2 gills)'
-p253
+p259
 F2.0
 sS'1/4 Freshlemon juice'
-p254
-F0.75
-sS'2 dashesAngostura'
-p255
-I3242
-sS'1/4 ozlemon twist'
-p256
-F0.25
-sS'Float 1 dashice'
-p257
-I1621
-sS'1 chunk(1/2 oz, 1.5 cl, 1/8 gills)'
-p258
-F0.5
-sS'1/4 oz1/4 oz'
-p259
-F0.25
-sS'4 oz cold(12 cl, 1 gills)'
 p260
-F4.0
-sS'2/6 Wolfschmidt Green(1 oz, 3 cl, 1/4 gills)'
+F0.75
+sS'3/10 Bols(1 oz, 2.5 cl, 1/4 gills)'
 p261
 F1.0
-sS'3 oz Hawaiian Add(9 cl, 3/4 gills)'
+sS'1/4 ozlemon twist'
 p262
+F0.25
+sS'Float 1 dashice'
+p263
+F0.03125
+sS'1 chunk(1/2 oz, 1.5 cl, 1/8 gills)'
+p264
+F0.5
+sS'1/4 oz1/4 oz'
+p265
+F0.25
+sS'4 oz cold(12 cl, 1 gills)'
+p266
+F4.0
+sS'2/6 Wolfschmidt Green(1 oz, 3 cl, 1/4 gills)'
+p267
+F1.0
+sS'3 oz Hawaiian Add(9 cl, 3/4 gills)'
+p268
 F3.0
 sS'1 or 2 pieces of(1/2 oz, 1.5 cl, 1/8 gills)'
-p263
-F0.5
-sS'1 tspsoda'
-p264
-F0.125
-sS'1 ozapple brandy'
-p265
-F1.0
-sS'1/4 of a(3/4 oz, 2 cl, 3/16 gills)'
-p266
-F0.75
-sS"1/2 Gordon's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p267
-F1.5
-sS'1/12(1/4 oz, 5 dashes, 6 dashes)'
-p268
-F0.25
-sS'1/2 oz Demerara 86 proof(1.5 cl, 1/8 gills)'
 p269
 F0.5
-sS'(Optional: 3/4 oz(2 cl, 3/16 gills)'
+sS'1 tspsoda'
 p270
+F0.125
+sS'1 3/4 oz dry(5 cl, 7/16 gills)'
+p271
+F1.75
+sS'1/4 of a(3/4 oz, 2 cl, 3/16 gills)'
+p272
+F0.75
+sS"1/2 Gordon's(1 1/2 oz, 4.5 cl, 3/8 gills)"
+p273
+F1.5
+sS'1/12(1/4 oz, 5 dashes, 6 dashes)'
+p274
+F0.25
+sS'1/2 oz Demerara 86 proof(1.5 cl, 1/8 gills)'
+p275
+F0.5
+sS'4 dashesbitters'
+p276
+F0.125
+sS'(Optional: 3/4 oz(2 cl, 3/16 gills)'
+p277
 F0.75
 sS'2/10 Wolfschmidt(1/2 oz, 2 cl, 1/8 gills)'
-p271
+p278
 F0.5
 sS'1 oz1 oz'
-p272
+p279
+F1.0
+sS'1 ozrum'
+p280
 F1.0
 sS'1/10(1/4 oz, 1 cl, 1/16 gills)'
-p273
+p281
 F0.25
-sS'3/4 ozmint liqueur'
-p274
-F0.75
 sS'1/3 Punch,(1 oz, 3 cl, 1/4 gills)'
-p275
+p282
 F1.0
-sS"3/4 oz Add appleton's Special(2 cl, 3/16 gills)"
-p276
-F0.75
+sS'1/2 ozliqueur'
+p283
+F0.5
 sS'1/2 sweetened(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p277
+p284
 F1.5
 sS'1 1/2 ozScotch liqueur'
-p278
+p285
 F1.5
 sS'3/4 ozIrish whiskey'
-p279
+p286
 F0.75
 sS'4 oz(12 cl, 1 gills)'
-p280
+p287
 F4.0
-sS'2 1/2 ozbitters'
-p281
-F2.5
+sS'2 oz Georgia Moon(6 cl, 1/2 gills)'
+p288
+F2.0
 sS'1/4 ozfalernum'
-p282
+p289
 F0.25
+sS'1 teaspoon of(4 dashes)'
+p290
+F0.125
 sS'Float 2 1/2 oz(7.5 cl, 5/8 gills)'
-p283
+p291
 F2.5
 sS'1 1/4 ozBourbon whiskey'
-p284
+p292
 F1.25
-sS'1 ozsorbet'
-p285
-F1.0
+sS'1 lump ofwater'
+p293
+F0.5
 sS'1 lump(1/2 oz, 1.5 cl, 1/8 gills)'
-p286
+p294
 F0.5
 sS'1 egg 1 tsp(4 dashes)'
-p287
+p295
 F0.125
 sS'1/2 ozbrandy'
-p288
+p296
 F0.5
 sS'1/2 oztriple sec'
-p289
+p297
 F0.5
 sS"1/2 Seager's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p290
+p298
 F1.5
 sS'1 1/2 ozgin'
-p291
-F1.5
-sS'1/2 oz 86 proof(1.5 cl, 1/8 gills)'
-p292
-F0.5
-sS'1/4 ozlemon juice'
-p293
-F0.25
-sS'3/4 oz Demerara 86 proof(2 cl, 3/16 gills)'
-p294
-F0.75
-sS'Muddle 1 orange slice 1 pineapple stick &amp; 1/2 tsp(4 dashes)'
-p295
-I6484
-sS'2/3whisky'
-p296
-F2.0
-sS'3/4 ozBourbon whiskey'
-p297
-F0.75
-sS'3 dashes Blue'
-p298
-I4863
-sS'1/2triple sec'
 p299
 F1.5
-sS'Float 1/4 pat(3/4 oz, 2 cl, 3/16 gills)'
+sS'1/2 oz 86 proof(1.5 cl, 1/8 gills)'
 p300
-F0.75
-sS'1/4 baked(3/4 oz, 2 cl, 3/16 gills)'
+F0.5
+sS'1/4 ozlemon juice'
 p301
-F0.75
-sS'1 drop Elixir China or other(1 dash)'
+F0.25
+sS'3/4 oz Demerara 86 proof(2 cl, 3/16 gills)'
 p302
-I1621
-sS'3/4 ozbourbon'
-p303
 F0.75
-sS'2 oz boiling(6 cl, 1/2 gills)'
+sS'Muddle 1 orange slice 1 pineapple stick &amp; 1/2 tsp(4 dashes)'
+p303
+F0.125
+sS'2/3whisky'
 p304
 F2.0
-sS'3/4 oz dry(2 cl, 3/16 gills)'
+sS'3/4 ozBourbon whiskey'
 p305
 F0.75
-sS'2 dashesmaraschino'
+sS'3 dashes Blue'
 p306
-I3242
-sS'1 ozcherry'
+F0.09375
+sS'1/2triple sec'
 p307
-F1.0
-sS'1 3/4 oz Polish(5 cl, 7/16 gills)'
+F1.5
+sS'Float 1/4 pat(3/4 oz, 2 cl, 3/16 gills)'
 p308
-F1.75
-sS'1/2 ozsweet vermouth'
+F0.75
+sS'1/4 baked(3/4 oz, 2 cl, 3/16 gills)'
 p309
-F0.5
-sS'6/16(1 1/4 oz, 3.5 cl, 5/16 gills)'
+F0.75
+sS'1 drop Elixir China or other(1 dash)'
 p310
-F1.25
-sS'1 Glass(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.03125
+sS'3/4 ozbourbon'
 p311
-F0.5
-sS'2/10Noilly Prat'
+F0.75
+sS'2 oz boiling(6 cl, 1/2 gills)'
 p312
-F0.5
-sS'1/4 pound(3/4 oz, 2 cl, 3/16 gills)'
+F2.0
+sS'3/4 oz dry(2 cl, 3/16 gills)'
 p313
 F0.75
-sS'4 oz tawny(12 cl, 1 gills)'
+sS'2 dashesmaraschino'
 p314
-F4.0
-sS'1/8grenadine'
+F0.0625
+sS'1 ozcherry'
 p315
-F0.5
-sS'2 1/4 ozBourbon whiskey'
+F1.0
+sS'1/3Noilly Prat'
 p316
-F2.25
-sS'1 dashPeychaud'
+F1.0
+sS'1/2 ozsweet vermouth'
 p317
-I1621
-sS'Float 151(75 1/2 oz, 223.5 cl, 18 7/8 gills)'
-p318
 F0.5
-sS'1 tsp1 tsp'
+sS'6/16(1 1/4 oz, 3.5 cl, 5/16 gills)'
+p318
+F1.25
+sS'1 Glass(1/2 oz, 1.5 cl, 1/8 gills)'
 p319
-F0.125
-sS'The juice of 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F0.5
+sS'2/10Noilly Prat'
 p320
-F1.5
-sS'1/10Noilly Prat'
+F0.5
+sS'1/4 pound(3/4 oz, 2 cl, 3/16 gills)'
 p321
-F0.25
-sS'3/4 ozgin'
-p322
 F0.75
-sS'1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'2 sprigs(1 oz, 3 cl, 1/4 gills)'
+p322
+F1.0
+sS'1/8grenadine'
 p323
 F0.5
-sS'Muddle 3 sprigs(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'2 1/4 ozBourbon whiskey'
 p324
-F1.5
-sS'1 dash of White of'
+F2.25
+sS'1 glassCanadian Club whisky'
 p325
-I1621
-sS'1/5 dark(1/2 oz, 2 cl, 1/8 gills)'
+F2.0
+sS'1 tsp1 tsp'
 p326
-F0.5
-sS'1/2brandy'
+F0.125
+sS'The juice of 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p327
 F1.5
-sS'Fill with 2 oz(6 cl, 1/2 gills)'
+sS'1/10Noilly Prat'
 p328
-F2.0
-sS'1 ounce(3 cl, 1/4 gills)'
+F0.25
+sS'3/4 ozgin'
 p329
-F1.0
-sS'1/2 ozlime juice'
+F0.75
+sS'1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p330
 F0.5
-sS'1/4 oz light(6 dashes, 1/16 gills)'
+sS'Muddle 3 sprigs(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p331
+F1.5
+sS'1 oz dark(3 cl, 1/4 gills)'
+p332
+F1.0
+sS'1/5 dark(1/2 oz, 2 cl, 1/8 gills)'
+p333
+F0.5
+sS'1/2brandy'
+p334
+F1.5
+sS'Fill with 2 oz(6 cl, 1/2 gills)'
+p335
+F2.0
+sS'1 ounce(3 cl, 1/4 gills)'
+p336
+F1.0
+sS'1/2 ozlime juice'
+p337
+F0.5
+sS'1/4 oz light(6 dashes, 1/16 gills)'
+p338
 F0.25
 sS'1/2 oz light(1.5 cl, 1/8 gills)'
-p332
+p339
 F0.5
 sS'3 dashes ofstrawberry'
-p333
-I4863
+p340
+F0.09375
 sS'1 tsplemon twist'
-p334
+p341
 F0.125
 sS'1/10Cordial'
-p335
+p342
 F0.25
-sS'1/4 oz grenadine in glass strain mixing glass over(9 cl, 3/4 gills)'
-p336
-F0.25
-sS'3/4 ozCognac'
-p337
-F0.75
+sS'2/3Calvados'
+p343
+F2.0
 sS'Pour into small glass 1 teaspoonful(4 dashes)'
-p338
+p344
 F0.125
 sS'2 ounces(6 cl, 1/2 gills)'
-p339
-F2.0
-sS'2/3(2 oz, 6 cl, 1/2 gills)'
-p340
+p345
 F2.0
 sS'1/3Courvoisier'
-p341
-F1.0
-sS'8/16(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p342
-F1.5
-sS'3/4 Martini(2 1/4 oz, 6.5 cl, 9/16 gills)'
-p343
-F2.25
-sS'1/9(1/4 oz, 1 cl, 1/16 gills)'
-p344
-F0.25
-sS'1 tspliqueur'
-p345
-F0.125
-sS'1 1/2 ozJamaica rum'
 p346
-F1.5
-sS'1 ozCognac'
-p347
 F1.0
-sS'1/2 oz dark(1.5 cl, 1/8 gills)'
+sS'1 1/2 oz Smirnoff(4.5 cl, 3/8 gills)'
+p347
+F1.5
+sS'Insert 1 entire(1/2 oz, 1.5 cl, 1/8 gills)'
 p348
 F0.5
-sS'8 ozcoffee'
+sS'3/4 Martini(2 1/4 oz, 6.5 cl, 9/16 gills)'
 p349
-F8.0
-sS'1 3/4 oz dry(5 cl, 7/16 gills)'
+F2.25
+sS'1/9(1/4 oz, 1 cl, 1/16 gills)'
 p350
-F1.75
-sS'Fill 1/2 with(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F0.25
+sS'1 tspliqueur'
 p351
-F1.5
-sS"3/8 Garnier'sbrandy"
+F0.125
+sS'1 1/2 ozJamaica rum'
 p352
-F1.25
-sS'1 1/2 ozliquor'
+F1.5
+sS'1 ozCognac'
 p353
-F1.5
-sS"3/6 Seagram'swhisky"
-p354
-F1.5
-sS'1/3Cordial'
-p355
 F1.0
-sS'1/4 ozgrenadine'
+sS'1/2 oz dark(1.5 cl, 1/8 gills)'
+p354
+F0.5
+sS'8 ozcoffee'
+p355
+F8.0
+sS'Float 1/2 ozKahlua'
 p356
-F0.25
-sS'1/4 oztriple sec'
+F0.5
+sS'1 ozapple brandy'
 p357
-F0.25
-sS'1/2 London(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F1.0
+sS'Fill 1/2 with(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p358
 F1.5
-sS'1 yolk of new laid(1/2 oz, 1.5 cl, 1/8 gills)'
+sS'3 dashes Brown'
 p359
-F0.5
-sS"2/5 Booth's(1 1/4 oz, 3.5 cl, 5/16 gills)"
+F0.09375
+sS"3/8 Garnier'sbrandy"
 p360
 F1.25
-sS'2water'
+sS'1 1/2 ozliquor'
 p361
+F1.5
+sS"3/6 Seagram'swhisky"
+p362
+F1.5
+sS'1/3Cordial'
+p363
+F1.0
+sS'1/4 ozgrenadine'
+p364
+F0.25
+sS'1/4 oztriple sec'
+p365
+F0.25
+sS'1 yolk of new laid(1/2 oz, 1.5 cl, 1/8 gills)'
+p366
+F0.5
+sS"2/5 Booth's(1 1/4 oz, 3.5 cl, 5/16 gills)"
+p367
+F1.25
+sS'2water'
+p368
 F1.0
 sS'Place 4 slices ripe(2 oz, 6 cl, 1/2 gills)'
-p362
+p369
 F2.0
 sS'1/2 oz Duff Gordon Amontillado(1.5 cl, 1/8 gills)'
-p363
+p370
 F0.5
 sS'Beat 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p364
+p371
 F0.5
 sS'2 oz cold black(6 cl, 1/2 gills)'
-p365
-F2.0
-sS'1 oz 86 \xc2\xb0(3 cl, 1/4 gills)'
-p366
-F1.0
-sS'3/10Courvoisier'
-p367
-F1.0
-sS'1 slice fresh(1/2 oz, 1.5 cl, 1/8 gills)'
-p368
-F0.5
-sS"4/10 Seagram's(1 1/4 oz, 3.5 cl, 5/16 gills)"
-p369
-F1.25
-sS'1/3 151(75 3/4 oz, 224 cl, 18 15/16 gills)'
-p370
-F0.75
-sS'Serve with 2 slices fresh(1 oz, 3 cl, 1/4 gills)'
-p371
-F1.0
-sS'2 ozgin'
 p372
 F2.0
-sS'1 1/2 oz(4.5 cl, 3/8 gills)'
+sS'1 oz 86 \xc2\xb0(3 cl, 1/4 gills)'
 p373
-F1.5
-sS'Float 1 dash'
+F1.0
+sS'3/10Courvoisier'
 p374
-I1621
-sS'3/4 oz Addfresh lemon juice'
+F1.0
+sS'1 slice fresh(1/2 oz, 1.5 cl, 1/8 gills)'
 p375
-F0.75
-sS'1 1/4 oz St Croix(3.5 cl, 5/16 gills)'
+F0.5
+sS"4/10 Seagram's(1 1/4 oz, 3.5 cl, 5/16 gills)"
 p376
 F1.25
-sS'1 1/2 oz light(4.5 cl, 3/8 gills)'
+sS'1/3 151(75 3/4 oz, 224 cl, 18 15/16 gills)'
 p377
+F0.75
+sS'2 ozgin'
+p378
+F2.0
+sS'1 1/2 oz(4.5 cl, 3/8 gills)'
+p379
+F1.5
+sS'Float 1 dash'
+p380
+F0.03125
+sS'3/4 oz Addfresh lemon juice'
+p381
+F0.75
+sS'1 1/4 oz St Croix(3.5 cl, 5/16 gills)'
+p382
+F1.25
+sS'1 1/2 oz light(4.5 cl, 3/8 gills)'
+p383
 F1.5
 sS'1/1 Martini(1/2 oz, 1.5 cl, 1/8 gills)'
-p378
+p384
 F0.5
-sS'1/4grenadine'
-p379
-F0.75
+sS'3 dashes Danzig'
+p385
+F0.09375
 sS'1/4 oz dry(6 dashes, 1/16 gills)'
-p380
+p386
 F0.25
 sS'1 3/4 ozvodka'
-p381
+p387
 F1.75
 sS'( 1/2 oz1/2 oz'
-p382
+p388
 F0.5
-sS'3/4 oz(2 cl, 3/16 gills)'
-p383
-F0.75
+sS'1 3/4 ozrye'
+p389
+F1.75
 sS'1 Teaspoon(1/2 oz, 1.5 cl, 1/8 gills)'
-p384
+p390
 F0.125
 sS'1 3/4 oz Red(5 cl, 7/16 gills)'
-p385
+p391
 F1.75
 sS'3/4Calvados'
-p386
+p392
 F2.25
 sS'11'
-p387
-F0.5
-sS'2 ozbrandy'
-p388
-F2.0
-sS'4 sprigswater'
-p389
-F2.0
-sS"1/5 Gordon's(1/2 oz, 2 cl, 1/8 gills)"
-p390
-F0.5
-sS'1/4 freshlemon juice'
-p391
-F0.75
-sS'1/3 light(1 oz, 3 cl, 1/4 gills)'
-p392
-F1.0
-sS'1 scoop(1/2 oz, 1.5 cl, 1/8 gills)'
 p393
 F0.5
-sS'3/8(1 1/4 oz, 3.5 cl, 5/16 gills)'
+sS'2 ozbrandy'
 p394
-F1.25
-sS'2 ozold tom'
+F2.0
+sS'4 sprigswater'
 p395
 F2.0
-sS'2 1/2 ozOjen'
+sS"1/5 Gordon's(1/2 oz, 2 cl, 1/8 gills)"
 p396
-F2.5
-sS'1 oz fresh(3 cl, 1/4 gills)'
+F0.5
+sS'1/4 freshlemon juice'
 p397
-F1.0
-sS'1 tspmint sprigs'
+F0.75
+sS'1/3 light(1 oz, 3 cl, 1/4 gills)'
 p398
-F0.125
-sS'1 oz (Polish)(3 cl, 1/4 gills)'
+F1.0
+sS'1 tablespoon(1.5 cl, 1/8 gills)'
 p399
-F1.0
-sS'1 liqueur glass(3 cl, 1/4 gills)'
+F0.5
+sS'1 scoop(1/2 oz, 1.5 cl, 1/8 gills)'
 p400
-F1.0
-sS'1 1/2 ozOld Tom gin'
+F0.5
+sS'3/8(1 1/4 oz, 3.5 cl, 5/16 gills)'
 p401
-F1.5
-sS'4 freshPeach slices'
+F1.25
+sS'2 ozold tom'
 p402
 F2.0
-sS"2/3 Seagram's(2 oz, 6 cl, 1/2 gills)"
+sS'2 1/2 ozOjen'
 p403
-F2.0
-sS'1/2 ozlemon juice'
-p404
-F0.5
-sS'1/8syrup'
-p405
-F0.5
-sS'1/2 oz(1.5 cl, 1/8 gills)'
-p406
-F0.5
-sS'1/2 ozlemon'
-p407
-F0.5
-sS'2 1/2 ozdry vermouth'
-p408
 F2.5
-sS'2 drops(1 dash)'
+sS'1 oz fresh(3 cl, 1/4 gills)'
+p404
+F1.0
+sS'1 tspmint sprigs'
+p405
+F0.125
+sS'1 oz (Polish)(3 cl, 1/4 gills)'
+p406
+F1.0
+sS'1 liqueur glass(3 cl, 1/4 gills)'
+p407
+F1.0
+sS'1 1/2 oz citrus(4.5 cl, 3/8 gills)'
+p408
+F1.5
+sS'4 freshPeach slices'
 p409
-I1621
-sS'Stir with 2 ozsoda'
+F2.0
+sS"2/3 Seagram's(2 oz, 6 cl, 1/2 gills)"
 p410
 F2.0
-sS'1 1/2 ozBourbon whiskey'
+sS'1/2 ozlemon juice'
 p411
-F1.5
-sS'1 3/4 oz(5 cl, 7/16 gills)'
+F0.5
+sS'1/8syrup'
 p412
-F1.75
-sS'1 lump ofAngostura bitters'
+F0.5
+sS'1/2 oz(1.5 cl, 1/8 gills)'
 p413
 F0.5
-sS'4 to 6(2 oz, 6 cl, 1/2 gills)'
+sS'2 1/2 ozdry vermouth'
 p414
-F2.0
-sS'1/2 ozmint'
+F2.5
+sS'2 drops(1 dash)'
 p415
-F0.5
-sS'1/4 tsp(1 dash)'
+F0.03125
+sS'Stir with 2 ozsoda'
 p416
-I1621
-sS'1/4 Castillon Three Star(3/4 oz, 2 cl, 3/16 gills)'
+F2.0
+sS'1 1/2 ozBourbon whiskey'
 p417
-F0.75
-sS'1/4liqueur'
+F1.5
+sS'1 3/4 oz(5 cl, 7/16 gills)'
 p418
-F0.75
-sS'4 dashes'
+F1.75
+sS'1 lump ofAngostura bitters'
 p419
-I6484
-sS'3/4 ozgrenadine'
+F0.5
+sS'4 to 6(2 oz, 6 cl, 1/2 gills)'
 p420
-F0.75
-sS'2 ozanisette'
-p421
 F2.0
-sS'2/8(3/4 oz, 2 cl, 3/16 gills)'
-p422
-F0.75
-sS'1/4 ozstrawberry liqueur'
-p423
-F0.25
-sS'1 or 2 dashes'
-p424
-I3242
-sS'1/4 tspwater'
-p425
-I1621
-sS'2/3 Dry(2 oz, 6 cl, 1/2 gills)'
-p426
-F2.0
-sS'1 oz Mt Gay(3 cl, 1/4 gills)'
-p427
-F1.0
-sS'3/4 oz Amontillado(2 cl, 3/16 gills)'
-p428
-F0.75
-sS'Squeeze 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p429
-F1.5
-sS'3/4 ozapple brandy'
-p430
-F0.75
-sS'4 1/2 oz(13.5 cl, 1 1/8 gills)'
-p431
-F4.5
-sS'2 ozrye whiskey'
-p432
-F2.0
-sS'Stir 1 ozegg'
-p433
-F1.0
-sS'1 3/4 ozbourbon'
-p434
-F1.75
-sS'1/4 ozpimento dram'
-p435
-F0.25
-sS'1/9 Sweet(1/4 oz, 1 cl, 1/16 gills)'
-p436
-F0.25
-sS'1 "chunk" baked(1/2 oz, 1.5 cl, 1/8 gills)'
-p437
-F0.5
-sS'Stir in mixing glass with ice &amp; strain 1 oz(35.5 cl, 3 gills)'
-p438
-F1.0
-sS'8(4 oz, 12 cl, 1 gills)'
-p439
-F4.0
-sS'1/4Courvoisier'
-p440
-F0.75
-sS'1/4 ozYellow Chartreuse'
-p441
-F0.25
-sS'3/4 oz Yellow or(2 cl, 3/16 gills)'
-p442
-F0.75
-sS'1/5(1/2 oz, 2 cl, 1/8 gills)'
-p443
-F0.5
-sS"7/10 Booth's(2 oz, 6 cl, 1/2 gills)"
-p444
-F2.0
-sS'Muddle 2 tsp(1 cl, 1/16 gills)'
-p445
-F0.25
-sS'1 splash(6 dashes, 1/16 gills)'
-p446
-I9726
-sS'2 sprigs tender(1 oz, 3 cl, 1/4 gills)'
-p447
-F1.0
-sS'Fill 2/3 with(2 oz, 6 cl, 1/2 gills)'
-p448
-F2.0
-sS'1/3 Wolfschmidt(1 oz, 3 cl, 1/4 gills)'
-p449
-F1.0
-sS'1/4Calvados'
-p450
-F0.75
-sS'Place 1/2cherry'
-p451
-F2.0
-sS'1/3 Silver Top(1 oz, 3 cl, 1/4 gills)'
-p452
-F1.0
-sS'2 ozsugar'
-p453
-F2.0
-sS'Add 2 3(2 1/2 oz, 7.5 cl, 5/8 gills)'
-p454
-F2.5
-sS'1/2 ozGalliano'
-p455
-F0.5
-sS'1/4vermouth'
-p456
-F0.75
-sS'5/8(2 oz, 5.5 cl, 1/2 gills)'
-p457
-F2.0
-sS'1 1/2 oz black(4.5 cl, 3/8 gills)'
-p458
-F1.5
-sS'2 tsp(1 cl, 1/16 gills)'
-p459
-F0.25
-sS'1/2 tsplime juice'
-p460
-I3242
-sS'1 1/2 ozapple juice'
-p461
-F1.5
-sS'1 1/2 ozScotch'
-p462
-F1.5
-sS'1/5 Martini(1/2 oz, 2 cl, 1/8 gills)'
-p463
-F0.5
-sS'1/2 ozpeach syrup'
-p464
-F0.5
-sS'1 Dash(1/2 oz, 1.5 cl, 1/8 gills)'
-p465
-I1621
-sS'1 Teaspoonful(1/2 oz, 1.5 cl, 1/8 gills)'
-p466
-F0.5
-sS'1/4whisky'
-p467
-F0.75
-sS'1/4 ozgreen Chartreuse'
-p468
-F0.25
-sS'1 teaspoonful(4 dashes)'
-p469
-F0.125
-sS'Float 1 1/2 ozCreme Yvette'
-p470
-F1.5
-sS'3/7(1 1/4 oz, 4 cl, 5/16 gills)'
-p471
-F1.25
-sS'3 ozeau de vie'
-p472
-F3.0
-sS'1/4fruit'
-p473
-F0.75
-sS'2 drops of(1 dash)'
-p474
-I1621
-sS'1/2 with chilled(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p475
-F1.5
-sS'1 1/2 oz darkKahlua'
-p476
-F1.5
-sS'1/4 Martini(3/4 oz, 2 cl, 3/16 gills)'
-p477
-F0.75
-sS'1 ozrye'
-p478
-F1.0
-sS'2 1/2 oz chilled(7.5 cl, 5/8 gills)'
-p479
-F2.5
-sS'1 glass Daiquiri(1/2 oz, 1.5 cl, 1/8 gills)'
-p480
-F0.5
-sS'2/6 Martini(1 oz, 3 cl, 1/4 gills)'
-p481
-F1.0
-sS'Add 1 1/2 oz(4.5 cl, 3/8 gills)'
-p482
-F1.5
-sS'Add 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p483
-F1.5
-sS'2 1/2 oz(7.5 cl, 5/8 gills)'
-p484
-F2.5
-sS'1 pinch of ground(1/2 oz, 1.5 cl, 1/8 gills)'
-p485
-F0.5
-sS'2 oz strong(6 cl, 1/2 gills)'
-p486
-F2.0
-sS"2/3 Booth's(2 oz, 6 cl, 1/2 gills)"
-p487
-F2.0
-sS'1/2 Allasch,(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p488
-F1.5
-sS'Muddle 3 more(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p489
-F1.5
-sS"1/6 Pollen's White(1/2 oz, 1.5 cl, 1/8 gills)"
-p490
-F0.5
-sS'1 ozeau de vie'
-p491
-F1.0
-sS'1/3rye'
-p492
-F1.0
-sS'1/4 ozDrambuie'
-p493
-F0.25
-sS'3/4 ozdry vermouth'
-p494
-F0.75
-sS'1 1/4 oz(3.5 cl, 5/16 gills)'
-p495
-F1.25
-sS'1/8 Latvianvodka'
-p496
-F0.5
-sS'Float 1/4 ozcream'
-p497
-F0.25
-sS'5 dashes'
-p498
-I8105
-sS'1/2apple brandy'
-p499
-F1.5
-sS'1/8 Martini(1/2 oz, 1 cl, 1/8 gills)'
-p500
-F0.5
-sS'2 oz Oloroso(6 cl, 1/2 gills)'
-p501
-F2.0
-sS"6/10 Seagers'(1 3/4 oz, 5.5 cl, 7/16 gills)"
-p502
-F1.75
-sS'1/4 oz white(6 dashes, 1/16 gills)'
-p503
-F0.25
-sS'3/16(1/2 oz, 1.5 cl, 1/8 gills)'
-p504
-F0.5
-sS'2/3 Dry Martini(2 oz, 6 cl, 1/2 gills)'
-p505
-F2.0
-sS'1/2 ozgrenadine'
-p506
-F0.5
-sS'1 ozapplejack'
-p507
-F1.0
-sS'1 ounce Baileys(3 cl, 1/4 gills)'
-p508
-F1.0
-sS'2 oz Georgia Moon(6 cl, 1/2 gills)'
-p509
-F2.0
-sS'1 oz cold black(3 cl, 1/4 gills)'
-p510
-F1.0
-sS'3 dashes Brown'
-p511
-I4863
-sS'1/5 white(1/2 oz, 2 cl, 1/8 gills)'
-p512
-F0.5
-sS'1/2 lump(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p513
-F1.5
-sS"1/6Rose's"
-p514
-F0.5
-sS'1 teaspoon Powdered(4 dashes)'
-p515
-F0.125
-sS'2/3Calvados'
-p516
-F2.0
-sS'2 ozhalf &amp; half'
-p517
-F2.0
-sS'1/2 oz amontillado(1.5 cl, 1/8 gills)'
-p518
-F0.5
-sS'1 oz white(3 cl, 1/4 gills)'
-p519
-F1.0
-sS'6 drops(1 dash)'
-p520
-I1621
-sS'3/4 oz Red(2 cl, 3/16 gills)'
-p521
-F0.75
-sS'3 dashes Danzig'
-p522
-I4863
-sS'1 tbsp(1.5 cl, 1/8 gills)'
-p523
-F0.5
-sS'1/8 of a(1/2 oz, 1 cl, 1/8 gills)'
-p524
-F0.5
-sS'2/10 Martini(1/2 oz, 2 cl, 1/8 gills)'
-p525
-F0.5
-sS'1 1/2 ozdark rum'
-p526
-F1.5
-sS'1 measure of(1/2 oz, 1.5 cl, 1/8 gills)'
-p527
-F0.5
 sS'1/6 San Silvestro(1/2 oz, 1.5 cl, 1/8 gills)'
-p528
-F0.5
-sS'1/4 White(3/4 oz, 2 cl, 3/16 gills)'
-p529
-F0.75
-sS'Shake in iced cocktail shaker &amp; strain 1 oz(3 cl, 1/4 gills)'
-p530
-F1.0
-sS'5 or 6(2 1/2 oz, 7.5 cl, 5/8 gills)'
-p531
-F2.5
-sS'2 1/4 oz(6.5 cl, 9/16 gills)'
-p532
-F2.25
-sS'1/4banana liqueur'
-p533
-F0.75
-sS'2 dashesPernod'
-p534
-I3242
-sS'( 1 dash oflime'
-p535
-I1621
-sS'2 or 3garnish'
-p536
-F1.0
-sS'1/3bourbon whisky'
-p537
-F1.0
-sS'1 3/4 ozrye'
-p538
-F1.75
-sS'2/3 with(2 oz, 6 cl, 1/2 gills)'
-p539
-F2.0
-sS'1 1/4 ozdry vermouth'
-p540
-F1.25
-sS'1 tspstrawberry syrup'
-p541
-F0.125
-sS'1/2 ozCalvados'
-p542
-F0.5
-sS'1/4Vat 69'
-p543
-F0.75
-sS'1/10 White(1/4 oz, 1 cl, 1/16 gills)'
-p544
-F0.25
-sS'2 DROPS(1 oz, 3 cl, 1/4 gills)'
-p545
-F1.0
-sS'1/2Johnnie Walker'
-p546
-F1.5
-sS'1 lump oftea'
-p547
+p421
 F0.5
 sS'4/5whisky'
-p548
+p422
 F2.5
-sS'1/2 liqueur glass of(1.5 cl, 1/8 gills)'
-p549
-F0.5
-sS'1 1/2 tsp(1 cl, 1/16 gills)'
-p550
-I9726
-sS'3/7 Dry(1 1/4 oz, 4 cl, 5/16 gills)'
-p551
-F1.25
-sS"5/8 Gordon's(2 oz, 5.5 cl, 1/2 gills)"
-p552
-F2.0
-sS'1/2 glasswhisky'
-p553
+sS'1/4 tsp(1 dash)'
+p423
+F0.03125
+sS'Leave 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p424
 F1.5
-sS'3/4 ozpastis'
-p554
+sS'1/4 Castillon Three Star(3/4 oz, 2 cl, 3/16 gills)'
+p425
 F0.75
-sS'2 measures(1 oz, 3 cl, 1/4 gills)'
-p555
-F1.0
-sS'1/3anisette'
-p556
-F1.0
-sS'1 tspsugar'
-p557
+sS'1/4liqueur'
+p426
+F0.75
+sS'4 dashes'
+p427
 F0.125
-sS'Hollow out 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'3/4 ozgrenadine'
+p428
+F0.75
+sS'2 ozanisette'
+p429
+F2.0
+sS'1/4 Powdered(3/4 oz, 2 cl, 3/16 gills)'
+p430
+F0.75
+sS'2/8(3/4 oz, 2 cl, 3/16 gills)'
+p431
+F0.75
+sS'1/4 ozstrawberry liqueur'
+p432
+F0.25
+sS'1 or 2 dashes'
+p433
+F0.0625
+sS'1/4 tspwater'
+p434
+F0.03125
+sS'2/3 Dry(2 oz, 6 cl, 1/2 gills)'
+p435
+F2.0
+sS'1 1/2 ounces citrus(4.5 cl, 3/8 gills)'
+p436
+F1.5
+sS'3/4 oz Amontillado(2 cl, 3/16 gills)'
+p437
+F0.75
+sS'Squeeze 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p438
+F1.5
+sS'3/4 ozapple brandy'
+p439
+F0.75
+sS'2 ozrye whiskey'
+p440
+F2.0
+sS'Stir 1 ozegg'
+p441
+F1.0
+sS'1 3/4 ozbourbon'
+p442
+F1.75
+sS'1/4 ozpimento dram'
+p443
+F0.25
+sS'1/9 Sweet(1/4 oz, 1 cl, 1/16 gills)'
+p444
+F0.25
+sS'1 "chunk" baked(1/2 oz, 1.5 cl, 1/8 gills)'
+p445
+F0.5
+sS'Stir in mixing glass with ice &amp; strain 1 oz(35.5 cl, 3 gills)'
+p446
+F1.0
+sS'8(4 oz, 12 cl, 1 gills)'
+p447
+F4.0
+sS'1/4Courvoisier'
+p448
+F0.75
+sS'1/4 ozYellow Chartreuse'
+p449
+F0.25
+sS'3/4 oz Yellow or(2 cl, 3/16 gills)'
+p450
+F0.75
+sS'1/5(1/2 oz, 2 cl, 1/8 gills)'
+p451
+F0.5
+sS"7/10 Booth's(2 oz, 6 cl, 1/2 gills)"
+p452
+F2.0
+sS'Muddle 2 tsp(1 cl, 1/16 gills)'
+p453
+F0.25
+sS'1 splash(6 dashes, 1/16 gills)'
+p454
+F0.1875
+sS'2 sprigs tender(1 oz, 3 cl, 1/4 gills)'
+p455
+F1.0
+sS'Fill 2/3 with(2 oz, 6 cl, 1/2 gills)'
+p456
+F2.0
+sS'1 sprig(1/2 oz, 1.5 cl, 1/8 gills)'
+p457
+F0.5
+sS'1/4Calvados'
+p458
+F0.75
+sS'Place 1/2cherry'
+p459
+F2.0
+sS'1/3 Silver Top(1 oz, 3 cl, 1/4 gills)'
+p460
+F1.0
+sS'2 ozsugar'
+p461
+F2.0
+sS'Add 2 3(2 1/2 oz, 7.5 cl, 5/8 gills)'
+p462
+F2.5
+sS'1/2 ozGalliano'
+p463
+F0.5
+sS'1/4vermouth'
+p464
+F0.75
+sS'5/8(2 oz, 5.5 cl, 1/2 gills)'
+p465
+F2.0
+sS'1 1/2 oz black(4.5 cl, 3/8 gills)'
+p466
+F1.5
+sS'2 tsp(1 cl, 1/16 gills)'
+p467
+F0.25
+sS'The juice of 11'
+p468
+F0.5
+sS'2 ozOld Tom gin'
+p469
+F2.0
+sS'1 1/2 ozScotch'
+p470
+F1.5
+sS'1/5 Martini(1/2 oz, 2 cl, 1/8 gills)'
+p471
+F0.5
+sS'1/2 ozpeach syrup'
+p472
+F0.5
+sS'1 Dash(1/2 oz, 1.5 cl, 1/8 gills)'
+p473
+F0.03125
+sS'1 Teaspoonful(1/2 oz, 1.5 cl, 1/8 gills)'
+p474
+F0.5
+sS'1/4whisky'
+p475
+F0.75
+sS'1/4 ozgreen Chartreuse'
+p476
+F0.25
+sS'Float 1 1/2 ozCreme Yvette'
+p477
+F1.5
+sS'1 1/4 ozbourbon'
+p478
+F1.25
+sS'6 oz(18 cl, 1 1/2 gills)'
+p479
+F6.0
+sS'1/4fruit'
+p480
+F0.75
+sS'1/2 ozlemon'
+p481
+F0.5
+sS'1/6 Martini(1/2 oz, 1.5 cl, 1/8 gills)'
+p482
+F0.5
+sS'1 ozcream'
+p483
+F1.0
+sS'1/4 Martini(3/4 oz, 2 cl, 3/16 gills)'
+p484
+F0.75
+sS'1 ozrye'
+p485
+F1.0
+sS'2 1/2 oz chilled(7.5 cl, 5/8 gills)'
+p486
+F2.5
+sS'1 glass Daiquiri(1/2 oz, 1.5 cl, 1/8 gills)'
+p487
+F0.5
+sS'2 drops of(1 dash)'
+p488
+F0.03125
+sS'Add 1 1/2 oz(4.5 cl, 3/8 gills)'
+p489
+F1.5
+sS'Add 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p490
+F1.5
+sS'2 1/2 oz(7.5 cl, 5/8 gills)'
+p491
+F2.5
+sS'1 pinch of ground(1/2 oz, 1.5 cl, 1/8 gills)'
+p492
+F0.5
+sS'2 oz strong(6 cl, 1/2 gills)'
+p493
+F2.0
+sS"2/3 Booth's(2 oz, 6 cl, 1/2 gills)"
+p494
+F2.0
+sS'1/2 Allasch,(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p495
+F1.5
+sS'Muddle 3 more(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p496
+F1.5
+sS"1/6 Pollen's White(1/2 oz, 1.5 cl, 1/8 gills)"
+p497
+F0.5
+sS'1 ozeau de vie'
+p498
+F1.0
+sS'1/3rye'
+p499
+F1.0
+sS'1/2 fresh(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p500
+F1.5
+sS'3/4 ozdry vermouth'
+p501
+F0.75
+sS'1/4 fresh(3/4 oz, 2 cl, 3/16 gills)'
+p502
+F0.75
+sS'1 Hershey\xe2\x80\x99s Hug, for(1/2 oz, 1.5 cl, 1/8 gills)'
+p503
+F0.5
+sS'1/8 Latvianvodka'
+p504
+F0.5
+sS'1/10 White(1/4 oz, 1 cl, 1/16 gills)'
+p505
+F0.25
+sS'1/2apple brandy'
+p506
+F1.5
+sS'1/8 Martini(1/2 oz, 1 cl, 1/8 gills)'
+p507
+F0.5
+sS"6/10 Seagers'(1 3/4 oz, 5.5 cl, 7/16 gills)"
+p508
+F1.75
+sS'1/4 oz white(6 dashes, 1/16 gills)'
+p509
+F0.25
+sS'5 oz(15 cl, 1 1/4 gills)'
+p510
+F5.0
+sS'2/3 Dry Martini(2 oz, 6 cl, 1/2 gills)'
+p511
+F2.0
+sS'1/2 ozgrenadine'
+p512
+F0.5
+sS'1 ozapplejack'
+p513
+F1.0
+sS'1 ounce Baileys(3 cl, 1/4 gills)'
+p514
+F1.0
+sS'2 1/2 ozbitters'
+p515
+F2.5
+sS'1 oz cold black(3 cl, 1/4 gills)'
+p516
+F1.0
+sS'1/2 London(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p517
+F1.5
+sS'1/5 white(1/2 oz, 2 cl, 1/8 gills)'
+p518
+F0.5
+sS'1/2 lump(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p519
+F1.5
+sS"1/6Rose's"
+p520
+F0.5
+sS'1 teaspoon Powdered(4 dashes)'
+p521
+F0.125
+sS'3/4 ozCognac'
+p522
+F0.75
+sS'2 ozhalf &amp; half'
+p523
+F2.0
+sS'1/2 oz amontillado(1.5 cl, 1/8 gills)'
+p524
+F0.5
+sS'1 oz white(3 cl, 1/4 gills)'
+p525
+F1.0
+sS'6 drops(1 dash)'
+p526
+F0.03125
+sS'3/4 oz Red(2 cl, 3/16 gills)'
+p527
+F0.75
+sS'1/4grenadine'
+p528
+F0.75
+sS'1 tbsp(1.5 cl, 1/8 gills)'
+p529
+F0.5
+sS'1/3 White(1 oz, 3 cl, 1/4 gills)'
+p530
+F1.0
+sS'1/4 ozlime juice'
+p531
+F0.25
+sS'2/10 Martini(1/2 oz, 2 cl, 1/8 gills)'
+p532
+F0.5
+sS'1 1/2 ozdark rum'
+p533
+F1.5
+sS'1 measure of(1/2 oz, 1.5 cl, 1/8 gills)'
+p534
+F0.5
+sS'1/2 ozmint'
+p535
+F0.5
+sS'4 sprigs(2 oz, 6 cl, 1/2 gills)'
+p536
+F2.0
+sS'2 1/4 oz(6.5 cl, 9/16 gills)'
+p537
+F2.25
+sS'1/4banana liqueur'
+p538
+F0.75
+sS'2 dashesPernod'
+p539
+F0.0625
+sS'( 1 dash oflime'
+p540
+F0.03125
+sS'2 or 3garnish'
+p541
+F1.0
+sS'1/3bourbon whisky'
+p542
+F1.0
+sS'2/3 with(2 oz, 6 cl, 1/2 gills)'
+p543
+F2.0
+sS'1 1/4 ozdry vermouth'
+p544
+F1.25
+sS'1 tspstrawberry syrup'
+p545
+F0.125
+sS'1/2 ozCalvados'
+p546
+F0.5
+sS'3/7 Dry(1 1/4 oz, 4 cl, 5/16 gills)'
+p547
+F1.25
+sS'Float 1/4 ozcream'
+p548
+F0.25
+sS'2 DROPS(1 oz, 3 cl, 1/4 gills)'
+p549
+F1.0
+sS'1/2Johnnie Walker'
+p550
+F1.5
+sS'1 lump oftea'
+p551
+F0.5
+sS'1 1/2 ozbrandy'
+p552
+F1.5
+sS'1/2 tablespoonful Icing(6 dashes, 1/16 gills)'
+p553
+F0.1875
+sS'1 1/2 tsp(1 cl, 1/16 gills)'
+p554
+F0.1875
+sS'1/4Vat 69'
+p555
+F0.75
+sS"5/8 Gordon's(2 oz, 5.5 cl, 1/2 gills)"
+p556
+F2.0
+sS'1 dashbourbon'
+p557
+F0.03125
+sS'1/2 glasswhisky'
 p558
 F1.5
-sS'1/4 oz Red(6 dashes, 1/16 gills)'
+sS'3/4 ozpastis'
 p559
-F0.25
-sS'1/3 Danzig Goldwater ((1 oz, 3 cl, 1/4 gills)'
+F0.75
+sS'2 measures(1 oz, 3 cl, 1/4 gills)'
 p560
 F1.0
-sS'4(2 oz, 6 cl, 1/2 gills)'
+sS'1/3anisette'
 p561
+F1.0
+sS'1 tspsugar'
+p562
+F0.125
+sS'Hollow out 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p563
+F1.5
+sS'1/4 oz Red(6 dashes, 1/16 gills)'
+p564
+F0.25
+sS'1/3 Danzig Goldwater ((1 oz, 3 cl, 1/4 gills)'
+p565
+F1.0
+sS'4(2 oz, 6 cl, 1/2 gills)'
+p566
 F2.0
 sS'Add 2(1 oz, 3 cl, 1/4 gills)'
-p562
+p567
 F1.0
 sS'2 ozapricot'
-p563
+p568
 F2.0
 sS'1/2 ozcherry Kijafa'
-p564
+p569
 F0.5
 sS'1/6syrup'
-p565
-F0.5
-sS'2 1/2 oz hot(7.5 cl, 5/8 gills)'
-p566
-F2.5
-sS'Shake and add a slice of orange and 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p567
-F0.5
-sS'1/5 Hennessey(1/2 oz, 2 cl, 1/8 gills)'
-p568
-F0.5
-sS'2 oz gold or(6 cl, 1/2 gills)'
-p569
-F2.0
-sS'(optional: 1/2 oz(1.5 cl, 1/8 gills)'
 p570
 F0.5
-sS'Add 1 lightly beaten(1/2 oz, 1.5 cl, 1/8 gills)'
+sS'Shake and add a slice of orange and 1(1/2 oz, 1.5 cl, 1/8 gills)'
 p571
 F0.5
-sS'1/2 Clubland White(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'1/5 Hennessey(1/2 oz, 2 cl, 1/8 gills)'
 p572
-F1.5
-sS'1/2 tsptwists'
+F0.5
+sS'(optional: 1/2 oz(1.5 cl, 1/8 gills)'
 p573
 F0.5
-sS'1/3 SilverDer Lachs'
+sS'Add 1 lightly beaten(1/2 oz, 1.5 cl, 1/8 gills)'
 p574
+F0.5
+sS'1/2 Clubland White(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p575
+F1.5
+sS'1/2 tsptwists'
+p576
+F0.5
+sS'1/3 SilverDer Lachs'
+p577
 F1.0
 sS'Place 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p575
+p578
 F0.5
 sS'6 dashes'
-p576
-I9726
+p579
+F0.1875
 sS'1/6 Danzig Silver(1/2 oz, 1.5 cl, 1/8 gills)'
-p577
+p580
 F0.5
 sS'1 dash'
-p578
-I1621
+p581
+F0.03125
 sS'5 dashesorange bitters'
-p579
-I8105
+p582
+F0.15625
 sS'7/10(2 oz, 6 cl, 1/2 gills)'
-p580
+p583
 F2.0
 sS'1/10water'
-p581
+p584
 F0.25
-sS'1/2 ozfresh lemon juice'
-p582
-F0.5
 sS'1/6 Wolfschmidt(1/2 oz, 1.5 cl, 1/8 gills)'
-p583
+p585
 F0.5
 sS'2 dashes of'
-p584
-I3242
-sS'1/2 teaspoonful White of(2 dashes)'
-p585
-I3242
-sS'1/3 dark(1 oz, 3 cl, 1/4 gills)'
 p586
+F0.0625
+sS'1/2 teaspoonful White of(2 dashes)'
+p587
+F0.0625
+sS'2 oz Bacardi(6 cl, 1/2 gills)'
+p588
+F2.0
+sS'1/3 dark(1 oz, 3 cl, 1/4 gills)'
+p589
 F1.0
 sS'Put into a wine glass 1 lump ofAngostura bitters'
-p587
+p590
 F0.5
 sS'Fill glass 1/3 with crushed(1 oz, 3 cl, 1/4 gills)'
-p588
+p591
 F1.0
 sS"1/4 Seagram's(3/4 oz, 2 cl, 3/16 gills)"
-p589
+p592
 F0.75
 sS'2 to 3 teaspoons granulated(1 cl, 1/16 gills)'
-p590
+p593
 F0.25
 sS'1 tsp brown or whitecreme de cacao'
-p591
+p594
 F0.125
 sS'1/2 ozcranberry'
-p592
-F0.5
-sS'1/2 Old(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p593
-F1.5
-sS'1/4 tspgrenadine'
-p594
-I1621
-sS'(or 1 scoop(1/2 oz, 1.5 cl, 1/8 gills)'
 p595
 F0.5
-sS'1 tsp(4 dashes)'
+sS'1/2 Old(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p596
+F1.5
+sS'(or 1 scoop(1/2 oz, 1.5 cl, 1/8 gills)'
+p597
+F0.5
+sS'1 tsp(4 dashes)'
+p598
 F0.125
 sS'1/4 ozraspberry syrup'
-p597
+p599
 F0.25
-sS'4 sprigs(2 oz, 6 cl, 1/2 gills)'
-p598
+sS'2 oz gold or(6 cl, 1/2 gills)'
+p600
 F2.0
 sS"3/8 Booth's(1 1/4 oz, 3.5 cl, 5/16 gills)"
-p599
+p601
 F1.25
-sS"1/2 Hiram Walker's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p600
+sS'Float 1 1/2 ozBourbon whiskey'
+p602
 F1.5
 sS'Juice of 1/2 a small(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p601
+p603
 F1.5
 sS'1 1/4(3/4 oz, 2 cl, 1/8 gills)'
-p602
+p604
 F0.75
 sS'10 dashes'
-p603
-I16210
+p605
+F0.3125
 sS'1/3 Dry(1 oz, 3 cl, 1/4 gills)'
-p604
+p606
 F1.0
 sS'1/2passion fruit juice'
-p605
+p607
 F1.5
 sS'The juice of 1(1/2 oz, 1.5 cl, 1/8 gills)'
-p606
-F0.5
-sS'3 ounces(9 cl, 3/4 gills)'
-p607
-F3.0
-sS'1/6kirsch'
 p608
 F0.5
-sS'1 dash1 dash'
+sS'3 ounces(9 cl, 3/4 gills)'
 p609
-I1621
-sS'3 sprigs(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F3.0
+sS'1/6kirsch'
 p610
+F0.5
+sS'1 dash1 dash'
+p611
+F0.03125
+sS'3 sprigs(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p612
 F1.5
 sS"1 dash Fleur d'"
-p611
-I1621
+p613
+F0.03125
 sS'1/6whisky'
-p612
+p614
 F0.5
 sS'1/2 ozorange juice'
-p613
+p615
 F0.5
 sS'2/3Cognac'
-p614
+p616
 F2.0
 sS"3/10 Booth's(1 oz, 2.5 cl, 1/4 gills)"
-p615
+p617
 F1.0
 sS'1/2 oz dry(1.5 cl, 1/8 gills)'
-p616
+p618
 F0.5
 sS'1 glassCanadian Club whiskey'
-p617
+p619
 F2.0
 sS"2/3 Seagram'swhisky"
-p618
+p620
 F2.0
 sS'1lime'
-p619
-F0.5
-sS'1/3 Dry Martini(1 oz, 3 cl, 1/4 gills)'
-p620
-F1.0
-sS'1/6 Pale(1/2 oz, 1.5 cl, 1/8 gills)'
 p621
 F0.5
-sS'Muddle 3(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'1/3 Dry Martini(1 oz, 3 cl, 1/4 gills)'
 p622
-F1.5
-sS"1/3 Baczewski's Pearl(1 oz, 3 cl, 1/4 gills)"
-p623
 F1.0
-sS'2 ozpastis'
+sS'1/6 Pale(1/2 oz, 1.5 cl, 1/8 gills)'
+p623
+F0.5
+sS'1/2 tsplemon juice'
 p624
-F2.0
-sS'1 teaspoon(4 dashes)'
+F0.0625
+sS'2 ozpastis'
 p625
+F2.0
+sS'2 sticks of(1 oz, 3 cl, 1/4 gills)'
+p626
+F1.0
+sS'1 teaspoon(4 dashes)'
+p627
 F0.125
 sS'Crush 3white creme de menthe'
-p626
-F1.5
-sS'1/4 ozlime juice'
-p627
-F0.25
-sS'2 good dashes'
 p628
-I3242
-sS"2/5 Seager's(1 1/4 oz, 3.5 cl, 5/16 gills)"
+F1.5
+sS'2 good dashes'
 p629
-F1.25
-sS'1/6 Sweet(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.0625
+sS'4/10whisky'
 p630
-F0.5
-sS'1/4 Bullace(3/4 oz, 2 cl, 3/16 gills)'
+F1.25
+sS'1/3 Fockink(1 oz, 3 cl, 1/4 gills)'
 p631
+F1.0
+sS'1/4 Bullace(3/4 oz, 2 cl, 3/16 gills)'
+p632
 F0.75
 sS'1/6 oz(4 dashes)'
-p632
-F0.1666666
-sS'3/4 oz white(2 cl, 3/16 gills)'
 p633
-F0.75
-sS'1/8Heering'
+F0.1666666
+sS'2 lumpswater'
 p634
+F1.0
+sS'1/8Heering'
+p635
 F0.5
 sS'1/2 pat(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p635
-F1.5
-sS'1/2 diced, crushed ripe(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p636
 F1.5
-sS'The juice of 1/4(3/4 oz, 2 cl, 3/16 gills)'
+sS'1/2 diced, crushed ripe(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p637
+F1.5
+sS'The juice of 1/4(3/4 oz, 2 cl, 3/16 gills)'
+p638
 F0.75
 sS'Flame 1 oz(3 cl, 1/4 gills)'
-p638
+p639
 F1.0
 sS'1/2liqueur'
-p639
+p640
 F1.5
 sS'1/7(1/2 oz, 1 cl, 1/8 gills)'
-p640
+p641
 F0.5
 sS'1/41/4'
-p641
+p642
 F0.75
 sS'Add 1/4 oz(6 dashes, 1/16 gills)'
-p642
+p643
 F0.25
 sS'Add 3 dashes of'
-p643
-I4863
-sS'1/2 oz dryDry Sack'
 p644
+F0.09375
+sS'1/2 oz dryDry Sack'
+p645
 F0.5
 sS'3/4 ozbrandy'
-p645
+p646
 F0.75
 sS'1/2bourbon'
-p646
-F1.5
-sS'1/12 Daiquiri(1/4 oz, 5 dashes, 6 dashes)'
 p647
-F0.25
-sS'5/10(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F1.5
+sS'2 lumps(1 oz, 3 cl, 1/4 gills)'
 p648
+F1.0
+sS'5/10(1 1/2 oz, 4.5 cl, 3/8 gills)'
+p649
 F1.5
 sS"2/10Cederlund's"
-p649
+p650
 F0.5
 sS'1/4 ozfresh lemon juice'
-p650
+p651
 F0.25
 sS'1 dessert spoonful sifted(1/2 oz, 1.5 cl, 1/8 gills)'
-p651
-F0.5
-sS'1/3milk'
 p652
-F1.0
-sS'1/2 ozsugar'
+F0.5
+sS'1/2 tsp(2 dashes)'
 p653
-F0.5
-sS'1/8 Bols White(1/2 oz, 1 cl, 1/8 gills)'
+F0.0625
+sS'3/4 oz dark(2 cl, 3/16 gills)'
 p654
-F0.5
-sS'1/2 ozCointreau'
+F0.75
+sS'(optional 1/2 oz(1.5 cl, 1/8 gills)'
 p655
 F0.5
-sS'1/6 Martini &amp; Rossi(1/2 oz, 1.5 cl, 1/8 gills)'
+sS'1/2 light(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p656
+F1.5
+sS'1/6 Martini &amp; Rossi(1/2 oz, 1.5 cl, 1/8 gills)'
+p657
 F0.5
 sS'1 tspwater'
-p657
+p658
 F0.125
 sS'6 tbsp(9 cl, 3/4 gills)'
-p658
+p659
 F3.0
 sS'1/3 Daiquiri(1 oz, 3 cl, 1/4 gills)'
-p659
-F1.0
-sS'1/9 Cusenier(1/4 oz, 1 cl, 1/16 gills)'
 p660
-F0.25
-sS'1 ozMadeira'
+F1.0
+sS'3/4 oz light(2 cl, 3/16 gills)'
 p661
-F1.0
-sS'Add lemon wedge ( 1/2 dipped in1/2'
-p662
-F1.5
-sS'3/4 oz fino(2 cl, 3/16 gills)'
-p663
 F0.75
-sS'1 ozpastis'
-p664
+sS'1 ozMadeira'
+p662
 F1.0
+sS'1/3 Wolfschmidt(1 oz, 3 cl, 1/4 gills)'
+p663
+F1.0
+sS'3/4 oz fino(2 cl, 3/16 gills)'
+p664
+F0.75
 sS'1 tablespoonful(1.5 cl, 1/8 gills)'
 p665
 F0.5
 sS'1/4 peeled(3/4 oz, 2 cl, 3/16 gills)'
 p666
 F0.75
-sS'1/2 ozliqueur'
+sS"3/4 oz Add appleton's Special(2 cl, 3/16 gills)"
 p667
-F0.5
+F0.75
 sS"1/6 Baczewski's Antique(1/2 oz, 1.5 cl, 1/8 gills)"
 p668
 F0.5
-sS'1 lump ofwater'
+sS'1 ozsorbet'
 p669
-F0.5
+F1.0
 sS'1 ozlemon'
 p670
 F1.0
@@ -2017,31 +2017,31 @@ p672
 F1.5
 sS'1 dash Dry'
 p673
-I1621
-sS'1/2 ozPrunella'
+F0.03125
+sS'2 oz Oloroso(6 cl, 1/2 gills)'
 p674
-F0.5
+F2.0
 sS'1/5 light(1/2 oz, 2 cl, 1/8 gills)'
 p675
 F0.5
 sS'1/8 Dry Martini(1/2 oz, 1 cl, 1/8 gills)'
 p676
 F0.5
-sS'2 sprigs(1 oz, 3 cl, 1/4 gills)'
+sS'1/2 ozfresh lemon juice'
 p677
-F1.0
+F0.5
 sS'6/10whisky'
 p678
 F1.75
-sS'1 1/2 oz Smirnoff(4.5 cl, 3/8 gills)'
+sS'1/4 oz grenadine in glass strain mixing glass over(9 cl, 3/4 gills)'
 p679
-F1.5
+F0.25
 sS'2 dashessugar'
 p680
-I3242
-sS'Float 1/2 ozKahlua'
+F0.0625
+sS'2/6(1 oz, 3 cl, 1/4 gills)'
 p681
-F0.5
+F1.0
 sS'Muddle with 12(6 oz, 18 cl, 1 1/2 gills)'
 p682
 F6.0
@@ -2050,16 +2050,16 @@ p683
 F1.0
 sS"2 dashes Fleur d'"
 p684
-I3242
+F0.0625
 sS'4 fresh(2 oz, 6 cl, 1/2 gills)'
 p685
 F2.0
 sS'3/4 ounce Baileys(2 cl, 3/16 gills)'
 p686
 F0.75
-sS'1 1/2(3/4 oz, 2 cl, 3/16 gills)'
+sS'4 oz tawny(12 cl, 1 gills)'
 p687
-F0.75
+F4.0
 sS'1 tspgin'
 p688
 F0.125
@@ -2081,57 +2081,57 @@ F1.0
 sS'2 ounces Gosling\xe2\x80\x99s Black Seal(6 cl, 1/2 gills)'
 p694
 F2.0
-sS'1 1/2 ounces citrus(4.5 cl, 3/8 gills)'
+sS'1 oz Mt Gay(3 cl, 1/4 gills)'
 p695
-F1.5
+F1.0
 sS'Vary by using 3/4 oz(2 cl, 3/16 gills)'
 p696
 F0.75
-sS'1 ozsherry'
+sS'1/4 Light(3/4 oz, 2 cl, 3/16 gills)'
 p697
+F0.75
+sS'1 ozsherry'
+p698
 F1.0
 sS'1/8 Whipped(1/2 oz, 1 cl, 1/8 gills)'
-p698
-F0.5
-sS'The juice of 11'
 p699
 F0.5
-sS'11/2 oz(16.5 cl, 1 3/8 gills)'
+sS'1/2 tsplime juice'
 p700
+F0.0625
+sS'11/2 oz(16.5 cl, 1 3/8 gills)'
+p701
 F5.5
 sS'3/4 Daiquiri(2 1/4 oz, 6.5 cl, 9/16 gills)'
-p701
-F2.25
-sS'3/4 ozsweet vermouth'
 p702
-F0.75
-sS'1/4 Fresh(3/4 oz, 2 cl, 3/16 gills)'
+F2.25
+sS'2/6 Martini(1 oz, 3 cl, 1/4 gills)'
 p703
+F1.0
+sS'1/4 Fresh(3/4 oz, 2 cl, 3/16 gills)'
+p704
 F0.75
 sS'1 tsp maple(4 dashes)'
-p704
-F0.125
-sS'1/2 fresh(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p705
-F1.5
-sS'1/3 Sweet(1 oz, 3 cl, 1/4 gills)'
+F0.125
+sS'1/4 ozDrambuie'
 p706
+F0.25
+sS'1/3 Sweet(1 oz, 3 cl, 1/4 gills)'
+p707
 F1.0
 sS'1/2 ozsoda'
-p707
+p708
 F0.5
 sS'1/3 Freshlemon juice'
-p708
+p709
 F1.0
 sS'2 ozapple brandy'
-p709
-F2.0
-sS'4/10 Martini &amp; Rossi(1 1/4 oz, 3.5 cl, 5/16 gills)'
 p710
-F1.25
-sS'1 1/2 ozCognac'
+F2.0
+sS'1/8 of a(1/2 oz, 1 cl, 1/8 gills)'
 p711
-F1.5
+F0.5
 sS'1 1/2 oz 100 proof(4.5 cl, 3/8 gills)'
 p712
 F1.5
@@ -2143,322 +2143,322 @@ p714
 F2.0
 sS'4 dashespeach bitters'
 p715
-I6484
+F0.125
 sS'1/2 ozegg white'
 p716
 F0.5
 sS"1/4 Luxardo's(3/4 oz, 2 cl, 3/16 gills)"
 p717
 F0.75
-sS'1/2 oz creme de(1.5 cl, 1/8 gills)'
+sS'1 1/2 oz Demerara(4.5 cl, 3/8 gills)'
 p718
-F0.5
-sS"1/6 Pollen's(1/2 oz, 1.5 cl, 1/8 gills)"
+F1.5
+sS'1/5 Bols(1/2 oz, 2 cl, 1/8 gills)'
 p719
 F0.5
-sS'1/5 Bols(1/2 oz, 2 cl, 1/8 gills)'
-p720
-F0.5
 sS'1 1/4 ozapplejack'
-p721
+p720
 F1.25
 sS'1/2 Dry Martini(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p722
-F1.5
-sS'1 tspfalernum'
-p723
-F0.125
-sS"4/10 Seager's(1 1/4 oz, 3.5 cl, 5/16 gills)"
-p724
-F1.25
-sS'Having added to this 1 lump of1'
-p725
-F1.0
-sS'1/2 ozquetsch'
-p726
-F0.5
-sS'1/4 ozfresh lime juice'
-p727
-F0.25
-sS'1/3 Sweet Martini(1 oz, 3 cl, 1/4 gills)'
-p728
-F1.0
-sS'1 1/4 ozapple brandy'
-p729
-F1.25
-sS'1/3grenadine'
-p730
-F1.0
-sS'1/4 ozblackberry flavored brandy'
-p731
-F0.25
-sS'2 dashes'
-p732
-I3242
-sS"1/2 Walker's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p733
-F1.5
-sS'1/2 ozapple brandy'
-p734
-F0.5
-sS'Stir in mixing glass with ice &amp; strain 1 1/2 oz(53.5 cl, 4 1/2 gills)'
-p735
-F1.5
-sS'1/4 ozpastis'
-p736
-F0.25
-sS'1 oz Add appleton Estate(3 cl, 1/4 gills)'
-p737
-F1.0
-sS'1/2 tspmint leaves'
-p738
-I3242
-sS'1 Hershey\xe2\x80\x99s Hug, for(1/2 oz, 1.5 cl, 1/8 gills)'
-p739
-F0.5
-sS'The juice of 1/4lime'
-p740
-F0.75
-sS'1 1/2 oz Demerara(4.5 cl, 3/8 gills)'
-p741
+p721
 F1.5
 sS"1/6 Booth's(1/2 oz, 1.5 cl, 1/8 gills)"
-p742
+p722
 F0.5
-sS'1/2 ozcherry flavored brandy'
-p743
+sS'Having added to this 1 lump of1'
+p723
+F1.0
+sS'1/2 ozquetsch'
+p724
 F0.5
+sS'1/4 ozfresh lime juice'
+p725
+F0.25
+sS'1/3 Sweet Martini(1 oz, 3 cl, 1/4 gills)'
+p726
+F1.0
+sS'1 1/4 ozapple brandy'
+p727
+F1.25
+sS'1/3grenadine'
+p728
+F1.0
+sS'1/4 ozblackberry flavored brandy'
+p729
+F0.25
+sS"1/6 Pollen's(1/2 oz, 1.5 cl, 1/8 gills)"
+p730
+F0.5
+sS"1/2 Walker's(1 1/2 oz, 4.5 cl, 3/8 gills)"
+p731
+F1.5
+sS'Stir in mixing glass with ice &amp; strain 1 1/2 oz(53.5 cl, 4 1/2 gills)'
+p732
+F1.5
+sS'1/4 ozpastis'
+p733
+F0.25
+sS'4/10 Martini &amp; Rossi(1 1/4 oz, 3.5 cl, 5/16 gills)'
+p734
+F1.25
+sS'1 oz Add appleton Estate(3 cl, 1/4 gills)'
+p735
+F1.0
+sS'1/2 tspmint leaves'
+p736
+F0.0625
+sS'1/6 Sweet(1/2 oz, 1.5 cl, 1/8 gills)'
+p737
+F0.5
+sS'The juice of 1/4lime'
+p738
+F0.75
+sS'1/2 oz creme de(1.5 cl, 1/8 gills)'
+p739
+F0.5
+sS"4/10 Seager's(1 1/4 oz, 3.5 cl, 5/16 gills)"
+p740
+F1.25
+sS'2 slices(1 oz, 3 cl, 1/4 gills)'
+p741
+F1.0
 sS'1 tsp powdered(4 dashes)'
-p744
+p742
 F0.125
 sS'1 tsplemon'
-p745
+p743
 F0.125
 sS'Squeeze 1/2 oz(1.5 cl, 1/8 gills)'
-p746
+p744
 F0.5
 sS'1/6Noilly Prat'
-p747
+p745
 F0.5
 sS"1 wine glass Myrrh's(12 cl, 1 gills)"
-p748
+p746
 F5.0
-sS'2/5(1 1/4 oz, 3.5 cl, 5/16 gills)'
-p749
-F1.25
+sS'5 or 6(2 1/2 oz, 7.5 cl, 5/8 gills)'
+p747
+F2.5
 sS'1/3 Martini &amp; Rossi(1 oz, 3 cl, 1/4 gills)'
-p750
+p748
 F1.0
 sS'1 teaspoonful of(4 dashes)'
-p751
+p749
 F0.125
 sS'1 1/4 ozsweet vermouth'
-p752
+p750
 F1.25
 sS'1/2 ozfresh lime juice'
-p753
+p751
 F0.5
 sS'1/2 oz Red(1.5 cl, 1/8 gills)'
-p754
+p752
 F0.5
 sS'1 1/2 to 2 oz(4.5 cl, 3/8 gills)'
-p755
+p753
 F1.5
 sS'1 1/2 ozquetsch'
-p756
+p754
 F1.5
 sS'1/2Canadian Club whisky'
-p757
+p755
 F1.5
 sS'3 oz white(9 cl, 3/4 gills)'
-p758
+p756
 F3.0
 sS'4 sprigssugar'
-p759
+p757
 F2.0
 sS'1 1/2 oz Dewars(4.5 cl, 3/8 gills)'
-p760
+p758
 F1.5
 sS'2 1/2 ounces(7.5 cl, 5/8 gills)'
-p761
+p759
 F2.5
 sS'2/5 Tio Pepe(1 1/4 oz, 3.5 cl, 5/16 gills)'
-p762
+p760
 F1.25
 sS'2 piecessugar'
-p763
+p761
 F1.0
-sS'3/4 oz Forbidden Addliqueur'
-p764
-F0.75
+sS'6/10 White(1 3/4 oz, 5.5 cl, 7/16 gills)'
+p762
+F1.75
 sS'3/4 oz Forbidden Add(2 cl, 3/16 gills)'
-p765
+p763
 F0.75
 sS'1 dash Martini'
-p766
-I1621
+p764
+F0.03125
 sS'1/3syrup'
-p767
+p765
 F1.0
-sS'3 tsp(1.5 cl, 1/8 gills)'
-p768
-F0.375
+sS'1/4 oz juice of large(6 dashes, 1/16 gills)'
+p766
+F0.25
 sS'1/4apple brandy'
+p767
+F0.75
+sS'1/6(1/2 oz, 1.5 cl, 1/8 gills)'
+p768
+F0.5
+sS'3/4 ozlime juice'
 p769
 F0.75
-sS'3/4 ozlime juice'
-p770
-F0.75
 sS'1/2 to 1 oz(1.5 cl, 1/8 gills)'
-p771
+p770
 F0.5
 sS'1/4 2(1 oz, 3.5 cl, 1/4 gills)'
-p772
+p771
 F1.0
 sS'1/4 Bols(3/4 oz, 2 cl, 3/16 gills)'
-p773
+p772
 F0.75
 sS'1 oz 151(3 cl, 1/4 gills)'
-p774
+p773
 F1.0
 sS'1 ozlemon juice'
-p775
+p774
 F1.0
-sS'1/4 Powdered(3/4 oz, 2 cl, 3/16 gills)'
-p776
+sS'1/4 White(3/4 oz, 2 cl, 3/16 gills)'
+p775
 F0.75
 sS'3/4 ozCourvoisier'
-p777
+p776
 F0.75
-sS'2 ozBourbon whiskey'
+sS'2/5(1 1/4 oz, 3.5 cl, 5/16 gills)'
+p777
+F1.25
+sS'1/4 Dry(3/4 oz, 2 cl, 3/16 gills)'
 p778
-F2.0
-sS'2lemon'
-p779
-F1.0
+F0.75
 sS'1/2 Sweet(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p780
+p779
 F1.5
 sS'1/4 Dry Martini(3/4 oz, 2 cl, 3/16 gills)'
-p781
+p780
 F0.75
 sS'1/4 sweet(3/4 oz, 2 cl, 3/16 gills)'
-p782
+p781
 F0.75
-sS'1 fresh(1/2 oz, 1.5 cl, 1/8 gills)'
-p783
+sS'1/2 ozapple brandy'
+p782
 F0.5
 sS'1/2 white of(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p784
+p783
 F0.25
 sS'1/5 Cusenier(1/2 oz, 2 cl, 1/8 gills)'
-p785
+p784
 F0.5
 sS"1/3 Booth's(1 oz, 3 cl, 1/4 gills)"
-p786
+p785
 F1.0
 sS'4 wedges(2 oz, 6 cl, 1/2 gills)'
-p787
+p786
 F2.0
 sS'1/4 ozmaraschino liqueur'
-p788
+p787
 F0.25
 sS'1/2whisky'
-p789
+p788
 F1.5
 sS'1/16(1/4 oz, 4 dashes)'
-p790
+p789
 F0.25
-sS'Build, fill glass 1/2 with crushed(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'1 dashorange bitters'
+p790
+F0.03125
+sS'Shake in iced cocktail shaker &amp; strain 1 oz(3 cl, 1/4 gills)'
 p791
-F1.5
-sS'2 sticks of(1 oz, 3 cl, 1/4 gills)'
-p792
 F1.0
 sS'1/2 ozraspberry syrup'
-p793
+p792
 F0.5
 sS'1/2 oz fino(1.5 cl, 1/8 gills)'
-p794
+p793
 F0.5
 sS'1/4 ozorange curacao'
-p795
+p794
 F0.25
 sS'1/3apple brandy'
-p796
+p795
 F1.0
 sS'1/6 fresh(1/2 oz, 1.5 cl, 1/8 gills)'
-p797
+p796
 F0.5
 sS'1/4 ozorange flower water'
-p798
+p797
 F0.25
 sS'12 drops(2 dashes, 3 dashes)'
-p799
-I4863
+p798
+F0.09375
 sS'1/4 slice fresh(3/4 oz, 2 cl, 3/16 gills)'
-p800
+p799
 F0.75
 sS'1 large scoop(1/2 oz, 1.5 cl, 1/8 gills)'
+p800
+F0.5
+sS'2 ozcream'
 p801
-F0.5
-sS'4 dashesbitters'
-p802
-F0.125
+F2.0
 sS'1/2 teaspoonful Powdered(2 dashes)'
-p803
-I3242
-sS'1/2 ozmint sprigs'
-p804
-F0.5
+p802
+F0.0625
 sS'2 oz cold(6 cl, 1/2 gills)'
-p805
+p803
 F2.0
 sS"5/8 Booth's(2 oz, 5.5 cl, 1/2 gills)"
-p806
+p804
 F2.0
 sS'3/5(1 3/4 oz, 5.5 cl, 7/16 gills)'
-p807
+p805
 F1.75
 sS'1 splash Splash of(6 dashes, 1/16 gills)'
-p808
-I9726
+p806
+F0.1875
 sS'1 drop(1 dash)'
-p809
-I1621
+p807
+F0.03125
 sS'1/2 ounce(1.5 cl, 1/8 gills)'
-p810
+p808
 F0.5
 sS'Add 3 dashes'
-p811
-I4863
+p809
+F0.09375
 sS'1 teaspoon Bols(4 dashes)'
-p812
+p810
 F0.125
 sS'1 glasswhisky'
-p813
+p811
 F2.0
 sS'2 ozice'
-p814
+p812
 F2.0
 sS'4/10 Old Nick(1 1/4 oz, 3.5 cl, 5/16 gills)'
-p815
+p813
 F1.25
 sS"3/10 Seager's(1 oz, 2.5 cl, 1/4 gills)"
-p816
+p814
 F1.0
 sS'2 dashescuracao'
-p817
-I3242
+p815
+F0.0625
 sS'1/2 Dry Pale(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p818
+p816
 F1.5
 sS'1 teaspoonful Powdered(4 dashes)'
-p819
+p817
 F0.125
-sS'2 slices(1 oz, 3 cl, 1/4 gills)'
+sS'1/2 ozmint sprigs'
+p818
+F0.5
+sS'1 lump of(1/2 oz, 1.5 cl, 1/8 gills)'
+p819
+F0.5
+sS'3(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p820
-F1.0
+F1.5
 sS'1/4 Green(3/4 oz, 2 cl, 3/16 gills)'
 p821
 F0.75
@@ -2467,28 +2467,28 @@ p822
 F4.0
 sS'1 splash of(6 dashes, 1/16 gills)'
 p823
-I9726
+F0.1875
 sS'1/2lime'
 p824
 F1.5
-sS'1 glassCanadian Club whisky'
+sS'Float 151(75 1/2 oz, 223.5 cl, 18 7/8 gills)'
 p825
-F2.0
-sS'1 oz dark(3 cl, 1/4 gills)'
+F0.5
+sS'1 dash of White of'
 p826
-F1.0
+F0.03125
 sS'2 oz(6 cl, 1/2 gills)'
 p827
 F2.0
-sS'1 1/4 oz Kentucky(3.5 cl, 5/16 gills)'
-p828
-F1.25
 sS'Float 1 1/2 oz(4.5 cl, 3/8 gills)'
-p829
+p828
 F1.5
 sS'1 dashsugar'
+p829
+F0.03125
+sS'2 dashes plaingum syrup'
 p830
-I1621
+F0.0625
 sS'5/10 White Adet(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p831
 F1.5
@@ -2513,7 +2513,7 @@ F0.5
 sS'2 ozScotch'
 p838
 F2.0
-sS'3/4 ozCampari'
+sS'3/4 oz(2 cl, 3/16 gills)'
 p839
 F0.75
 sS'3/4whisky'
@@ -2525,7 +2525,7 @@ F1.0
 sS'1 Jump(1/2 oz, 1.5 cl, 1/8 gills)'
 p842
 F0.5
-sS'1 1/2 oz citrus(4.5 cl, 3/8 gills)'
+sS'1 1/2 ozOld Tom gin'
 p843
 F1.5
 sS'1/4 ozLillet Blanc'
@@ -2534,138 +2534,138 @@ F0.25
 sS'2/10(1/2 oz, 2 cl, 1/8 gills)'
 p845
 F0.5
-sS'Build, fill glass 1/3 with crushed(1 oz, 3 cl, 1/4 gills)'
+sS'1/2 ozcherry flavored brandy'
 p846
-F1.0
+F0.5
 sS'1 dashsirop'
 p847
-I1621
-sS'1/3 White(1 oz, 3 cl, 1/4 gills)'
+F0.03125
+sS'4 1/2 oz(13.5 cl, 1 1/8 gills)'
 p848
-F1.0
-sS'2/5whisky'
+F4.5
+sS'2/3(2 oz, 6 cl, 1/2 gills)'
 p849
-F1.25
+F2.0
 sS'1 ozsoda'
 p850
 F1.0
 sS'1/2 tspwater'
 p851
-I3242
+F0.0625
 sS'1/3lime juice'
 p852
 F1.0
-sS'Add 1 dash'
+sS'1 dashPeychaud'
 p853
-I1621
+F0.03125
 sS'1/4lemon juice'
 p854
 F0.75
-sS'1/2 ozcuracao'
+sS'1/10 pure(1/4 oz, 1 cl, 1/16 gills)'
 p855
-F0.5
+F0.25
 sS'2 oz dry(6 cl, 1/2 gills)'
 p856
 F2.0
-sS'1 ozcream'
+sS'1 1/2 oz darkKahlua'
 p857
-F1.0
+F1.5
 sS"3/6 Seager's(1 1/2 oz, 4.5 cl, 3/8 gills)"
 p858
 F1.5
 sS'3 dashes'
 p859
-I4863
-sS'3 fresh(1 1/2 oz, 4.5 cl, 3/8 gills)'
+F0.09375
+sS'1 1/2 ozCognac'
 p860
 F1.5
-sS'1 teaspoon of(4 dashes)'
-p861
-F0.125
 sS'1 1/4 ozbrandy'
-p862
+p861
 F1.25
-sS'1 ozrum'
-p863
-F1.0
+sS'5 dashes'
+p862
+F0.15625
 sS'1 lumpwater'
-p864
+p863
 F0.5
 sS'2 oz Russian(6 cl, 1/2 gills)'
-p865
+p864
 F2.0
 sS'1garnish'
-p866
+p865
 F0.5
 sS"5/10 Seager's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p867
+p866
 F1.5
 sS'3 crushed strawberries (Substitute 1/2 oz(9 cl, 3/4 gills)'
-p868
+p867
 F0.5
 sS'1/8Pash'
-p869
+p868
 F0.5
 sS'1/4 freshlemon'
-p870
+p869
 F0.75
 sS'3/4 oztriple sec'
-p871
+p870
 F0.75
-sS'1/2 tablespoonful Icing(6 dashes, 1/16 gills)'
-p872
-I9726
-sS'1/4 ozorange bitters'
-p873
-F0.25
-sS'1 sprig(1/2 oz, 1.5 cl, 1/8 gills)'
-p874
+sS'1/2 liqueur glass of(1.5 cl, 1/8 gills)'
+p871
 F0.5
+sS'1/4 ozorange bitters'
+p872
+F0.25
+sS'1 1/4 oz Jamaican(3.5 cl, 5/16 gills)'
+p873
+F1.25
 sS"1/2 Seagram's(1 1/2 oz, 4.5 cl, 3/8 gills)"
-p875
+p874
 F1.5
 sS'1/4 Sweet(3/4 oz, 2 cl, 3/16 gills)'
-p876
+p875
 F0.75
 sS'2twists'
-p877
+p876
 F1.0
 sS'1 half wheelgarnish'
-p878
+p877
 F0.5
 sS'1 ozfraise'
-p879
+p878
 F1.0
 sS'3/4 ozmaraschino liqueur'
-p880
+p879
 F0.75
 sS'( 1/4 oz(6 dashes, 1/16 gills)'
-p881
+p880
 F0.25
 sS'2 1/4 ozbourbon'
-p882
+p881
 F2.25
-sS'Float 1 1/2 ozBourbon whiskey'
+sS"1/2 Hiram Walker's(1 1/2 oz, 4.5 cl, 3/8 gills)"
+p882
+F1.5
+sS'1 1/4 oz Kentucky(3.5 cl, 5/16 gills)'
 p883
-F1.5
-sS'3(1 1/2 oz, 4.5 cl, 3/8 gills)'
-p884
-F1.5
+F1.25
 sS'1 dashmaraschino'
-p885
-I1621
+p884
+F0.03125
 sS'1 oz light(3 cl, 1/4 gills)'
-p886
+p885
 F1.0
-sS'1 tablespoon(1.5 cl, 1/8 gills)'
+sS'2 1/2 oz hot(7.5 cl, 5/8 gills)'
+p886
+F2.5
+sS'1 ozgenever gin'
 p887
-F0.5
+F1.0
 sS'1 liqueur glass of(3 cl, 1/4 gills)'
 p888
 F2.0
-sS'2 oz Bacardi(6 cl, 1/2 gills)'
+sS'1 teaspoonful(4 dashes)'
 p889
-F2.0
+F0.125
 sS'Build, fill glass about 1/2 with crushed(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p890
 F1.5
@@ -2677,16 +2677,16 @@ p892
 F1.0
 sS'1 dash blue vegetable coloring (or 1/2 ozCointreau'
 p893
-I1621
-sS'1/9 Bols(1/4 oz, 1 cl, 1/16 gills)'
+F0.03125
+sS'1 3/4 ozdry vermouth'
 p894
-F0.25
+F1.75
 sS'1/2 Florida Goldfruit'
 p895
 F1.5
-sS'1/4 Light(3/4 oz, 2 cl, 3/16 gills)'
+sS'1 ozpastis'
 p896
-F0.75
+F1.0
 sS'6/10rum'
 p897
 F1.75
@@ -2698,7 +2698,7 @@ p899
 F1.0
 sS"2 dashesBoker's bitters"
 p900
-I3242
+F0.0625
 sS'1 Teaspoon of(1/2 oz, 1.5 cl, 1/8 gills)'
 p901
 F0.125
@@ -2711,9 +2711,9 @@ F0.75
 sS'Shake in iced cocktail shaker &amp; strain 3/4 oz(2 cl, 3/16 gills)'
 p904
 F0.75
-sS'1/4 ounce(6 dashes, 1/16 gills)'
+sS'1 tspfalernum'
 p905
-F0.25
+F0.125
 sS'1 oz dry(3 cl, 1/4 gills)'
 p906
 F1.0
@@ -2729,18 +2729,18 @@ F1.0
 sS'2(1 oz, 3 cl, 1/4 gills)'
 p910
 F1.0
-sS'6/10 White(1 3/4 oz, 5.5 cl, 7/16 gills)'
+sS'3/4 oz Forbidden Addliqueur'
 p911
-F1.75
-sS'1/4 oz juice of large(6 dashes, 1/16 gills)'
+F0.75
+sS'3 tsp(1.5 cl, 1/8 gills)'
 p912
-F0.25
+F0.375
 sS"5/10 Nicholson's London(1 1/2 oz, 4.5 cl, 3/8 gills)"
 p913
 F1.5
-sS'1/4 Dry(3/4 oz, 2 cl, 3/16 gills)'
+sS'2lemon'
 p914
-F0.75
+F1.0
 sS'The Juice of 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p915
 F1.5
@@ -2749,7 +2749,7 @@ p916
 F1.5
 sS'Muddle 1/2 tsp(2 dashes)'
 p917
-I3242
+F0.0625
 sS'Build, fill glass 2/3 full(2 oz, 6 cl, 1/2 gills)'
 p918
 F2.0
@@ -2762,12 +2762,12 @@ F1.25
 sS"1/3Rose's"
 p921
 F1.0
-sS'1 lump of(1/2 oz, 1.5 cl, 1/8 gills)'
+sS'Serve with 2 slices fresh(1 oz, 3 cl, 1/4 gills)'
 p922
-F0.5
+F1.0
 sS'Pour over 2 dashes ofpepper'
 p923
-I3242
+F0.0625
 sS'1/6 Daiquiri(1/2 oz, 1.5 cl, 1/8 gills)'
 p924
 F0.5
@@ -2780,27 +2780,27 @@ F1.5
 sS'2 or 3(1 oz, 3 cl, 1/4 gills)'
 p927
 F1.0
-sS'1/10 pure(1/4 oz, 1 cl, 1/16 gills)'
+sS'1/2 ozcuracao'
 p928
-F0.25
-sS'2 dashes plaingum syrup'
+F0.5
+sS'Muddle 3(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p929
-I3242
+F1.5
 sS'2 ounces citrus(6 cl, 1/2 gills)'
 p930
 F2.0
-sS'1 dashbourbon'
+sS'1/4 tspgrenadine'
 p931
-I1621
+F0.03125
 sS'Drop 1 dash'
 p932
-I1621
-sS'1/6(1/2 oz, 1.5 cl, 1/8 gills)'
+F0.03125
+sS'3/4 ozmint liqueur'
 p933
-F0.5
-sS"5/10 Booth's(1 1/2 oz, 4.5 cl, 3/8 gills)"
+F0.75
+sS"1/3 Seagram's(1 oz, 3 cl, 1/4 gills)"
 p934
-F1.5
+F1.0
 sS'1 1/2 oz white(4.5 cl, 3/8 gills)'
 p935
 F1.5
@@ -2809,20 +2809,20 @@ p936
 F0.5
 sS'2 to 3 dashesorange bitters'
 p937
-I4863
-sS'7/10whisky'
+F0.09375
+sS'3 fresh(1 1/2 oz, 4.5 cl, 3/8 gills)'
 p938
-F2.0
+F1.5
 sS'1 dash White of'
 p939
-I1621
-sS'1 ozgenever gin'
+F0.03125
+sS'1/3whisky'
 p940
 F1.0
 sS'1 ozmint liqueur'
 p941
 F1.0
-sS'Leave 1/2(1 1/2 oz, 4.5 cl, 3/8 gills)'
+sS'1/6 Dry(1/2 oz, 1.5 cl, 1/8 gills)'
 p942
-F1.5
+F0.5
 s.
