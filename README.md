@@ -28,6 +28,7 @@ Puts data in a matrix so you can have fun with numpy
 	This should exist as data/amoutParsingMapping, but you can run the function
 	of the same name (in src/matrixGeneration) to generate a new one. Be warned,
 	it requires your effort for several hours.
+	
 	2) Now call either one of the matrix generating functions to get the data
 	you want as a matrix. You'll also get back an index which maps from row or
 	column numbers to actual strings and vice versa.
