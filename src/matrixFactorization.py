@@ -5,7 +5,7 @@ from matrixGeneration import recipeMatrix
 import matplotlib.pyplot as plt
 
 
-BEST_N_COMPONENTS_FOR_EXACT_AMOUNTS = 155
+BEST_N_COMPONENTS_FOR_EXACT_AMOUNTS = 20
 BEST_N_COMPONENTS_FOR_INEXACT_AMOUNTS = 105
 
 '''
@@ -29,6 +29,7 @@ First test of NMF
 '''
 def dirty_test_of_NMF(number_of_components, exact_amounts):
 	m, index = recipeMatrix(exact_amounts=exact_amounts)
+	m = np.transpose(m).dot(m)
 	model = ProjectedGradientNMF(n_components=number_of_components, init='random', random_state=0)
 	model.fit(m)
 	print_top_components(model.components_, index)	
@@ -47,29 +48,7 @@ def print_top_components(components, name_index):
 	
 
 
-def expose_how_unnormalized_the_data_is():
-	m, index = recipeMatrix(exact_amounts=True)
-	res = []
-	names = []
-	
-	for i in range(516):
-		s = max(m[:, i])
-		names.append(index.get_ingred(i))
-		res.append(s)
-
-	order = np.argsort(res)
-	print order
-
-	for i in order:
-		print names[i], res[i]
-
-
-
-	plt.hist(filter(lambda x: x<500000, res))
-	plt.savefig(open('results/hist', 'w'))	
-
 
 if __name__ == '__main__':
-	expose_how_unnormalized_the_data_is()
-	#dirty_test_of_NMF(5, True)
+	dirty_test_of_NMF(number_of_components=20, exact_amounts=True)
 	#select_component_count_NMF()
