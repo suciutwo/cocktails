@@ -8,8 +8,8 @@ from sklearn.cluster import SpectralClustering
 from pylab import *
 
 from tsne import bh_sne
-from data_formatting import top_n_grams
-from data_formatting import process_ingredient
+from data_formatting import top_ingredient_combinations
+from data_formatting import render_ingredient_as_single_word
 
 
 def make_correlation_webpage(C, ns, names, outfile, n_clusters = 5, colors = None):
@@ -63,15 +63,15 @@ def pca():
     use_pca = False
     plot_rank = False
     threshold = 10
-    two_grams = top_n_grams(k = 2, normalize = False)
+    two_grams = top_ingredient_combinations(combination_size=2, normalize=False)
     if not tf_idf:
-        ingredients = list(set([process_ingredient(ingred[0]) for recipe in d for ingred in recipe ]))
+        ingredients = list(set([render_ingredient_as_single_word(ingred[0]) for recipe in d for ingred in recipe ]))
         ingredient_map = dict(zip(ingredients, range(len(ingredients))))
         m = np.zeros([len(d), len(ingredients)])
         C = []
         for i, recipe in enumerate(d):
             for ingredient in recipe:
-                m[i][ingredient_map[process_ingredient(ingredient[0])]] = 1
+                m[i][ingredient_map[render_ingredient_as_single_word(ingredient[0])]] = 1
         ns = m.sum(axis = 0)
         idxs = np.argsort(ns)[::-1]
         for i in idxs[:100]:
@@ -87,7 +87,7 @@ def pca():
         tfidf = TfidfVectorizer()
         all_strings = []
         for i, recipe in enumerate(d):
-            s = ' '.join([process_ingredient(ingredient[0]).decode('utf-8') for ingredient in recipe])
+            s = ' '.join([render_ingredient_as_single_word(ingredient[0]).decode('utf-8') for ingredient in recipe])
             print s
             all_strings.append(s)
         m = tfidf.fit_transform(all_strings).toarray()
@@ -95,7 +95,7 @@ def pca():
 
     if use_pca:
         n_components = 2
-        model = PCA(n_components = n_components, whiten = False)#SparsePCA(n_components = n_components, alpha = .5)
+        model = PCA(n_components=n_components, whiten=False)#SparsePCA(n_components = n_components, alpha = .5)
         small_m = model.fit_transform(m.transpose())
         #for i in range(n_components):
         #	idxs = np.argsort(abs(model.components_[i, :]))[::-1]
@@ -109,7 +109,7 @@ def pca():
     else:
         small_m = bh_sne(m.transpose())
 
-    figure(figsize = [50, 50])
+    figure(figsize=[50, 50])
     small_m[:, 0] = small_m[:, 0] - (small_m[:, 0].min()-.001)
     small_m[:, 1] = small_m[:, 1] - (small_m[:, 1].min()-.001)
     if plot_rank:
@@ -119,7 +119,6 @@ def pca():
                 small_m[j, i] = rank
 
     ingredient_dict = dict(zip(ingredients, range(len(ingredients))))
-    ax = subplot(111)
     for i in range(len(small_m)):
         if tf_idf:
             annotate(ingredients[i], [small_m[i, 0], small_m[i, 1]])
@@ -148,53 +147,19 @@ def pca():
     print small_m
 
 
-def top_conditional(k = 2, verbose = True, normalize = False):
-    d = pickle.load(open("cleaned_recipes"))
-    n_recipes = len(d)
-    n_grams = top_n_grams(k = k, normalize = False)
-    one_grams = top_n_grams(k = 1, normalize = False)
-    n_gram_map = {}
-    for k in n_grams:
-        l = k.split('/')
-        l = sorted(l)
-        for i in range(len(l)):
-            key = '/'.join(l[:i]+l[(i+1):])
-            if key not in n_gram_map:
-                n_gram_map[key] = [[], []]
-            n_gram_map[key][0].append(n_grams[k])
 
-            n_gram_map[key][1].append(l[i])
-    if verbose:
-        reverse = True
-        print 'Top completions'
-        ks = sorted(n_gram_map.keys(), key = lambda x:sum(n_gram_map[x][0]))[::-1]
-        for i, k in enumerate(ks[:50]):
-            z = 1.*sum(n_gram_map[k][0])
-            print '\nCombo %i: %s, %i appearances. Final ingredient:' % (i+1, k, z)
-
-            if not normalize:
-                idxs = np.argsort(n_gram_map[k][0])[::-1]
-                for j in idxs[:10]:
-                    print '%-50s %i %2.1f%%' % (n_gram_map[k][1][j], n_gram_map[k][0][j], 100*n_gram_map[k][0][j]/z)
-            else:
-                if not reverse:
-                    idxs = sorted(range(len(n_gram_map[k][0])), key = lambda x:(n_gram_map[k][0][x]/z)/(1.*one_grams[n_gram_map[k][1][x]]/n_recipes) if one_grams[n_gram_map[k][1][x]]>5 else 0)[::-1]
-                else:
-                    idxs = sorted(range(len(n_gram_map[k][0])), key = lambda x:(n_gram_map[k][0][x]/z)/(1.*one_grams[n_gram_map[k][1][x]]/n_recipes) if one_grams[n_gram_map[k][1][x]]>20 else 9999)
-                for j in idxs[:10]:
-                    print '%-50s %2.1fx more likely' % (n_gram_map[k][1][j], (n_gram_map[k][0][j]/z)/(1.*one_grams[n_gram_map[k][1][j]]/n_recipes))
 
 def analyze_ingredients():
     #Produce ingredient-flavor matrix and
     ingredients_to_flavors = pickle.load(open("cleaned_ingredients"))
     for i in ingredients_to_flavors.keys():
-        ingredients_to_flavors[process_ingredient(i).decode('utf-8')] = ingredients_to_flavors[i]
+        ingredients_to_flavors[render_ingredient_as_single_word(i).decode('utf-8')] = ingredients_to_flavors[i]
         del ingredients_to_flavors[i]
     recipes = pickle.load(open("cleaned_recipes"))
     tfidf = TfidfVectorizer()
     all_strings = []
     for i, recipe in enumerate(recipes):
-        s = ' '.join([process_ingredient(ingredient[0]).decode('utf-8') for ingredient in recipe])
+        s = ' '.join([render_ingredient_as_single_word(ingredient[0]).decode('utf-8') for ingredient in recipe])
         all_strings.append(s)
     ingredient_recipe = (tfidf.fit_transform(all_strings).toarray()>0).transpose()
     ingredients = tfidf.get_feature_names()

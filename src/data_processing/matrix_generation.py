@@ -15,6 +15,7 @@ import numpy as np
 from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
 from src.data_processing.parse_pages import CLEANED_INGREDIENTS_FILENAME
 
+
 AMOUNT_PARSING_GUIDE = 'data/amount_parsing_map'
 
 
@@ -58,7 +59,7 @@ def recipe_matrix(exact_amounts=True):
             if exact_amounts:
                 ingred_amount = associations[tup[1].strip()+tup[2].strip()]
             else:
-                ingred_amount = 1
+                ingred_amount = 1.0
             resulting_matrix[cocktail_idx, ingred_idx] = ingred_amount
     return resulting_matrix, index
 
