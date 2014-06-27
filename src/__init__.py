@@ -1,1 +1,3 @@
-__author__ = 'andrewbackup'
+"""
+Modules to manipulate cocktail data.
+"""

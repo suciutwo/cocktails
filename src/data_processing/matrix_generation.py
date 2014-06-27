@@ -1,20 +1,21 @@
+"""
+If you want to play with a flavor or ingredient matrix, use these methods:
+ingredientsFlavorMatrix
+recipe_matrix
+"""
+
+# To ignore numpy errors:
+#     pylint: disable=E1101
+
 import pickle
 
 import os
 import numpy as np
 
-from src.data_processing.parsePages import CLEANED_COCKTAILS_FILENAME
-from src.data_processing.parsePages import CLEANED_INGREDIENTS_FILENAME
-
+from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
+from src.data_processing.parse_pages import CLEANED_INGREDIENTS_FILENAME
 
 AMOUNT_PARSING_GUIDE = 'data/amountParsingMapping'
-
-'''
-KEY METHODS:
-topNGrams
-ingredientsFlavorMatrix
-recipe_matrix
-'''
 
 
 def ingredients_flavor_matrix():
@@ -25,8 +26,8 @@ def ingredients_flavor_matrix():
     print "...creating ingredients matrix from file"
     print "run parsePages to generate a new version of the file"
     ingredients = pickle.load(open(CLEANED_INGREDIENTS_FILENAME, 'rb'))
-    ingredients_flavor_matrix = np.array(ingredients)
-    return ingredients_flavor_matrix
+    matrix = np.array(ingredients)
+    return matrix
 
 
 def recipe_matrix(exact_amounts=True):
@@ -42,7 +43,7 @@ def recipe_matrix(exact_amounts=True):
         associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
     else:
         print "No AMOUNT_PARSING_GUIDE, run build_amount_parsing_mapping first"
-        return None
+        return None, None
     print "...loading recipe list from file"
     print "run parsePages to generate a new version of the file"
     recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME, 'rb'))
@@ -62,43 +63,70 @@ def recipe_matrix(exact_amounts=True):
     return resulting_matrix, index
 
 
-class RecipeNameIndex:
+class RecipeNameIndex(object):
+    """
+    Allows you to look up recipe names and ingredient names from numbers
+    so that you can understand the data you're working on while not relying
+    on column names.
+    """
     def __init__(self, recipe_list):
-        self.titleToNumber = {}
-        self.numberToTitle = {}
-        self.ingredToNumber = {}
-        self.numberToIngred = {}
+        """
+        The list of recipes and their ingredients will be used to
+        set the assignment of index numbers.
+        """
+        self.title_to_number = {}
+        self.number_to_title = {}
+        self.ingred_to_number = {}
+        self.number_to_ingred = {}
         title_idx = 0
         ingred_idx = 0
         for title, ingredients in recipe_list.iteritems():
-            if title not in self.titleToNumber:
-                self.titleToNumber[title] = title_idx
-                self.numberToTitle[str(title_idx)] = title
+            if title not in self.title_to_number:
+                self.title_to_number[title] = title_idx
+                self.number_to_title[str(title_idx)] = title
                 title_idx += 1
             for tup in ingredients:
                 ingred_name = tup[0]
-                if ingred_name not in self.ingredToNumber:
-                    self.ingredToNumber[ingred_name] = ingred_idx
-                    self.numberToIngred[str(ingred_idx)] = ingred_name
+                if ingred_name not in self.ingred_to_number:
+                    self.ingred_to_number[ingred_name] = ingred_idx
+                    self.number_to_ingred[str(ingred_idx)] = ingred_name
                     ingred_idx += 1
 
     def get_name(self, integer_index):
-        return self.numberToTitle[str(integer_index)]
+        """
+        Converts a recipe index into its proper name.
+        """
+        return self.number_to_title[str(integer_index)]
 
     def get_ingred(self, integer_index):
-        return self.numberToIngred[str(integer_index)]
+        """
+        Converts an ingredient index into its proper name.
+        """
+        return self.number_to_ingred[str(integer_index)]
 
     def ingred_idx(self, ingred_name):
-        return self.ingredToNumber[ingred_name]
+        """
+        Converts an ingredient name into the corresponding index.
+        """
+        return self.ingred_to_number[ingred_name]
 
     def title_idx(self, title_string):
-        return self.titleToNumber[title_string]
+        """
+        Converts a recipe name into the corresponding index.
+        """
+        return self.title_to_number[title_string]
 
     def count_cocktails(self):
-        return len(self.titleToNumber)
+        """
+        Return number of cocktail recipes in the index.
+        """
+        return len(self.title_to_number)
 
     def count_ingreds(self):
-        return len(self.ingredToNumber)
+        """
+        Return number of ingredients in the index.
+        """
+        return len(self.ingred_to_number)
 
 
 def build_amount_parsing_mapping():
@@ -119,7 +147,7 @@ def build_amount_parsing_mapping():
             print tup
             print " number: " + str(idx+1)
             key = tup[1].strip() + tup[2].strip()
-            if not (key in associations):
+            if key not in associations:
                 print tup[1] + tup[2]
                 user_input = raw_input()
                 if user_input == 'pass':
@@ -145,6 +173,5 @@ def build_amount_parsing_mapping():
 
 
 if __name__ == '__main__':
-    i = ingredients_flavor_matrix()
-    m = recipe_matrix()
-
+    ingredients_flavor_matrix()
+    recipe_matrix()

@@ -2,7 +2,7 @@ import pickle
 import string
 from itertools import combinations
 from copy import deepcopy
-from src.data_processing.parsePages import CLEANED_COCKTAILS_FILENAME
+from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
 
 
 """
@@ -13,7 +13,7 @@ topNGrams
 
 def process_ingredient(s):
     s = s.replace('fresh', '').strip()
-    s = s.translate(string.maketrans("",""), string.punctuation)
+    s = s.translate(string.maketrans("", ""), string.punctuation)
     s = s.lower().replace(' ', '_')
     return s
 

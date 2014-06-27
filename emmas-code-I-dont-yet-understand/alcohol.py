@@ -1,17 +1,16 @@
+import json
+import random
 
 from scipy.stats import pearsonr
 from sklearn.decomposition import PCA
 from sklearn.feature_extraction.text import TfidfVectorizer
-from pylab import *
-import numpy as np
 from sklearn.cluster import SpectralClustering
 from pylab import *
-import json
-from tsne import bh_sne
-import random
 
-from src.data_processing.dataFormatting import top_n_grams
-from src.data_processing.dataFormatting import process_ingredient
+from tsne import bh_sne
+from data_formatting import top_n_grams
+from data_formatting import process_ingredient
+
 
 def make_correlation_webpage(C, ns, names, outfile, n_clusters = 5, colors = None):
     n = len(ns)

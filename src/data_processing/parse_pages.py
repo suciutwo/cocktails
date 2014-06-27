@@ -1,14 +1,13 @@
-'''
+"""
 For parsing (scraped) raw html with BeautifulSoup
-'''
+"""
 
 import pickle
 
 from BeautifulSoup import BeautifulSoup
 
-from src.data_processing.scrapeCocktails import COCKTAILS_FILENAME
-from src.data_processing.scrapeCocktails import INGREDIENTS_FILENAME
-
+from src.data_processing.scrape_cocktails import COCKTAILS_FILENAME
+from src.data_processing.scrape_cocktails import INGREDIENTS_FILENAME
 
 CLEANED_COCKTAILS_FILENAME = 'data/cleanedRecipes'
 CLEANED_INGREDIENTS_FILENAME = 'data/cleanedIngredients'
@@ -36,8 +35,8 @@ def process_recipes_file():
                 alternative_amount = comps[4].split('<')[0].strip()
                 recipe.append([ingredient, amount, alternative_amount])
             all_recipes[title] = recipe
-        except Exception as e:
-            print e
+        except Exception as exception:  # pylint: disable=W0703
+            print exception
             print "FAILED TO SCRAPE THIS PAGE EARLIER IN THE PIPELINE"
             continue
     pickle.dump(all_recipes, open(CLEANED_COCKTAILS_FILENAME, 'wb'))
@@ -51,26 +50,27 @@ def process_ingredients_file():
     """
     ingredient_pages = pickle.load(open(INGREDIENTS_FILENAME))
     all_ingredients = {}
-    for i, ingredientPage in enumerate(ingredient_pages):
+    for i, ingredient_page in enumerate(ingredient_pages):
 
         try:
-            raw_text = ingredientPage.split('flavor">')
-            if i % 1000 == 0: print 'Parsing ingredient ' + str(i)
+            raw_text = ingredient_page.split('flavor">')
+            if i % 1000 == 0:
+                print 'Parsing ingredient ' + str(i)
             flavors = []
             for flavor in raw_text[1:]:
                 flavor = flavor.split('<')[0]
                 flavor = flavor.replace(',', '').replace(' ', '_').lower()
                 flavors.append(flavor)
-            name = ingredientPage.split('<div id="wellTitle">')[1]
+            name = ingredient_page.split('<div id="wellTitle">')[1]
             name = name.split('<h2>')[1].split('<')[0]
             print name, flavors
             all_ingredients[name] = flavors
-        except Exception as e:
-            print e
+        except Exception as exception:  # pylint: disable=W0703
+            print exception
             continue
     pickle.dump(all_ingredients, open(CLEANED_INGREDIENTS_FILENAME, 'wb'))
 
 
 if __name__ == '__main__':
     process_recipes_file()
-    #process_ingredients_file()
+    # process_ingredients_file()

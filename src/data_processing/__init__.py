@@ -1,1 +1,3 @@
-__author__ = 'andrewbackup'
+"""
+Cocktail scraping and processing routines.
+"""
