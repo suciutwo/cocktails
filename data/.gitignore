@@ -3,4 +3,4 @@
 # Except this file
 !.gitignore
 # And this one. It took way long to make
-!amountParsingMapping
+!amount_parsing_map

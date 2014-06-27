@@ -15,7 +15,7 @@ import numpy as np
 from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
 from src.data_processing.parse_pages import CLEANED_INGREDIENTS_FILENAME
 
-AMOUNT_PARSING_GUIDE = 'data/amountParsingMapping'
+AMOUNT_PARSING_GUIDE = 'data/amount_parsing_map'
 
 
 def ingredients_flavor_matrix():

@@ -9,8 +9,8 @@ from BeautifulSoup import BeautifulSoup
 from src.data_processing.scrape_cocktails import COCKTAILS_FILENAME
 from src.data_processing.scrape_cocktails import INGREDIENTS_FILENAME
 
-CLEANED_COCKTAILS_FILENAME = 'data/cleanedRecipes'
-CLEANED_INGREDIENTS_FILENAME = 'data/cleanedIngredients'
+CLEANED_COCKTAILS_FILENAME = 'data/cleaned_recipes'
+CLEANED_INGREDIENTS_FILENAME = 'data/cleaned_ingredients'
 
 
 def process_recipes_file():

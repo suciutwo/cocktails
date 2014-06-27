@@ -16,8 +16,8 @@ INGREDIENT_DB_URL = 'http://www.cocktaildb.com/ingr_detail?id='
 
 MAXIMUM_WORKERS = 10  # number of simultaneous connections
 
-COCKTAILS_FILENAME = 'data/savedCocktails'
-INGREDIENTS_FILENAME = 'data/savedIngredients'
+COCKTAILS_FILENAME = 'data/saved_cocktails'
+INGREDIENTS_FILENAME = 'data/saved_ingredients'
 
 
 def download_all_ingredients():

@@ -58,7 +58,7 @@ def make_correlation_webpage(C, ns, names, outfile, n_clusters = 5, colors = Non
 
 
 def pca():
-    d = pickle.load(open("cleanedRecipes"))
+    d = pickle.load(open("cleaned_recipes"))
     tf_idf = True
     use_pca = False
     plot_rank = False
@@ -149,7 +149,7 @@ def pca():
 
 
 def top_conditional(k = 2, verbose = True, normalize = False):
-    d = pickle.load(open("cleanedRecipes"))
+    d = pickle.load(open("cleaned_recipes"))
     n_recipes = len(d)
     n_grams = top_n_grams(k = k, normalize = False)
     one_grams = top_n_grams(k = 1, normalize = False)
@@ -186,11 +186,11 @@ def top_conditional(k = 2, verbose = True, normalize = False):
 
 def analyze_ingredients():
     #Produce ingredient-flavor matrix and
-    ingredients_to_flavors = pickle.load(open("cleanedIngredients"))
+    ingredients_to_flavors = pickle.load(open("cleaned_ingredients"))
     for i in ingredients_to_flavors.keys():
         ingredients_to_flavors[process_ingredient(i).decode('utf-8')] = ingredients_to_flavors[i]
         del ingredients_to_flavors[i]
-    recipes = pickle.load(open("cleanedRecipes"))
+    recipes = pickle.load(open("cleaned_recipes"))
     tfidf = TfidfVectorizer()
     all_strings = []
     for i, recipe in enumerate(recipes):
@@ -248,7 +248,7 @@ def analyze_ingredients():
     print pearsonr(x, y)
     show()
     d = {'flavors':flavor_labels, 'ingredients':ingredient_labels, 'ingredient_flavor':[list(a) for a in ingredient_flavor], 'ingredient_recipe':[list(a) for a in ingredient_recipe]}
-    pickle.dump(d, open('cleanedMatrices', 'wb'))
+    pickle.dump(d, open('cleaned_matrices', 'wb'))
 
     print 'Flavor ingredient assocations', sum(counts.values())
 
@@ -288,7 +288,7 @@ def generative_model1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_
 
 
 if __name__ == '__main__':
-    d = pickle.load(open('cleanedMatrices'))
+    d = pickle.load(open('cleaned_matrices'))
     ingredient_flavor = np.array(d['ingredient_flavor'])
     ingredient_recipe = np.array(d['ingredient_recipe'])
     flavor_recipe = np.dot(ingredient_flavor.transpose(), ingredient_recipe)
