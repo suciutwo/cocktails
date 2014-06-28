@@ -1,52 +1,50 @@
 import json
-import random
 
 from scipy.stats import pearsonr
-from sklearn.decomposition import PCA
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import SpectralClustering
 from pylab import *
 
-from tsne import bh_sne
-from data_formatting import top_ingredient_combinations
 from data_formatting import render_ingredient_as_single_word
 
 
-def make_correlation_webpage(C, ns, names, outfile, n_clusters = 5, colors = None):
-    n = len(ns)
+def make_correlation_webpage(correlation_matrix, item_frequency, names, outfile, n_clusters=5, colors=None):
+    n_items = len(item_frequency)
 
     #Makes a webpage out of correlation matrix.
-    C = np.array(C)
-    C = C - C.min()
-    S = SpectralClustering(affinity = 'precomputed', n_clusters = n_clusters)
-    S.fit(C)
+    correlation_matrix = np.array(correlation_matrix)
+    correlation_matrix = correlation_matrix - correlation_matrix.min()
+    model = SpectralClustering(affinity='precomputed', n_clusters=n_clusters)
+    model.fit(correlation_matrix)
 
-    idxs = np.argsort(S.labels_)
+    idxs = np.argsort(model.labels_)
     reordered = np.zeros([len(idxs), len(idxs)])
-    for i in range(len(C)):
-        for j in range(len(C)):
-            reordered[i][j] = C[idxs[i]][idxs[j]]
-    figure(figsize = [10, 10])
-    imshow(reordered, interpolation = 'nearest')
-    yticks([a  for a in range(len(names))], [names[i] for i in idxs])
-    xticks(range(len(names)), [names[i] for i in idxs], rotation = 90)
-    subplots_adjust(bottom = .3, left = .3)
+    for i in range(len(correlation_matrix)):
+        for j in range(len(correlation_matrix)):
+            reordered[i][j] = correlation_matrix[idxs[i]][idxs[j]]
+
+    figure(figsize=[10, 10])
+    imshow(reordered, interpolation='nearest')
+    yticks([a for a in range(len(names))], [names[i] for i in idxs])
+    xticks(range(len(names)), [names[i] for i in idxs], rotation=90)
+    subplots_adjust(bottom=.3, left=.3)
     colorbar()
-    show()
+    # then save figure
+
     print 'Making webpage...'
     nodes = []
     links = []
-    print S.labels_
-    for i in set(S.labels_):
-        print 'Cluster size', (S.labels_ == i).sum()
+    print model.labels_
+    for i in set(model.labels_):
+        print 'Cluster size', (model.labels_ == i).sum()
     if colors is None:
         colors = []
-        for i in range(n):
-            colors.append(1.*S.labels_[i]/max(S.labels_))
-    for i in range(len(C)):
-        nodes.append({'name':names[i], 'cluster':str(S.labels_[i]), 'size':ns[i], 'color':colors[i]})
-        for j in range(i+1, len(C)):
-            links.append({"source": i, "target": j, "value": C[i][j]})
+        for i in range(n_items):
+            colors.append(1.*model.labels_[i]/max(model.labels_))
+    for i in range(len(correlation_matrix)):
+        nodes.append({'name':names[i], 'cluster':str(model.labels_[i]), 'size':item_frequency[i], 'color':colors[i]})
+        for j in range(i+1, len(correlation_matrix)):
+            links.append({"source": i, "target": j, "value": correlation_matrix[i][j]})
     json.dump({'nodes':nodes, 'links':links}, open('%s.json' % outfile, 'w+'))
     f = open('/Users/epierson/Dropbox/base_graph.html').read()
     full_outfile_name = ('%s.html' % outfile)
@@ -56,97 +54,26 @@ def make_correlation_webpage(C, ns, names, outfile, n_clusters = 5, colors = Non
     print 'Saved website as', full_outfile_name
 
 
-
-def pca():
+def correlation_webpage_wrapper():
     d = pickle.load(open("cleaned_recipes"))
-    tf_idf = True
-    use_pca = False
-    plot_rank = False
-    threshold = 10
-    two_grams = top_ingredient_combinations(combination_size=2, normalize=False)
-    if not tf_idf:
-        ingredients = list(set([render_ingredient_as_single_word(ingred[0]) for recipe in d for ingred in recipe ]))
-        ingredient_map = dict(zip(ingredients, range(len(ingredients))))
-        m = np.zeros([len(d), len(ingredients)])
-        C = []
-        for i, recipe in enumerate(d):
-            for ingredient in recipe:
-                m[i][ingredient_map[render_ingredient_as_single_word(ingredient[0])]] = 1
-        ns = m.sum(axis = 0)
-        idxs = np.argsort(ns)[::-1]
-        for i in idxs[:100]:
-            print ingredients[i], ns[i]
-        good_ns = (ns>=5) & (ns<=500)
-        ns = ns[good_ns]
-        C = np.corrcoef(m[:, good_ns].transpose())
-        print C.shape
-        ingredients = [ingredients[i] for i in range(len(ingredients)) if good_ns[i]]
-        m = m[:, good_ns]
-        make_correlation_webpage(C, ns, ingredients, 'alcohol', n_clusters = 30, colors = None)
-    else:
-        tfidf = TfidfVectorizer()
-        all_strings = []
-        for i, recipe in enumerate(d):
-            s = ' '.join([render_ingredient_as_single_word(ingredient[0]).decode('utf-8') for ingredient in recipe])
-            print s
-            all_strings.append(s)
-        m = tfidf.fit_transform(all_strings).toarray()
-        ingredients = tfidf.get_feature_names()
-
-    if use_pca:
-        n_components = 2
-        model = PCA(n_components=n_components, whiten=False)#SparsePCA(n_components = n_components, alpha = .5)
-        small_m = model.fit_transform(m.transpose())
-        #for i in range(n_components):
-        #	idxs = np.argsort(abs(model.components_[i, :]))[::-1]
-        #	print 'Component %i has %i nonzero components' % (i+1, (model.components_[i, :]!=0).sum())
-        #	#print len(model.components_[i, :])
-        #	for j in idxs:
-        #		if model.components_[i, j]!=0:
-        #			print model.components_[i, j], ingredients[j]
-        #print model.components_.shape
-        #print
-    else:
-        small_m = bh_sne(m.transpose())
-
-    figure(figsize=[50, 50])
-    small_m[:, 0] = small_m[:, 0] - (small_m[:, 0].min()-.001)
-    small_m[:, 1] = small_m[:, 1] - (small_m[:, 1].min()-.001)
-    if plot_rank:
-        for i in range(len(small_m[0])):
-            idxs = np.argsort(small_m[:, i])[::-1]
-            for rank, j in enumerate(idxs):
-                small_m[j, i] = rank
-
-    ingredient_dict = dict(zip(ingredients, range(len(ingredients))))
-    for i in range(len(small_m)):
-        if tf_idf:
-            annotate(ingredients[i], [small_m[i, 0], small_m[i, 1]])
-        else:
-            annotate(ingredients[i].decode('utf-8'), [small_m[i, 0], small_m[i, 1]])
-    n_lines_plotted = 0
-    for k in two_grams:
-        if two_grams[k] > threshold:
-            try:
-                a1, a2 = k.split('/')
-                p1 = small_m[ingredient_dict[a1]]
-                p2 = small_m[ingredient_dict[a2]]
-                plot([p1[0], p2[0]], [p1[1], p2[1]], color = 'red')
-                n_lines_plotted += 1
-            except:
-                continue
-    print 'Number of connections passing threshold', n_lines_plotted
-    scatter(small_m[:, 0], small_m[:, 1])
-    xlim([min(small_m[:, 0]), max(small_m[:, 0])*1.1])
-    ylim([min(small_m[:, 0]), max(small_m[:, 0])*1.1])
-    #show()
-    if tf_idf:
-        savefig('PCA_tf_idf.png')
-    else:
-        savefig('PCA_no_tf_idf.png')
-    print small_m
-
-
+    ingredients = list(set([render_ingredient_as_single_word(ingred[0]) for recipe in d for ingred in recipe ]))
+    ingredient_map = dict(zip(ingredients, range(len(ingredients))))
+    m = np.zeros([len(d), len(ingredients)])
+    for i, recipe in enumerate(d):
+        for ingredient in recipe:
+            m[i][ingredient_map[render_ingredient_as_single_word(ingredient[0])]] = 1
+    ingredient_frequency = m.sum(axis=0)
+    idxs = np.argsort(ingredient_frequency)[::-1]
+    for i in idxs[:100]:
+        print ingredients[i], ingredient_frequency[i]
+    ## Good means not too common, not too rare.
+    good_ns = (ingredient_frequency >= 5) & (ingredient_frequency <= 500)
+    ingredient_frequency = ingredient_frequency[good_ns]
+    correlation_matrix = np.corrcoef(m[:, good_ns].transpose())
+    ingredients = [ingredients[i] for i in range(len(ingredients)) if good_ns[i]]
+    m = m[:, good_ns]
+    make_correlation_webpage(correlation_matrix, ingredient_frequency,
+                             ingredients, 'alcohol', n_clusters=30)
 
 
 def analyze_ingredients():
@@ -218,25 +145,28 @@ def analyze_ingredients():
     print 'Flavor ingredient assocations', sum(counts.values())
 
 
-def generative_model1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, flavors, ingredient_frequencies, ingredients):
+def generative_model1(seed_flavor, ingredient_flavor, conditional_flavor_probs, flavors, ingredient_frequencies, ingredients):
     alpha = .3
-    flavors_in_recipe = [seed_flavor]
     n_ingredients, n_flavors = ingredient_flavor.shape
-    n_ingredients, n_recipes = ingredient_recipe.shape
+
+    ## Get some flavors to use
     flavor_idxs = [flavors.index(seed_flavor)]
-    while 1:
-        flavor_probs = np.ones([n_flavors,])
-        if random.uniform(0, 1)<alpha:
+    while True:
+        flavor_probs = np.ones([n_flavors, ])
+        if random.uniform(0, 1) < alpha:
+            # don't put too many things in the drink
             break
         for j in range(len(flavor_idxs)):
             flavor_probs = np.multiply(flavor_probs, conditional_flavor_probs[flavor_idxs[j], :])
         if flavor_probs.sum() < 1e-8:
+            # if this is a rare thing, give up
             break
         flavor_probs = flavor_probs/(flavor_probs.sum()+1e-10)
         draw = np.nonzero(np.random.multinomial(1, flavor_probs))[0][0]
         flavor_idxs.append(draw)
     flavor_idxs = list(set(flavor_idxs))
-    flavor_names = [flavors[i] for i in flavor_idxs]
+
+    ## now find ingredients
     ingredient_names = []
     for i in flavor_idxs:
         candidate_ingredients = np.nonzero(ingredient_flavor[:, i])[0]
@@ -245,21 +175,23 @@ def generative_model1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_
         candidate_frequencies = candidate_frequencies/(candidate_frequencies.sum() + 1e-10)
         draw = np.nonzero(np.random.multinomial(1, candidate_frequencies))[0][0]
         ingredient_names.append(candidate_ingredient_names[draw])
+
     print 'Recipe:'
+    flavor_names = [flavors[i] for i in flavor_idxs]
     for i in range(len(flavor_names)):
         print flavor_names[i], 'generated', ingredient_names[i]
     print
 
 
-
-if __name__ == '__main__':
+def use_generative_model():
+    analyze_ingredients()
     d = pickle.load(open('cleaned_matrices'))
-    ingredient_flavor = np.array(d['ingredient_flavor'])
-    ingredient_recipe = np.array(d['ingredient_recipe'])
-    flavor_recipe = np.dot(ingredient_flavor.transpose(), ingredient_recipe)
-    conditional_flavor_probs= np.dot(flavor_recipe, flavor_recipe.transpose()) # m[i][j] is probs of seeing j given that you saw i
-    flavor_frequency = flavor_recipe.sum(axis = 1)
-    ingredient_frequency = ingredient_recipe.sum(axis = 1)
+    ingredient_flavor = np.array(d['ingredient_flavor'])  # ingredient -> flavor
+    ingredient_recipe = np.array(d['ingredient_recipe'])  # ingredient -> recipes
+    flavor_recipe = np.dot(ingredient_flavor.transpose(), ingredient_recipe) # flavor -> recipe
+    conditional_flavor_probs = np.dot(flavor_recipe, flavor_recipe.transpose()) # m[i][j] is probs of seeing j given that you saw i, maybe
+    flavor_frequency = flavor_recipe.sum(axis=1)
+    ingredient_frequency = ingredient_recipe.sum(axis=1)
     for i in range(len(conditional_flavor_probs)):
         conditional_flavor_probs[i, i] = 0
         conditional_flavor_probs[i, :] = conditional_flavor_probs[i, :]/conditional_flavor_probs[i, :].sum()
@@ -268,4 +200,10 @@ if __name__ == '__main__':
             continue
         print '\nGenerating flavors using seed', seed_flavor
         for i in range(5):
-            generative_model1(seed_flavor, ingredient_flavor, ingredient_recipe, flavor_recipe, conditional_flavor_probs, d['flavors'], ingredient_frequency, d['ingredients'])
+            generative_model1(seed_flavor, ingredient_flavor,
+                              conditional_flavor_probs, d['flavors'],
+                              ingredient_frequency, d['ingredients'])
+
+
+if __name__ == '__main__':
+    use_generative_model()

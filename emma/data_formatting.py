@@ -5,6 +5,7 @@ topNGrams
 import pickle
 import string
 import numpy as np
+import unicodedata
 from itertools import combinations
 from collections import Counter
 from copy import deepcopy
@@ -70,7 +71,8 @@ def normalize_by_onegrams(x, n_grams, one_gram_counts):
     return original_val
 
 
-def top_conditional(k=2, verbose=True, normalize=False):
+def most_likely_third_ingredient(verbose=True, normalize=False):
+    k = 2
     d = pickle.load(open("cleaned_recipes"))
     n_recipes = len(d)
     n_grams = top_ingredient_combinations(combination_size=k, normalize=False)
@@ -94,7 +96,7 @@ def top_conditional(k=2, verbose=True, normalize=False):
             z = 1.*sum(n_gram_map[k][0])
             print '\nCombo %i: %s, %i appearances. Final ingredient:' % (i+1, k, z)
 
-            if not normalize:
+            if not normalize:  # prints ingredient most likely to follow
                 idxs = np.argsort(n_gram_map[k][0])[::-1]
                 for j in idxs[:10]:
                     print '%-50s %i %2.1f%%' % (n_gram_map[k][1][j], n_gram_map[k][0][j], 100*n_gram_map[k][0][j]/z)
