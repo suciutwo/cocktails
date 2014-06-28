@@ -31,7 +31,7 @@ def print_top_components(components, name_index):
         parts_to_display = 10
         top_n_indices = np.argsort(-1*component)[0:parts_to_display]
         for i in top_n_indices:
-            print '\t %s: %d' % (name_index.get_ingred(i), component[i])
+            print '\t %s: %f' % (name_index.get_ingred(i), component[i])
 
 
 def plot_2d_points(two_component_matrix, name_index, output_filename,

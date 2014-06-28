@@ -81,9 +81,9 @@ def dirty_test_of_nmf(number_of_components, exact_amounts):
 
 
 if __name__ == '__main__':
-    # dirty_test_of_nmf(number_of_components=20, exact_amounts=False)
+     dirty_test_of_nmf(number_of_components=20, exact_amounts=False)
     # select_component_count_nmf()
-    visualize_reduced_dimensions("PCA", use_tfidf=False)
-    visualize_reduced_dimensions("TSNE", use_tfidf=False)
-    visualize_reduced_dimensions("sPCA", use_tfidf=False)
-    visualize_reduced_dimensions("NMF", use_tfidf=False)
+    #visualize_reduced_dimensions("PCA", use_tfidf=False)
+    #visualize_reduced_dimensions("TSNE", use_tfidf=False)
+    #visualize_reduced_dimensions("sPCA", use_tfidf=False)
+    #visualize_reduced_dimensions("NMF", use_tfidf=False)
