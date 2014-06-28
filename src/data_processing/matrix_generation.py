@@ -11,7 +11,9 @@ import pickle
 
 import os
 import numpy as np
+import scipy.sparse as sp
 
+from emma.data_formatting import render_ingredient_as_single_word
 from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
 from src.data_processing.parse_pages import CLEANED_INGREDIENTS_FILENAME
 
@@ -31,6 +33,33 @@ def ingredients_flavor_matrix():
     return matrix
 
 
+def tfidf_recipe_matrix():
+    """
+    Wrapper around recipe_matrix that produces a TFIDF normalized version
+    of the same matrix.
+    :return: The normalized matrix and a RecipeNameIndex
+    """
+    matrix, index = recipe_matrix(exact_amounts=False)
+    n_samples, n_features = matrix.shape
+    document_frequency = np.sum(matrix, axis=0)
+
+    ## Smooth
+    document_frequency += 1
+    n_samples += 1
+
+    ## Calculate IDF
+    idf = np.log(float(n_samples) / document_frequency) + 1.0
+    idf_diag = sp.spdiags(idf, diags=0, m=n_features, n=n_features)
+
+    ## Transform matrix according to IDF
+    weighted_matrix = matrix * idf_diag
+    norms = (weighted_matrix * weighted_matrix).sum(axis=1)
+    norms = np.sqrt(norms, norms)
+    norms[norms == 0.0] = 1.0
+    weighted_matrix /= norms[:, np.newaxis]
+    return weighted_matrix, index
+
+
 def recipe_matrix(exact_amounts=True):
     """
     Processes the result of parsePages and
@@ -43,7 +72,7 @@ def recipe_matrix(exact_amounts=True):
     if os.path.isfile(AMOUNT_PARSING_GUIDE):
         associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
     else:
-        print "No AMOUNT_PARSING_GUIDE, run build_amount_parsing_mapping first"
+        print "No AMOUNT_PARSING_GUIDE, run build_amount_parsing_guide first"
         return None, None
     print "...loading recipe list from file"
     print "run parsePages to generate a new version of the file"
@@ -55,6 +84,7 @@ def recipe_matrix(exact_amounts=True):
         cocktail_idx = index.title_idx(cocktail_name)
         for tup in ingredient_tuples:
             ingred_name = tup[0]
+            ingred_name = render_ingredient_as_single_word(ingred_name)
             ingred_idx = index.ingred_idx(ingred_name)
             if exact_amounts:
                 ingred_amount = associations[tup[1].strip()+tup[2].strip()]
@@ -88,6 +118,7 @@ class RecipeNameIndex(object):
                 title_idx += 1
             for tup in ingredients:
                 ingred_name = tup[0]
+                ingred_name = render_ingredient_as_single_word(ingred_name)
                 if ingred_name not in self.ingred_to_number:
                     self.ingred_to_number[ingred_name] = ingred_idx
                     self.number_to_ingred[str(ingred_idx)] = ingred_name
@@ -130,7 +161,7 @@ class RecipeNameIndex(object):
         return len(self.ingred_to_number)
 
 
-def build_amount_parsing_mapping():
+def build_amount_parsing_guide():
     """
     Creates a map (in AMOUNT_PARSING_GUIDE) that goes from
     strings -> ingredients. Human generated.

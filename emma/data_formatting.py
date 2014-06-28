@@ -13,8 +13,9 @@ from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
 
 def render_ingredient_as_single_word(string_):
     string_ = string_.replace('fresh', '').strip()
-    string_ = string_.translate(string.maketrans("",""), string.punctuation)
+    string_ = string_.translate(string.maketrans("", ""), string.punctuation)
     string_ = string_.lower().replace(' ', '_')
+    string_ = string_.decode('utf-8')
     return string_
 
 def top_ingredient_combinations(combination_size=2, normalize=False, verbose=False):

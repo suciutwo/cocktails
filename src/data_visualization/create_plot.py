@@ -2,8 +2,13 @@
 Call these functions to make pretty displays.
 """
 
+# To ignore numpy errors:
+#     pylint: disable=E1101
+
 import matplotlib.pyplot as plt
 import numpy as np
+
+from emma.data_formatting import top_ingredient_combinations
 
 RESULT_DIRECTORY = 'results/'
 
@@ -29,59 +34,55 @@ def print_top_components(components, name_index):
             print '\t %s: %d' % (name_index.get_ingred(i), component[i])
 
 
-
-
-def emma_matrix_plot(two_component_matrix, ingredients, ingredient_pairs,
-                     threshold=10, replace_values_with_rank=True, use_tfidf=True):
+def plot_2d_points(two_component_matrix, name_index, output_filename,
+                   replace_values_with_rank=True,
+                   add_lines_connecting_pairs=False):
     """
+    Saves a pretty plot of items in two dimensions. Adds their names, and
+    optionally does some data manipulation so that you can see a prettier graph
 
-    :param two_component_matrix:
-    :param ingredients:
-    :param ingredient_pairs:
-    :param threshold:
+    :param two_component_matrix: (items)x(2) matrix
+    :param name_index: RecipeNameIndex object used to generate matrix
+    :param output_filename: name of figure (typically .png), will get stomped
     :param replace_values_with_rank: boolean that forces values of each
      component to be replaced with their relative rank (descending).
-    :param use_tfidf:
+    :param add_lines_connecting_pairs: adds a bunch of red lines connecting
+    ingredient pairs. Twiddle threshold variable if there are too many
     """
-    [number_of_items, number_of_components] = two_component_matrix.shape
-
     two_component_matrix = shift_column_values(two_component_matrix, .001)
     if replace_values_with_rank:
         two_component_matrix = replace_values_with_ranking(two_component_matrix)
 
-    print len(ingredients)
-    print number_of_items
-
-    ingredient_dict = dict(zip(ingredients, range(len(ingredients))))
-
     plt.figure(figsize=[50, 50])
-    for i in range(number_of_items):
-        point = [two_component_matrix[i, :]]
-        plt.annotate(ingredients[i], point)
+    for i in range(two_component_matrix.shape[0]):
+        point = two_component_matrix[i, :]
+        plt.annotate(name_index.get_ingred(i), point)
 
-    n_lines_plotted = 0
-    for pair in ingredient_pairs:
-        if ingredient_pairs[pair] > threshold:
-            try:
-                a1, a2 = pair.split('/')
-                p1 = two_component_matrix[ingredient_dict[a1]]
-                p2 = two_component_matrix[ingredient_dict[a2]]
-                plt.plot([p1[0], p2[0]], [p1[1], p2[1]], color = 'red')
+    if add_lines_connecting_pairs:
+        ingredient_pairs = top_ingredient_combinations()
+        n_lines_plotted = 0
+        threshold = 10
+        for pair in ingredient_pairs:
+            if ingredient_pairs[pair] > threshold:
+                ingred_one, ingred_two = pair.split('/')
+                ingred_one_idx = name_index.ingred_idx(ingred_one)
+                ingred_two_idx = name_index.ingred_idx(ingred_two)
+                point = two_component_matrix[ingred_one_idx]
+                endpoint = two_component_matrix[ingred_two_idx]
+                plt.plot([point[0], endpoint[0]],
+                         [point[1], endpoint[1]],
+                         color='red')
                 n_lines_plotted += 1
-            except:
-                continue
-    print 'Number of connections passing threshold', n_lines_plotted
+        print 'Threshold for adding lines', threshold
+        print 'Number of connections passing threshold', n_lines_plotted
+
     plt.scatter(two_component_matrix[:, 0], two_component_matrix[:, 1])
-    plt.xlim([min(two_component_matrix[:, 0]), max(two_component_matrix[:, 0])*1.1])
-    plt.ylim([min(two_component_matrix[:, 0]), max(two_component_matrix[:, 0])*1.1])
+    plt.xlim([min(two_component_matrix[:, 0]),
+              max(two_component_matrix[:, 0])*1.1])
+    plt.ylim([min(two_component_matrix[:, 0]),
+              max(two_component_matrix[:, 0])*1.1])
 
-
-    if use_tfidf:
-        filename = 'PCA_tf_idf-beforehack.png'
-    else:
-        filename = 'impossible.png'
-
-    plt.savefig(RESULT_DIRECTORY + filename)
+    plt.savefig(RESULT_DIRECTORY + output_filename + '.png')
 
 
 def shift_column_values(matrix, minimum_value):
