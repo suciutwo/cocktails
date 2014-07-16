@@ -83,9 +83,9 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
 
     plt.scatter(two_component_matrix[:, 0], two_component_matrix[:, 1])
     plt.xlim([min(two_component_matrix[:, 0]),
-              max(two_component_matrix[:, 0])*1.1])
+              max(two_component_matrix[:, 0]) * 1.1])
     plt.ylim([min(two_component_matrix[:, 0]),
-              max(two_component_matrix[:, 0])*1.1])
+              max(two_component_matrix[:, 0]) * 1.1])
 
     plt.savefig(constants.RESULT_DIRECTORY + output_filename + '.png')
 
