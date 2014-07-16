@@ -5,12 +5,11 @@ Call these functions to make pretty displays.
 # To ignore numpy errors:
 #     pylint: disable=E1101
 
+import src.constants as constants
 import matplotlib.pyplot as plt
 import numpy as np
 
 from emma.data_formatting import top_ingredient_combinations
-
-RESULT_DIRECTORY = 'results/'
 
 
 def print_top_components(components, name_index):
@@ -27,7 +26,7 @@ def print_top_components(components, name_index):
     """
     for idx, component in enumerate(components):
         print '-----------'
-        print 'Component %d' % idx
+        print 'Component %d' % (idx + 1)
         parts_to_display = 10
         top_n_indices = np.argsort(-1*component)[0:parts_to_display]
         for i in top_n_indices:
@@ -82,7 +81,7 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
     plt.ylim([min(two_component_matrix[:, 0]),
               max(two_component_matrix[:, 0])*1.1])
 
-    plt.savefig(RESULT_DIRECTORY + output_filename + '.png')
+    plt.savefig(constants.RESULT_DIRECTORY + output_filename + '.png')
 
 
 def shift_column_values(matrix, minimum_value):
