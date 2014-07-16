@@ -14,6 +14,7 @@ from sklearn.decomposition import SparsePCA
 from tsne import bh_sne
 
 import src.constants as constants
+from src.data_processing.matrix_generation import ingredients_flavor_dict
 from src.data_processing.matrix_generation import recipe_matrix
 from src.data_processing.matrix_generation import tfidf_recipe_matrix
 from src.data_visualization.create_plot import print_top_components
@@ -116,6 +117,7 @@ def inspect_components(reduction_type, use_exact_amounts=False):
         dump_filename += '_exact_amounts'
     components = pickle.load(open(dump_filename, 'r'))
     name_index = components[0]
+    flavor_index = ingredients_flavor_dict()
     n_components = 1
     while True:
         user_input = raw_input('Jump to: ')
@@ -137,7 +139,7 @@ def inspect_components(reduction_type, use_exact_amounts=False):
                 continue
         print '\n\n\n'
         print 'Result for %d components' % n_components
-        print_top_components(components[n_components], name_index)
+        print_top_components(components[n_components], name_index, flavor_index)
 
 
 def generate_all_components(reduction_type, n_components=200,
@@ -162,10 +164,10 @@ def generate_all_components(reduction_type, n_components=200,
 
 
 if __name__ == '__main__':
-#    for reduction in ReductionTypes:
-#        visualize_reduced_dimensions(reduction, use_tfidf=False)
-
-    for reduction in ReductionTypes:
-        if reduction is not ReductionTypes.T_SNE:
-            generate_all_components(reduction)
-#    inspect_components(ReductionTypes.NMF)
+    # for reduction in ReductionTypes:
+    #     visualize_reduced_dimensions(reduction, use_tfidf=False)
+    #
+    # for reduction in ReductionTypes:
+    #     if reduction is not ReductionTypes.T_SNE:
+    #         generate_all_components(reduction)
+    inspect_components(ReductionTypes.NMF)

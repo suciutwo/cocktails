@@ -12,9 +12,9 @@ import numpy as np
 from emma.data_formatting import top_ingredient_combinations
 
 
-def print_top_components(components, name_index):
+def print_top_components(components, name_index, flavor_index):
     """
-    Prints a summary of the top components of a matrix factorization.
+    Prints out a summary of the top components of a matrix factorization.
     :param components: a matrix with dimensions (components)x(features).
     Each row is a single component and contains information about which
     features make up that component. This is most typically generated
@@ -23,14 +23,20 @@ def print_top_components(components, name_index):
     that was used to generate these components. It's on you to make sure you're
     using the right RecipeNameIndex. If not, the mapping between items and
     names will be wonky and you'll be in tears.
+    :param flavor_index: mapping from ingredient names to flavors.
     """
     for idx, component in enumerate(components):
         print '-----------'
         print 'Component %d' % (idx + 1)
-        parts_to_display = 10
-        top_n_indices = np.argsort(-1*component)[0:parts_to_display]
+        n_ingredients_to_display = 10
+        top_n_indices = np.argsort(-1 * component)[0:n_ingredients_to_display]
         for i in top_n_indices:
-            print '\t %s: %f' % (name_index.get_ingred(i), component[i])
+            ingredient_name = name_index.get_ingred(i)
+            weight = component[i]
+            flavors = ''
+            if ingredient_name in flavor_index:
+                flavors = '(%s)' % flavor_index[ingredient_name]
+            print '\t %s: %.2f %s' % (ingredient_name, weight, flavors)
 
 
 def plot_2d_points(two_component_matrix, name_index, output_filename,

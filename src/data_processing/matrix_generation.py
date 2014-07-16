@@ -27,10 +27,26 @@ def ingredients_flavor_matrix():
     """
     print "...creating ingredients matrix from file"
     print "run parsePages to generate a new version of the file"
-    ingredients = pickle.load(open(
-        constants.CLEANED_INGREDIENTS_FILENAME, 'rb'))
-    matrix = np.array(ingredients)
+    ingredient_dict = pickle.load(
+        open(constants.CLEANED_INGREDIENTS_FILENAME, 'rb'))
+    matrix = np.array(ingredient_dict)
     return matrix
+
+
+def ingredients_flavor_dict():
+    """
+    Uses output of parsePages and creates a mapping from ingredients to flavors.
+    """
+    clean_ingredient_dict = {}
+    original_ingredient_dict = pickle.load(
+        open(constants.CLEANED_INGREDIENTS_FILENAME, 'rb'))
+    for ingredient_name, flavors in original_ingredient_dict.iteritems():
+        clean_name = render_ingredient_as_single_word(ingredient_name)
+        clean_flavors = ', '.join(flavors)
+        if not clean_flavors:
+            continue
+        clean_ingredient_dict[clean_name] = clean_flavors
+    return clean_ingredient_dict
 
 
 def tfidf_recipe_matrix():
@@ -203,7 +219,7 @@ def build_amount_parsing_guide():
     pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
 
 
-
 if __name__ == '__main__':
-    ingredients_flavor_matrix()
-    recipe_matrix()
+    # ingredients_flavor_matrix()
+    # recipe_matrix()
+    ingredients_flavor_dict()
