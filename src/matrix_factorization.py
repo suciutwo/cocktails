@@ -7,8 +7,6 @@ tools to display the factors. For example, NMF, PCA.
 #     pylint: disable=E1101
 
 from enum import Enum
-import matplotlib.pyplot as plt
-import numpy as np
 import pickle
 from sklearn.decomposition import PCA
 from sklearn.decomposition import ProjectedGradientNMF
@@ -107,13 +105,15 @@ def visualize_reduced_dimensions(reduction_type, use_tfidf=True):
     plot_2d_points(two_component_matrix, name_index, output_filename)
 
 
-def inspect_components(reduction_type):
+def inspect_components(reduction_type, use_exact_amounts=False):
     """
     Allows the user to interacted with a saved list of matrix components.
     :param reduction_type: The type of decomposition to use
     Asks user to enter queries to see components
     """
     dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name
+    if use_exact_amounts:
+        dump_filename += '_exact_amounts'
     components = pickle.load(open(dump_filename, 'r'))
     name_index = components[0]
     n_components = 1
@@ -140,7 +140,8 @@ def inspect_components(reduction_type):
         print_top_components(components[n_components], name_index)
 
 
-def generate_all_components(reduction_type, n_components=100):
+def generate_all_components(reduction_type, n_components=200,
+                            use_exact_amounts=False):
     """
     Carries out a dimensionality reduction using 1:n_components components.
     All results are saved in a list so that they can be easily inspected later.
@@ -148,11 +149,15 @@ def generate_all_components(reduction_type, n_components=100):
     :param n_components: The highest number of components to calculate.
     AFTER A VERY LONG TIME this pickles a dictionary of components.
     """
-    matrix, name_index = recipe_matrix(exact_amounts=False)
+    matrix, name_index = recipe_matrix(exact_amounts=use_exact_amounts)
     components = [name_index]
+    print 'Calculating all components for %s' % reduction_type.name
     for number in range(1, n_components+1):
+        print 'Calculating component %d' % number
         components.append(calculate_components(matrix, reduction_type, number))
-    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name
+    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name
+    if use_exact_amounts:
+        dump_filename += '_exact_amounts'
     pickle.dump(components, open(dump_filename, 'w'))
 
 
@@ -160,5 +165,7 @@ if __name__ == '__main__':
 #    for reduction in ReductionTypes:
 #        visualize_reduced_dimensions(reduction, use_tfidf=False)
 
-#    generate_all_components(ReductionTypes.NMF)
-    inspect_components(ReductionTypes.NMF)
+    for reduction in ReductionTypes:
+        if reduction is not ReductionTypes.T_SNE:
+            generate_all_components(reduction)
+#    inspect_components(ReductionTypes.NMF)
