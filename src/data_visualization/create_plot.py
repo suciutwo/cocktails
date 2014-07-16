@@ -28,7 +28,7 @@ def print_top_components(components, name_index, flavor_index):
     for idx, component in enumerate(components):
         print '-----------'
         print 'Component %d' % (idx + 1)
-        n_ingredients_to_display = 10
+        n_ingredients_to_display = min(10, len(component))
         top_n_indices = np.argsort(-1 * component)[0:n_ingredients_to_display]
         for i in top_n_indices:
             ingredient_name = name_index.get_ingred(i)
