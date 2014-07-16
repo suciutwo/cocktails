@@ -28,14 +28,14 @@ def print_top_components(components, name_index, flavor_index):
     for idx, component in enumerate(components):
         print '-----------'
         print 'Component %d' % (idx + 1)
-        n_ingredients_to_display = min(10, len(component))
-        top_n_indices = np.argsort(-1 * np.abs(component))[0:n_ingredients_to_display]
+        n_to_display = min(10, len(component))
+        top_n_indices = np.argsort(-1 * np.abs(component))[0:n_to_display]
         weight_of_largest_component = abs(component[top_n_indices[0]])
         for i in top_n_indices:
             ingredient_name = name_index.get_ingred(i)
             weight = component[i]
             if abs(weight) < .2 * weight_of_largest_component:
-                break
+                break  # this component is too small, ignore it and future ones
             flavors = ''
             if ingredient_name in flavor_index:
                 flavors = '(%s)' % flavor_index[ingredient_name]
