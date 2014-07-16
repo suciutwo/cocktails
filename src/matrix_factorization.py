@@ -170,4 +170,4 @@ if __name__ == '__main__':
     # for reduction in ReductionTypes:
     #     if reduction is not ReductionTypes.T_SNE:
     #         generate_all_components(reduction)
-    inspect_components(ReductionTypes.NMF)
+    inspect_components(ReductionTypes.PCA)
