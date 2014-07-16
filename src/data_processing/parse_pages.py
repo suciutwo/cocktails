@@ -6,11 +6,7 @@ import pickle
 
 from BeautifulSoup import BeautifulSoup
 
-from src.data_processing.scrape_cocktails import COCKTAILS_FILENAME
-from src.data_processing.scrape_cocktails import INGREDIENTS_FILENAME
-
-CLEANED_COCKTAILS_FILENAME = 'data/cleaned_recipes'
-CLEANED_INGREDIENTS_FILENAME = 'data/cleaned_ingredients'
+import src.constants as constants
 
 
 def process_recipes_file():
@@ -18,7 +14,7 @@ def process_recipes_file():
     Creates a list of lists that contain the (ingredient, amount)
     tuples that compose a recipe; pickles the list.
     """
-    cocktail_pages = pickle.load(open(COCKTAILS_FILENAME))
+    cocktail_pages = pickle.load(open(constants.COCKTAILS_FILENAME))
     all_recipes = {}
     for i, cocktail_page in enumerate(cocktail_pages):
         try:
@@ -39,7 +35,7 @@ def process_recipes_file():
             print exception
             print "FAILED TO SCRAPE THIS PAGE EARLIER IN THE PIPELINE"
             continue
-    pickle.dump(all_recipes, open(CLEANED_COCKTAILS_FILENAME, 'wb'))
+    pickle.dump(all_recipes, open(constants.CLEANED_COCKTAILS_FILENAME, 'wb'))
 
 
 def process_ingredients_file():
@@ -48,7 +44,7 @@ def process_ingredients_file():
     value is a list of all the flavors that describe it; pickles the
     dictionary.
     """
-    ingredient_pages = pickle.load(open(INGREDIENTS_FILENAME))
+    ingredient_pages = pickle.load(open(constants.INGREDIENTS_FILENAME))
     all_ingredients = {}
     for i, ingredient_page in enumerate(ingredient_pages):
 
@@ -68,7 +64,8 @@ def process_ingredients_file():
         except Exception as exception:  # pylint: disable=W0703
             print exception
             continue
-    pickle.dump(all_ingredients, open(CLEANED_INGREDIENTS_FILENAME, 'wb'))
+    pickle.dump(all_ingredients,
+                open(constants.CLEANED_INGREDIENTS_FILENAME, 'wb'))
 
 
 if __name__ == '__main__':

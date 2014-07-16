@@ -8,6 +8,8 @@ from threading import Thread
 import pickle
 import Queue
 
+import src.constants as constants
+
 
 COCKTAILS_IN_DATABASE = 4758
 COCKTAIL_DB_URL = 'http://www.cocktaildb.com/recipe_detail?id='
@@ -15,9 +17,6 @@ INGREDIENTS_IN_DATABASE = 558
 INGREDIENT_DB_URL = 'http://www.cocktaildb.com/ingr_detail?id='
 
 MAXIMUM_WORKERS = 10  # number of simultaneous connections
-
-COCKTAILS_FILENAME = 'data/saved_cocktails'
-INGREDIENTS_FILENAME = 'data/saved_ingredients'
 
 
 def download_all_ingredients():
@@ -27,7 +26,9 @@ def download_all_ingredients():
     """
     print "Downloading all ingredients"
     download_all_pages(
-        INGREDIENT_DB_URL, INGREDIENTS_IN_DATABASE, INGREDIENTS_FILENAME)
+        INGREDIENT_DB_URL,
+        INGREDIENTS_IN_DATABASE,
+        constants.INGREDIENTS_FILENAME)
 
 
 def download_all_cocktails():
@@ -37,7 +38,7 @@ def download_all_cocktails():
     """
     print "Downloading all cocktails"
     download_all_pages(
-        COCKTAIL_DB_URL, COCKTAILS_IN_DATABASE, COCKTAILS_FILENAME)
+        COCKTAIL_DB_URL, COCKTAILS_IN_DATABASE, constants.COCKTAILS_FILENAME)
 
 
 def download_all_pages(url_prefix, number_of_items, output_filename):

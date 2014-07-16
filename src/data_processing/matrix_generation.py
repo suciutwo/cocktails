@@ -14,11 +14,10 @@ import numpy as np
 import scipy.sparse as sp
 
 from emma.data_formatting import render_ingredient_as_single_word
-from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
-from src.data_processing.parse_pages import CLEANED_INGREDIENTS_FILENAME
+import src.constants as constants
 
 
-AMOUNT_PARSING_GUIDE = 'data/amount_parsing_map'
+AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
 
 
 def ingredients_flavor_matrix():
@@ -28,7 +27,8 @@ def ingredients_flavor_matrix():
     """
     print "...creating ingredients matrix from file"
     print "run parsePages to generate a new version of the file"
-    ingredients = pickle.load(open(CLEANED_INGREDIENTS_FILENAME, 'rb'))
+    ingredients = pickle.load(open(
+        constants.CLEANED_INGREDIENTS_FILENAME, 'rb'))
     matrix = np.array(ingredients)
     return matrix
 
@@ -75,8 +75,8 @@ def recipe_matrix(exact_amounts=True):
         print "No AMOUNT_PARSING_GUIDE, run build_amount_parsing_guide first"
         return None, None
     print "...loading recipe list from file"
-    print "run parsePages to generate a new version of the file"
-    recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME, 'rb'))
+    print "run parsePages if you want a new version of the file"
+    recipes = pickle.load(open(constants.CLEANED_COCKTAILS_FILENAME, 'rb'))
     index = RecipeNameIndex(recipes)
     resulting_matrix = np.zeros(
         shape=(index.count_cocktails(), index.count_ingreds()))
@@ -173,7 +173,7 @@ def build_amount_parsing_guide():
 
     print "...loading recipe list from file"
     print "run parsePages to generate a new version of the file"
-    recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME, 'rb'))
+    recipes = pickle.load(open(constants.CLEANED_COCKTAILS_FILENAME, 'rb'))
     for idx, recipe in enumerate(recipes.values()):
         for tup in recipe:
             print tup

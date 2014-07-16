@@ -5,11 +5,10 @@ topNGrams
 import pickle
 import string
 import numpy as np
-import unicodedata
 from itertools import combinations
 from collections import Counter
 from copy import deepcopy
-from src.data_processing.parse_pages import CLEANED_COCKTAILS_FILENAME
+import src.constants as constants
 
 
 def render_ingredient_as_single_word(string_):
@@ -20,7 +19,7 @@ def render_ingredient_as_single_word(string_):
     return string_
 
 def top_ingredient_combinations(combination_size=2, normalize=False, verbose=False):
-    recipes = pickle.load(open(CLEANED_COCKTAILS_FILENAME))
+    recipes = pickle.load(open(constants.CLEANED_COCKTAILS_FILENAME))
     n_gram_counts = Counter()
     one_gram_counts = Counter()
     for name, recipe in recipes.iteritems():
