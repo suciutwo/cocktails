@@ -35,7 +35,7 @@ def print_top_components(components, name_index, flavor_index):
             ingredient_name = name_index.get_ingred(i)
             weight = component[i]
             if abs(weight) < .2 * weight_of_largest_component:
-                break  # this component is too small, ignore it and future ones
+                pass  # this component is too small, ignore it and future ones
             flavors = ''
             if ingredient_name in flavor_index:
                 flavors = '(%s)' % flavor_index[ingredient_name]
