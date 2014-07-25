@@ -80,7 +80,7 @@ def calculate_components(matrix, reduction_type, n_components):
         raise Exception('Components not implemented for T_SNE.')
     elif reduction_type is ReductionTypes.NMF:
         model = ProjectedGradientNMF(n_components=n_components,
-                                     init='random',
+                                     init='nndsvd',
                                      random_state=0)
         components = model.fit(matrix).components_
     return components
@@ -164,11 +164,11 @@ def generate_all_components(reduction_type, n_components=200,
 
 
 if __name__ == '__main__':
-    #generate_all_components(ReductionTypes.NMF)
+    #generate_all_components(ReductionTypes.NMF, use_exact_amounts=True)
     # for reduction in ReductionTypes:
     #     visualize_reduced_dimensions(reduction, use_tfidf=False)
     #
     # for reduction in ReductionTypes:
     #     if reduction is not ReductionTypes.T_SNE:
     #         generate_all_components(reduction)
-    inspect_components(ReductionTypes.NMF)
+    inspect_components(ReductionTypes.NMF, use_exact_amounts=True)
