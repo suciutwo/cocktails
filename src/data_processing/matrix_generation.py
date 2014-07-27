@@ -12,6 +12,7 @@ import numpy as np
 import os
 import pickle
 import scipy.sparse as sp
+from sklearn.preprocessing import normalize
 
 from emma.data_formatting import render_ingredient_as_single_word
 import src.constants as constants
@@ -106,16 +107,17 @@ def recipe_matrix(normalization):
             ingred_name = tup[0]
             ingred_name = render_ingredient_as_single_word(ingred_name)
             ingred_idx = index.ingred_idx(ingred_name)
-            if normalization is Normalization.EXACT_AMOUNTS or \
-                    normalization is Normalization.ROW_SUM_ONE:
-                ingred_amount = associations[tup[1].strip()+tup[2].strip()]
-            elif normalization is Normalization.BOOLEAN or\
-                    normalization is Normalization.TFIDF:
-                ingred_amount = 1.0
-
+            ingred_amount = associations[tup[1].strip()+tup[2].strip()]
             resulting_matrix[cocktail_idx, ingred_idx] = ingred_amount
 
-    if normalization is Normalization.TFIDF:
+    if normalization is Normalization.EXACT_AMOUNTS:
+        pass
+    elif normalization is Normalization.BOOLEAN:
+        resulting_matrix[resulting_matrix!=0] = 1.0
+    elif normalization is Normalization.ROW_SUM_ONE:
+        resulting_matrix = normalize(resulting_matrix, axis=1, norm='l1')
+    elif normalization is Normalization.TFIDF:
+        resulting_matrix[resulting_matrix!=0] = 1.0
         resulting_matrix = tfidf_recipe_matrix(resulting_matrix)
 
     return resulting_matrix, index

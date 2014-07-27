@@ -151,19 +151,18 @@ def generate_all_components(reduction_type, normalization, n_components=200):
     for number in range(1, n_components+1):
         print 'Calculating component %d' % number
         components.append(calculate_components(matrix, reduction_type, number))
-    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name
-    if normalization is Normalization.EXACT_AMOUNTS:
-        dump_filename += '_exact_amounts'
+    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name + '-' +\
+                    normalization.name
     pickle.dump(components, open(dump_filename, 'w'))
 
 
 if __name__ == '__main__':
-    #generate_all_components(ReductionTypes.NMF, Normalization.EXACT_AMOUNTS)
+    generate_all_components(ReductionTypes.NMF, Normalization.ROW_SUM_ONE)
 
     # for reduction in ReductionTypes:
-    #     visualize_reduced_dimensions(reduction, Normalization.TFIDF)
+    #    visualize_reduced_dimensions(reduction, Normalization.ROW_SUM_ONE)
     #
     # for reduction in ReductionTypes:
     #     if reduction is not ReductionTypes.T_SNE:
     #         generate_all_components(reduction)
-    inspect_components(ReductionTypes.NMF, Normalization.EXACT_AMOUNTS)
+    inspect_components(ReductionTypes.NMF, Normalization.ROW_SUM_ONE)
