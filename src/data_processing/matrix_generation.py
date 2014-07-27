@@ -1,16 +1,16 @@
 """
 If you want to play with a flavor or ingredient matrix, use these methods:
-ingredientsFlavorMatrix
+ingredients_flavor_matrix
 recipe_matrix
 """
 
 # To ignore numpy errors:
 #     pylint: disable=E1101
 
-import pickle
-
-import os
+from enum import Enum
 import numpy as np
+import os
+import pickle
 import scipy.sparse as sp
 
 from emma.data_formatting import render_ingredient_as_single_word
@@ -18,6 +18,16 @@ import src.constants as constants
 
 
 AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
+
+
+class Normalization(Enum):
+    """
+    Types of normalization that can be performed on a matrix.
+    """
+    EXACT_AMOUNTS = 1
+    BOOLEAN = 2
+    ROW_SUM_ONE = 3
+    TFIDF = 4
 
 
 def ingredients_flavor_matrix():
@@ -49,15 +59,12 @@ def ingredients_flavor_dict():
     return clean_ingredient_dict
 
 
-def tfidf_recipe_matrix():
+def tfidf_recipe_matrix(boolean_matrix):
     """
-    Wrapper around recipe_matrix that produces a TFIDF normalized version
-    of the same matrix.
-    :return: The normalized matrix and a RecipeNameIndex
+    Given a boolean recipe matrix, normalizes the recipes using TFIDF
     """
-    matrix, index = recipe_matrix(exact_amounts=False)
-    n_samples, n_features = matrix.shape
-    document_frequency = np.sum(matrix, axis=0)
+    n_samples, n_features = boolean_matrix.shape
+    document_frequency = np.sum(boolean_matrix, axis=0)
 
     ## Smooth
     document_frequency += 1
@@ -68,21 +75,18 @@ def tfidf_recipe_matrix():
     idf_diag = sp.spdiags(idf, diags=0, m=n_features, n=n_features)
 
     ## Transform matrix according to IDF
-    weighted_matrix = matrix * idf_diag
+    weighted_matrix = boolean_matrix * idf_diag
     norms = (weighted_matrix * weighted_matrix).sum(axis=1)
     norms = np.sqrt(norms, norms)
     norms[norms == 0.0] = 1.0
     weighted_matrix /= norms[:, np.newaxis]
-    return weighted_matrix, index
+    return weighted_matrix
 
 
-def recipe_matrix(exact_amounts=True):
+def recipe_matrix(normalization):
     """
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
-
-    if exact_amounts, then returns the measurement of each ingredient
-    instead of mere presence (i.e. floats instead of [0, 1])
     """
     print "Building recipe matrix"
     if os.path.isfile(AMOUNT_PARSING_GUIDE):
@@ -102,11 +106,18 @@ def recipe_matrix(exact_amounts=True):
             ingred_name = tup[0]
             ingred_name = render_ingredient_as_single_word(ingred_name)
             ingred_idx = index.ingred_idx(ingred_name)
-            if exact_amounts:
+            if normalization is Normalization.EXACT_AMOUNTS or \
+                    normalization is Normalization.ROW_SUM_ONE:
                 ingred_amount = associations[tup[1].strip()+tup[2].strip()]
-            else:
+            elif normalization is Normalization.BOOLEAN or\
+                    normalization is Normalization.TFIDF:
                 ingred_amount = 1.0
+
             resulting_matrix[cocktail_idx, ingred_idx] = ingred_amount
+
+    if normalization is Normalization.TFIDF:
+        resulting_matrix = tfidf_recipe_matrix(resulting_matrix)
+
     return resulting_matrix, index
 
 
@@ -220,6 +231,5 @@ def build_amount_parsing_guide():
 
 
 if __name__ == '__main__':
-    # ingredients_flavor_matrix()
-    # recipe_matrix()
+    print "The only reason you should be running this is for testing purposes."
     ingredients_flavor_dict()

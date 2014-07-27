@@ -16,7 +16,7 @@ from tsne import bh_sne
 import src.constants as constants
 from src.data_processing.matrix_generation import ingredients_flavor_dict
 from src.data_processing.matrix_generation import recipe_matrix
-from src.data_processing.matrix_generation import tfidf_recipe_matrix
+from src.data_processing.matrix_generation import Normalization
 from src.data_visualization.create_plot import print_top_components
 from src.data_visualization.create_plot import plot_2d_points
 
@@ -86,35 +86,30 @@ def calculate_components(matrix, reduction_type, n_components):
     return components
 
 
-def visualize_reduced_dimensions(reduction_type, use_tfidf=True):
+def visualize_reduced_dimensions(reduction_type, normalization):
     """
     Reduces the (drink)x(ingredient) matrix to 2 dimensions
     and makes a plot of the ingredients projected into that space.
     2d only because higher dimensions are harder to visualize.
     :param reduction_type: the way you will reduce dimensionality.
-    :param use_tfidf: normalize ingredients by frequency
+    :param normalization: method to normalize matrix
     Saves the visualisation as an image file.
     """
-    if use_tfidf:
-        matrix, name_index = tfidf_recipe_matrix()
-        output_filename = reduction_type.name+'-tfidf'
-    else:
-        matrix, name_index = recipe_matrix(exact_amounts=False)
-        output_filename = reduction_type.name
+    matrix, name_index = recipe_matrix(normalization)
+    output_filename = reduction_type.name+'-'+normalization.name
     two_component_matrix = reduce_dimensions(matrix.transpose(),
                                              reduction_type, 2)
     plot_2d_points(two_component_matrix, name_index, output_filename)
 
 
-def inspect_components(reduction_type, use_exact_amounts=False):
+def inspect_components(reduction_type, normalization):
     """
     Allows the user to interacted with a saved list of matrix components.
     :param reduction_type: The type of decomposition to use
     Asks user to enter queries to see components
     """
-    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name
-    if use_exact_amounts:
-        dump_filename += '_exact_amounts'
+    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name+'-'+\
+                    normalization.name
     components = pickle.load(open(dump_filename, 'r'))
     name_index = components[0]
     flavor_index = ingredients_flavor_dict()
@@ -142,8 +137,7 @@ def inspect_components(reduction_type, use_exact_amounts=False):
         print_top_components(components[n_components], name_index, flavor_index)
 
 
-def generate_all_components(reduction_type, n_components=200,
-                            use_exact_amounts=False):
+def generate_all_components(reduction_type, normalization, n_components=200):
     """
     Carries out a dimensionality reduction using 1:n_components components.
     All results are saved in a list so that they can be easily inspected later.
@@ -151,24 +145,25 @@ def generate_all_components(reduction_type, n_components=200,
     :param n_components: The highest number of components to calculate.
     AFTER A VERY LONG TIME this pickles a dictionary of components.
     """
-    matrix, name_index = recipe_matrix(exact_amounts=use_exact_amounts)
+    matrix, name_index = recipe_matrix(normalization)
     components = [name_index]
     print 'Calculating all components for %s' % reduction_type.name
     for number in range(1, n_components+1):
         print 'Calculating component %d' % number
         components.append(calculate_components(matrix, reduction_type, number))
     dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name
-    if use_exact_amounts:
+    if normalization is Normalization.EXACT_AMOUNTS:
         dump_filename += '_exact_amounts'
     pickle.dump(components, open(dump_filename, 'w'))
 
 
 if __name__ == '__main__':
-    #generate_all_components(ReductionTypes.NMF, use_exact_amounts=True)
+    #generate_all_components(ReductionTypes.NMF, Normalization.EXACT_AMOUNTS)
+
     # for reduction in ReductionTypes:
-    #     visualize_reduced_dimensions(reduction, use_tfidf=False)
+    #     visualize_reduced_dimensions(reduction, Normalization.TFIDF)
     #
     # for reduction in ReductionTypes:
     #     if reduction is not ReductionTypes.T_SNE:
     #         generate_all_components(reduction)
-    inspect_components(ReductionTypes.NMF, use_exact_amounts=True)
+    inspect_components(ReductionTypes.NMF, Normalization.EXACT_AMOUNTS)
