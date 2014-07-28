@@ -134,60 +134,60 @@ class RecipeNameIndex(object):
         The list of recipes and their ingredients will be used to
         set the assignment of index numbers.
         """
-        self.title_to_number = {}
-        self.number_to_title = {}
-        self.ingred_to_number = {}
-        self.number_to_ingred = {}
+        self._title_to_number = {}
+        self._number_to_title = {}
+        self._ingred_to_number = {}
+        self._number_to_ingred = {}
         title_idx = 0
         ingred_idx = 0
         for title, ingredients in recipe_list.iteritems():
-            if title not in self.title_to_number:
-                self.title_to_number[title] = title_idx
-                self.number_to_title[str(title_idx)] = title
+            if title not in self._title_to_number:
+                self._title_to_number[title] = title_idx
+                self._number_to_title[str(title_idx)] = title
                 title_idx += 1
             for tup in ingredients:
                 ingred_name = tup[0]
                 ingred_name = render_ingredient_as_single_word(ingred_name)
-                if ingred_name not in self.ingred_to_number:
-                    self.ingred_to_number[ingred_name] = ingred_idx
-                    self.number_to_ingred[str(ingred_idx)] = ingred_name
+                if ingred_name not in self._ingred_to_number:
+                    self._ingred_to_number[ingred_name] = ingred_idx
+                    self._number_to_ingred[str(ingred_idx)] = ingred_name
                     ingred_idx += 1
 
     def get_name(self, integer_index):
         """
         Converts a recipe index into its proper name.
         """
-        return self.number_to_title[str(integer_index)]
+        return self._number_to_title[str(integer_index)]
 
     def get_ingred(self, integer_index):
         """
         Converts an ingredient index into its proper name.
         """
-        return self.number_to_ingred[str(integer_index)]
+        return self._number_to_ingred[str(integer_index)]
 
     def ingred_idx(self, ingred_name):
         """
         Converts an ingredient name into the corresponding index.
         """
-        return self.ingred_to_number[ingred_name]
+        return self._ingred_to_number[ingred_name]
 
     def title_idx(self, title_string):
         """
         Converts a recipe name into the corresponding index.
         """
-        return self.title_to_number[title_string]
+        return self._title_to_number[title_string]
 
     def count_cocktails(self):
         """
         Return number of cocktail recipes in the index.
         """
-        return len(self.title_to_number)
+        return len(self._title_to_number)
 
     def count_ingreds(self):
         """
         Return number of ingredients in the index.
         """
-        return len(self.ingred_to_number)
+        return len(self._ingred_to_number)
 
 
 def build_amount_parsing_guide():
