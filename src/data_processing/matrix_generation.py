@@ -19,6 +19,7 @@ import src.constants as constants
 
 
 AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
+INGREDIENT_MERGING_GUIDE = constants.DATA_DIRECTORY+'ingredient_merging_map'
 
 
 class Normalization(Enum):
@@ -84,20 +85,32 @@ def tfidf_recipe_matrix(boolean_matrix):
     return weighted_matrix
 
 
+def safe_pickle_load(filename, suggestion):
+    """
+    Helper function to reconstitute an object from a pickled file.
+    :param filename: Path name of file to open, relative to /cocktails/.
+    :param suggestion: String to print on failure,
+    informs user how to make the file if it cannot be found.
+    :return: The object stored in the file.
+    """
+    if os.path.isfile(filename):
+        return pickle.load(open(filename, 'rb'))
+    else:
+        print "Could not open " + filename
+        print suggestion
+        raise IOError
+
+
 def recipe_matrix(normalization):
     """
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
     """
-    print "Building recipe matrix"
-    if os.path.isfile(AMOUNT_PARSING_GUIDE):
-        associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
-    else:
-        print "No AMOUNT_PARSING_GUIDE, run build_amount_parsing_guide first"
-        return None, None
-    print "...loading recipe list from file"
-    print "run parsePages if you want a new version of the file"
-    recipes = pickle.load(open(constants.CLEANED_COCKTAILS_FILENAME, 'rb'))
+    print "Building recipe_matrix with matrix_generation.py"
+    associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
+                                    "run build_amount_parsing_guide first")
+    recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
+                               "run parsePages to remake this file")
     index = RecipeNameIndex(recipes)
     resulting_matrix = np.zeros(
         shape=(index.count_cocktails(), index.count_ingreds()))
@@ -200,9 +213,8 @@ def build_amount_parsing_guide():
     if os.path.isfile(AMOUNT_PARSING_GUIDE):
         associations = pickle.load(open(AMOUNT_PARSING_GUIDE, 'rb'))
 
-    print "...loading recipe list from file"
-    print "run parsePages to generate a new version of the file"
-    recipes = pickle.load(open(constants.CLEANED_COCKTAILS_FILENAME, 'rb'))
+    recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
+                               "run parsePages to remake this file")
     for idx, recipe in enumerate(recipes.values()):
         for tup in recipe:
             print tup
