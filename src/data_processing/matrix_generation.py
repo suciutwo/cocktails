@@ -276,8 +276,8 @@ def print_ingredient_counts():
     ingredient_sums = np.sum(bool_matrix, axis=0)
     ingredient_counts = zip(tst, ingredient_sums)
     sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: x[1])
-    for tuple in sorted_ingredient_counts:
-        print tuple
+    for item in sorted_ingredient_counts:
+        print item
 
 if __name__ == '__main__':
     print "The only reason you should be running this is for testing purposes."
