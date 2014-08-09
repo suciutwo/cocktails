@@ -126,11 +126,11 @@ def recipe_matrix(normalization):
     if normalization is Normalization.EXACT_AMOUNTS:
         pass
     elif normalization is Normalization.BOOLEAN:
-        resulting_matrix[resulting_matrix!=0] = 1.0
+        resulting_matrix[resulting_matrix != 0] = 1.0
     elif normalization is Normalization.ROW_SUM_ONE:
         resulting_matrix = normalize(resulting_matrix, axis=1, norm='l1')
     elif normalization is Normalization.TFIDF:
-        resulting_matrix[resulting_matrix!=0] = 1.0
+        resulting_matrix[resulting_matrix != 0] = 1.0
         resulting_matrix = tfidf_recipe_matrix(resulting_matrix)
 
     return resulting_matrix, index
