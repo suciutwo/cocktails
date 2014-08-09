@@ -32,7 +32,7 @@ def print_top_components(components, name_index, flavor_index):
         top_n_indices = np.argsort(-1 * np.abs(component))[0:n_to_display]
         weight_of_largest_component = abs(component[top_n_indices[0]])
         for i in top_n_indices:
-            ingredient_name = name_index.get_ingred(i)
+            ingredient_name = name_index.ingredient(i)
             weight = component[i]
             if abs(weight) < .2 * weight_of_largest_component:
                 pass  # this component is too small, ignore it and future ones
@@ -64,7 +64,7 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
     plt.figure(figsize=[50, 50])
     for i in range(two_component_matrix.shape[0]):
         point = two_component_matrix[i, :]
-        plt.annotate(name_index.get_ingred(i), point)
+        plt.annotate(name_index.ingredient(i), point)
 
     if add_lines_connecting_pairs:
         ingredient_pairs = top_ingredient_combinations()
@@ -73,8 +73,8 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
         for pair in ingredient_pairs:
             if ingredient_pairs[pair] > threshold:
                 ingred_one, ingred_two = pair.split('/')
-                ingred_one_idx = name_index.ingred_idx(ingred_one)
-                ingred_two_idx = name_index.ingred_idx(ingred_two)
+                ingred_one_idx = name_index.ingredient_number(ingred_one)
+                ingred_two_idx = name_index.ingredient_number(ingred_two)
                 point = two_component_matrix[ingred_one_idx]
                 endpoint = two_component_matrix[ingred_two_idx]
                 plt.plot([point[0], endpoint[0]],

@@ -113,13 +113,13 @@ def recipe_matrix(normalization):
                                "run parsePages to remake this file")
     index = RecipeNameIndex(recipes)
     resulting_matrix = np.zeros(
-        shape=(index.count_cocktails(), index.count_ingreds()))
+        shape=(index.cocktails_count(), index.ingredients_count()))
     for cocktail_name, ingredient_tuples in recipes.iteritems():
-        cocktail_idx = index.title_idx(cocktail_name)
+        cocktail_idx = index.recipe_title_number(cocktail_name)
         for tup in ingredient_tuples:
             ingred_name = tup[0]
             ingred_name = render_ingredient_as_single_word(ingred_name)
-            ingred_idx = index.ingred_idx(ingred_name)
+            ingred_idx = index.ingredient_number(ingred_name)
             ingred_amount = associations[tup[1].strip()+tup[2].strip()]
             resulting_matrix[cocktail_idx, ingred_idx] = ingred_amount
 
@@ -149,58 +149,60 @@ class RecipeNameIndex(object):
         """
         self._title_to_number = {}
         self._number_to_title = {}
-        self._ingred_to_number = {}
-        self._number_to_ingred = {}
+        self._ingredient_to_number = {}
+        self._number_to_ingredient = {}
         title_idx = 0
-        ingred_idx = 0
+        ingredient_idx = 0
         for title, ingredients in recipe_list.iteritems():
             if title not in self._title_to_number:
                 self._title_to_number[title] = title_idx
                 self._number_to_title[str(title_idx)] = title
                 title_idx += 1
             for tup in ingredients:
-                ingred_name = tup[0]
-                ingred_name = render_ingredient_as_single_word(ingred_name)
-                if ingred_name not in self._ingred_to_number:
-                    self._ingred_to_number[ingred_name] = ingred_idx
-                    self._number_to_ingred[str(ingred_idx)] = ingred_name
-                    ingred_idx += 1
+                ingredient = tup[0]
+                ingredient = render_ingredient_as_single_word(ingredient)
+                if ingredient not in self._ingredient_to_number:
+                    self._ingredient_to_number[ingredient] = ingredient_idx
+                    self._number_to_ingredient[str(ingredient_idx)] = ingredient
+                    ingredient_idx += 1
 
-    def get_name(self, integer_index):
+    def recipe_title(self, integer_index):
         """
         Converts a recipe index into its proper name.
         """
         return self._number_to_title[str(integer_index)]
 
-    def get_ingred(self, integer_index):
+    def ingredient(self, integer_index):
         """
         Converts an ingredient index into its proper name.
         """
-        return self._number_to_ingred[str(integer_index)]
+        return self._number_to_ingredient[str(integer_index)]
 
-    def ingred_idx(self, ingred_name):
+    def ingredient_number(self, ingred_name):
         """
         Converts an ingredient name into the corresponding index.
         """
-        return self._ingred_to_number[ingred_name]
+        return self._ingredient_to_number[ingred_name]
 
-    def title_idx(self, title_string):
+    def recipe_title_number(self, title_string):
         """
         Converts a recipe name into the corresponding index.
         """
         return self._title_to_number[title_string]
 
-    def count_cocktails(self):
+    def cocktails_count(self):
         """
         Return number of cocktail recipes in the index.
         """
         return len(self._title_to_number)
 
-    def count_ingreds(self):
+    def ingredients_count(self):
         """
         Return number of ingredients in the index.
         """
-        return len(self._ingred_to_number)
+        return len(self._ingredient_to_number)
+
+
 
 
 def build_amount_parsing_guide():
