@@ -108,7 +108,7 @@ def inspect_components(reduction_type, normalization):
     :param reduction_type: The type of decomposition to use
     Asks user to enter queries to see components
     """
-    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name+'-'+\
+    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name + '-' + \
                     normalization.name
     components = pickle.load(open(dump_filename, 'r'))
     name_index = components[0]
@@ -151,7 +151,7 @@ def generate_all_components(reduction_type, normalization, n_components=200):
     for number in range(1, n_components+1):
         print 'Calculating component %d' % number
         components.append(calculate_components(matrix, reduction_type, number))
-    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name + '-' +\
+    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name + '-' + \
                     normalization.name
     pickle.dump(components, open(dump_filename, 'w'))
 
