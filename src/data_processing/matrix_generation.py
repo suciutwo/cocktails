@@ -6,6 +6,7 @@ recipe_matrix
 
 # To ignore numpy errors:
 #     pylint: disable=E1101
+import string
 
 from enum import Enum
 import numpy as np
@@ -14,7 +15,6 @@ import pickle
 import scipy.sparse as sp
 from sklearn.preprocessing import normalize
 
-from emma.data_formatting import render_ingredient_as_single_word
 import src.constants as constants
 
 
@@ -53,7 +53,7 @@ def ingredients_flavor_dict():
     original_ingredient_dict = pickle.load(
         open(constants.CLEANED_INGREDIENTS_FILENAME, 'rb'))
     for ingredient_name, flavors in original_ingredient_dict.iteritems():
-        clean_name = render_ingredient_as_single_word(ingredient_name)
+        clean_name = canonical_ingredient_name(ingredient_name)
         clean_flavors = ', '.join(flavors)
         if not clean_flavors:
             continue
@@ -102,26 +102,27 @@ def safe_pickle_load(filename, suggestion):
 
 
 def recipe_matrix(normalization):
+    #TODO: walk through this
     """
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
     """
     print "Building recipe_matrix with matrix_generation.py"
-    associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
-                                    "run build_amount_parsing_guide first")
+    amount_associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
+                                           "run build_amount_parsing_guide")
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
     index = RecipeNameIndex(recipes)
     resulting_matrix = np.zeros(
         shape=(index.cocktails_count(), index.ingredients_count()))
-    for cocktail_name, ingredient_tuples in recipes.iteritems():
-        cocktail_idx = index.recipe_title_number(cocktail_name)
-        for tup in ingredient_tuples:
-            ingred_name = tup[0]
-            ingred_name = render_ingredient_as_single_word(ingred_name)
-            ingred_idx = index.ingredient_number(ingred_name)
-            ingred_amount = associations[tup[1].strip()+tup[2].strip()]
-            resulting_matrix[cocktail_idx, ingred_idx] = ingred_amount
+    for cocktail_name, ingredient_triples in recipes.iteritems():
+        cocktail_number = index.recipe_title_number(cocktail_name)
+        for triple in ingredient_triples:
+            name = triple[0]
+            name = canonical_ingredient_name(name)
+            number = index.ingredient_number(name)
+            amount = amount_associations[triple[1].strip()+triple[2].strip()]
+            resulting_matrix[cocktail_number, number] = amount
 
     if normalization is Normalization.EXACT_AMOUNTS:
         pass
@@ -153,17 +154,17 @@ class RecipeNameIndex(object):
         self._number_to_ingredient = {}
         title_idx = 0
         ingredient_idx = 0
-        for title, ingredients in recipe_list.iteritems():
+        for title, ingredient_triples in recipe_list.iteritems():
             if title not in self._title_to_number:
                 self._title_to_number[title] = title_idx
                 self._number_to_title[str(title_idx)] = title
                 title_idx += 1
-            for tup in ingredients:
-                ingredient = tup[0]
-                ingredient = render_ingredient_as_single_word(ingredient)
-                if ingredient not in self._ingredient_to_number:
-                    self._ingredient_to_number[ingredient] = ingredient_idx
-                    self._number_to_ingredient[str(ingredient_idx)] = ingredient
+            for tup in ingredient_triples:
+                name = tup[0]
+                name = canonical_ingredient_name(name)
+                if name not in self._ingredient_to_number:
+                    self._ingredient_to_number[name] = ingredient_idx
+                    self._number_to_ingredient[str(ingredient_idx)] = name
                     ingredient_idx += 1
 
     def recipe_title(self, integer_index):
@@ -201,8 +202,6 @@ class RecipeNameIndex(object):
         Return number of ingredients in the index.
         """
         return len(self._ingredient_to_number)
-
-
 
 
 def build_amount_parsing_guide():
@@ -246,6 +245,41 @@ def build_amount_parsing_guide():
     pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
 
 
+def canonical_ingredient_name(string_):
+    """
+    Converts a raw string from the ingredient file into its canonical name.
+    This step also merges what we judge to be identical ingredients into a
+    single name.
+    """
+    correction_map = {'tabasco_sauce': 'tabasco',
+                      'muscatel_wine': 'muscat',
+                      'rye_whiskey': 'rye',
+                      'yolk_of_egg': 'egg_yolk',
+                      'yolk_of__egg': 'egg_yolk'}
+    string_ = string_.replace('fresh', '').strip()
+    string_ = string_.translate(string.maketrans("", ""), string.punctuation)
+    string_ = string_.lower().replace(' ', '_')
+    string_ = string_.decode('utf-8')
+    if string_ in correction_map:
+        return correction_map[string_]
+    return string_
+
+
+def print_ingredient_counts():
+    """
+    This is a debugging function that prints out counts of each ingredient.
+    It was created to help give me a better idea about how much progress
+    was being made on merging similar ingredients.
+    """
+    bool_matrix, index = recipe_matrix(Normalization.BOOLEAN)
+    tst = [index.ingredient(i) for i in range(index.ingredients_count())]
+    ingredient_sums = np.sum(bool_matrix, axis=0)
+    ingredient_counts = zip(tst, ingredient_sums)
+    sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: x[1])
+    for tuple in sorted_ingredient_counts:
+        print tuple
+
 if __name__ == '__main__':
     print "The only reason you should be running this is for testing purposes."
-    ingredients_flavor_dict()
+    #ingredients_flavor_dict()
+    print_ingredient_counts()

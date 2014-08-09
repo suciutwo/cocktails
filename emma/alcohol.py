@@ -5,7 +5,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import SpectralClustering
 from pylab import *
 
-from data_formatting import render_ingredient_as_single_word
+from src.data_processing.matrix_generation import \
+    canonical_ingredient_name
 
 
 def make_correlation_webpage(correlation_matrix, item_frequency, names, outfile, n_clusters=5, colors=None):
@@ -56,12 +57,12 @@ def make_correlation_webpage(correlation_matrix, item_frequency, names, outfile,
 
 def correlation_webpage_wrapper():
     d = pickle.load(open("cleaned_recipes"))
-    ingredients = list(set([render_ingredient_as_single_word(ingred[0]) for recipe in d for ingred in recipe ]))
+    ingredients = list(set([canonical_ingredient_name(ingred[0]) for recipe in d for ingred in recipe ]))
     ingredient_map = dict(zip(ingredients, range(len(ingredients))))
     m = np.zeros([len(d), len(ingredients)])
     for i, recipe in enumerate(d):
         for ingredient in recipe:
-            m[i][ingredient_map[render_ingredient_as_single_word(ingredient[0])]] = 1
+            m[i][ingredient_map[canonical_ingredient_name(ingredient[0])]] = 1
     ingredient_frequency = m.sum(axis=0)
     idxs = np.argsort(ingredient_frequency)[::-1]
     for i in idxs[:100]:
@@ -80,13 +81,13 @@ def analyze_ingredients():
     #Produce ingredient-flavor matrix and
     ingredients_to_flavors = pickle.load(open("cleaned_ingredients"))
     for i in ingredients_to_flavors.keys():
-        ingredients_to_flavors[render_ingredient_as_single_word(i).decode('utf-8')] = ingredients_to_flavors[i]
+        ingredients_to_flavors[canonical_ingredient_name(i).decode('utf-8')] = ingredients_to_flavors[i]
         del ingredients_to_flavors[i]
     recipes = pickle.load(open("cleaned_recipes"))
     tfidf = TfidfVectorizer()
     all_strings = []
     for i, recipe in enumerate(recipes):
-        s = ' '.join([render_ingredient_as_single_word(ingredient[0]).decode('utf-8') for ingredient in recipe])
+        s = ' '.join([canonical_ingredient_name(ingredient[0]).decode('utf-8') for ingredient in recipe])
         all_strings.append(s)
     ingredient_recipe = (tfidf.fit_transform(all_strings).toarray()>0).transpose()
     ingredients = tfidf.get_feature_names()

@@ -3,27 +3,23 @@ KEY METHODS:
 topNGrams
 """
 import pickle
-import string
-import numpy as np
 from itertools import combinations
 from collections import Counter
 from copy import deepcopy
+
+import numpy as np
+
 import src.constants as constants
+from src.data_processing.matrix_generation import \
+canonical_ingredient_name
 
-
-def render_ingredient_as_single_word(string_):
-    string_ = string_.replace('fresh', '').strip()
-    string_ = string_.translate(string.maketrans("", ""), string.punctuation)
-    string_ = string_.lower().replace(' ', '_')
-    string_ = string_.decode('utf-8')
-    return string_
 
 def top_ingredient_combinations(combination_size=2, normalize=False, verbose=False):
     recipes = pickle.load(open(constants.CLEANED_COCKTAILS_FILENAME))
     n_gram_counts = Counter()
     one_gram_counts = Counter()
     for name, recipe in recipes.iteritems():
-        ingredients = [render_ingredient_as_single_word(ingredient_tuple[0])
+        ingredients = [canonical_ingredient_name(ingredient_tuple[0])
                        for ingredient_tuple in recipe]
         for ingredient in ingredients:
             one_gram_counts[ingredient] += 1
