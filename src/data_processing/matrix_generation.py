@@ -13,9 +13,11 @@ import numpy as np
 import os
 import pickle
 import scipy.sparse as sp
+import scipy.spatial.distance as dist
 from sklearn.preprocessing import normalize
 
 import src.constants as constants
+from src.matrix_factorization import *
 
 
 AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
@@ -251,11 +253,99 @@ def canonical_ingredient_name(string_):
     This step also merges what we judge to be identical ingredients into a
     single name.
     """
-    correction_map = {'tabasco_sauce': 'tabasco',
-                      'muscatel_wine': 'muscat',
-                      'rye_whiskey': 'rye',
-                      'yolk_of_egg': 'egg_yolk',
-                      'yolk_of__egg': 'egg_yolk'}
+    correction_map = {u'tabasco_sauce': u'tabasco',
+                      u'muscatel_wine': u'muscat',
+                      u'muscatel': u'muscat',
+                      u'rye_whiskey': u'rye',
+                      u'yolk_of_egg': u'egg_yolk',
+                      u'yolk_of__egg': u'egg_yolk',
+                      u'whole_egg': u'egg',
+                      u'eggs': u'egg',
+                      u'white_of_an_egg': u'egg_white',
+                      u'mint_sprigs': u'mint',
+                      u'mint_leaves': u'mint',
+                      u'mint_leaf': u'mint',
+                      u'mint_sprig': u'mint',
+                      u'peppermint': u'mint',
+                      u'sprigs_of_mint': u'mint',
+                      u'roses_lime_juice': u'lime_cordial',
+                      u'lime_syrup': u'lime_cordial',
+                      u'lime_wedges': u'lime',
+                      u'limes': u'lime',
+                      u'lime_wedge': u'lime',
+                      u'lime_shell': u'lime',
+                      u'lime_or_lemon_juice': u'lemon_or_lime_juice',
+                      u'twist_of_lemon': u'lemon_twist',
+                      u'slice_of_lemon': u'lemon',
+                      u'lemon_wedge': u'lemon',
+                      u'vat_69': u'scotch',
+                      u'scotch_whisky': u'scotch',
+                      u'johnny_walker': u'scotch',
+                      u'johnnie_walker_red_label': u'scotch',
+                      u'whisky': u'scotch',
+                      u'black_and_white_whisky': u'scotch',
+                      u'white_horse_whisky': u'scotch',
+                      u'king_george_iv_whisky': u'scotch',
+                      u'bourbon_whisky': u'bourbon',
+                      u'canadian_whiskey': u'canadian_whisky',
+                      u'canadian_club_whisky': u'canadian_whisky',
+                      u'canadian_club': u'canadian_whisky',
+                      u'seagrams_vo': u'canadian_whisky',
+                      u'vo': u'canadian_whisky',
+                      u'bacardi_151': u'151_rum',
+                      u'151_proof_rum': u'151_rum',
+                      u'blended_whiskey': u'whiskey',
+                      u'tennessee_whiskey': u'whiskey',
+                      u'pat_of_butter': u'butter',
+                      u'tomato_catsup': u'catsup',
+                      u'gomme': u'gomme_syrup',
+                      u'gum_syrup': u'gomme_syrup',
+                      u'cream_of_coconut': u'coconut_cream',
+                      u'cr\xe8me_de_cacao': u'creme_de_cacao',
+                      u'cassis': u'creme_de_cassis',
+                      u'batavia_arrack': u'arrack',
+                      u'courvoisier': u'cognac',
+                      u'spanish_brandy': u'brandy',
+                      u'cape_of_good_hope_brandy': u'brandy',
+                      u'ginger_flavored_brandy': u'ginger_brandy',
+                      u'blackberry_flavored_brandy': u'blackberry_brandy',
+                      u'peach_flavored_brandy': u'peach_brandy',
+                      u'cherry_flavored_brandy': u'cherry_brandy',
+                      u'apricot_flavored_brandy': u'apricot_brandy',
+                      u'coffee_flavored_brandy': u'coffee_brandy',
+                      u'hot_coffee': u'coffee',
+                      u'simple_syrup': u'syrup',
+                      u'sugar_syrup': u'syrup',
+                      u'sugar_lump': u'sugar',
+                      u'pimms_cup': u'pimms',
+                      u'bitters': u'angostura_bitters',
+                      u'peychaud':u'peychaud_bitters',
+                      u'gordons_gin': u'dry_gin',
+                      u'english_gin': u'dry_gin',
+                      u'bombay_gin': u'dry_gin',
+                      u'pernod': u'pastis',
+                      u'half_amp_half': u'half_and_half',
+                      u'worcester_sauce': u'worcestershire',
+                      u'worcestershire_sauce': u'worcestershire',
+                      u'kirschwasser': u'cherry_brandy',
+                      u'vanilla': u'vanilla_extract',
+                      u'wild_turkey_101': u'bourbon',
+                      u'cinzano_vermouth': u'sweet_vermouth',
+                      u'noilly_prat': u'dry_vermouth',
+                      u'bianco_vermouth': u'sweet_vermouth',
+                      u'vermouth_sweet': u'sweet_vermouth',
+                      u'vermouth_dry': u'dry_vermouth',
+                      u'bianco_vermouth': u'sweet_vermouth',
+                      u'italian_vermouth': u'sweet_vermouth',
+                      u'french_vermouth': u'dry_vermouth',
+                      u'pineapple_chunks': u'pineapple',
+                      u'pineapple_spear': u'pineapple',
+                      u'port_wine': u'port',
+                      u'kirsch': u'cherry_brandy',
+                      u'tia_maria': u'coffee_liqueur',
+                      u'khalua': u'coffee_liqueur',
+                      u'slivovitz': u'plum_brandy'}
+    #TODO: rum, gin
     string_ = string_.replace('fresh', '').strip()
     string_ = string_.translate(string.maketrans("", ""), string.punctuation)
     string_ = string_.lower().replace(' ', '_')
@@ -272,14 +362,40 @@ def print_ingredient_counts():
     was being made on merging similar ingredients.
     """
     bool_matrix, index = recipe_matrix(Normalization.BOOLEAN)
-    tst = [index.ingredient(i) for i in range(index.ingredients_count())]
+    names = [index.ingredient(i) for i in range(index.ingredients_count())]
     ingredient_sums = np.sum(bool_matrix, axis=0)
-    ingredient_counts = zip(tst, ingredient_sums)
+    ingredient_counts = zip(names, ingredient_sums)
     sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: x[1])
     for item in sorted_ingredient_counts:
         print item
+
+
+def similar_ingredients(ingredient):
+    """
+    First pass prototype of finding similar ingredients.
+    :return:
+    """
+    recipe_ingredient_matrix, index = recipe_matrix(Normalization.EXACT_AMOUNTS)
+    ingredient_recipe_matrix = recipe_ingredient_matrix.transpose()
+    reduced_matrix = reduce_dimensions(ingredient_recipe_matrix,
+                                       ReductionTypes.PCA,
+                                       20)
+    similarity_array = dist.pdist(reduced_matrix, 'cosine')
+    similarity_matrix = dist.squareform(similarity_array)
+
+    number = index.ingredient_number(ingredient)
+    print "Looking for buddy of " + ingredient + " (no. " + str(number) + ")"
+    similarity_values = similarity_matrix[number]
+    names = [index.ingredient(i) for i in range(index.ingredients_count())]
+    ingredient_counts = zip(names, similarity_values)
+    sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: -x[1])
+    for item in sorted_ingredient_counts:
+        print item
+
+
 
 if __name__ == '__main__':
     print "The only reason you should be running this is for testing purposes."
     #ingredients_flavor_dict()
     print_ingredient_counts()
+    #similar_ingredients('lime_juice')
