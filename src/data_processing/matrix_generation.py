@@ -6,18 +6,15 @@ recipe_matrix
 
 # To ignore numpy errors:
 #     pylint: disable=E1101
+import pickle
 import string
 
 from enum import Enum
 import numpy as np
 import os
-import pickle
 import scipy.sparse as sp
-import scipy.spatial.distance as dist
 from sklearn.preprocessing import normalize
-
-import src.constants as constants
-from src.matrix_factorization import *
+from src import constants
 
 
 AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
@@ -104,7 +101,7 @@ def safe_pickle_load(filename, suggestion):
 
 
 def recipe_matrix(normalization):
-    #TODO: walk through this
+    #TODO: walk through this to make sure it adds things together correctly
     """
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
@@ -368,30 +365,6 @@ def print_ingredient_counts():
     sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: x[1])
     for item in sorted_ingredient_counts:
         print item
-
-
-def similar_ingredients(ingredient):
-    """
-    First pass prototype of finding similar ingredients.
-    :return:
-    """
-    recipe_ingredient_matrix, index = recipe_matrix(Normalization.EXACT_AMOUNTS)
-    ingredient_recipe_matrix = recipe_ingredient_matrix.transpose()
-    reduced_matrix = reduce_dimensions(ingredient_recipe_matrix,
-                                       ReductionTypes.PCA,
-                                       20)
-    similarity_array = dist.pdist(reduced_matrix, 'cosine')
-    similarity_matrix = dist.squareform(similarity_array)
-
-    number = index.ingredient_number(ingredient)
-    print "Looking for buddy of " + ingredient + " (no. " + str(number) + ")"
-    similarity_values = similarity_matrix[number]
-    names = [index.ingredient(i) for i in range(index.ingredients_count())]
-    ingredient_counts = zip(names, similarity_values)
-    sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: -x[1])
-    for item in sorted_ingredient_counts:
-        print item
-
 
 
 if __name__ == '__main__':
