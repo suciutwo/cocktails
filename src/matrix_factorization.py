@@ -44,6 +44,7 @@ def reduce_dimensions(matrix, reduction_type, n_components):
     :return: A matrix whose dimensionality has been reduced.
     """
     reduced_matrix = None
+    model = None
     if reduction_type is ReductionTypes.PCA:
         model = PCA(n_components=n_components, whiten=False)
         reduced_matrix = model.fit_transform(matrix)
@@ -57,7 +58,10 @@ def reduce_dimensions(matrix, reduction_type, n_components):
                                      init='nndsvd',
                                      random_state=0)
         reduced_matrix = model.fit_transform(matrix)
-    return reduced_matrix
+    if not model:
+        print "NOT RETURNING MODEL"
+        return reduced_matrix
+    return reduced_matrix, model
 
 
 def calculate_components(matrix, reduction_type, n_components):
