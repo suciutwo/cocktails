@@ -58,10 +58,7 @@ def reduce_dimensions(matrix, reduction_type, n_components):
                                      init='nndsvd',
                                      random_state=0)
         reduced_matrix = model.fit_transform(matrix)
-    if not model:
-        print "NOT RETURNING MODEL"
-        return reduced_matrix
-    return reduced_matrix, model
+    return reduced_matrix
 
 
 def calculate_components(matrix, reduction_type, n_components):
