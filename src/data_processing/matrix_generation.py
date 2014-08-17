@@ -219,7 +219,7 @@ def build_amount_parsing_guide():
         for tup in recipe:
             print tup
             print " number: " + str(idx+1)
-            key = tup[1].strip()
+            key = tup[1]
             if key not in associations:
                 print tup[1]
                 user_input = raw_input()
