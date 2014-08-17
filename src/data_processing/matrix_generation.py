@@ -114,13 +114,13 @@ def recipe_matrix(normalization):
     index = RecipeNameIndex(recipes)
     resulting_matrix = np.zeros(
         shape=(index.cocktails_count(), index.ingredients_count()))
-    for cocktail_name, ingredient_triples in recipes.iteritems():
+    for cocktail_name, ingredient_tuples in recipes.iteritems():
         cocktail_number = index.recipe_title_number(cocktail_name)
-        for triple in ingredient_triples:
-            name = triple[0]
+        for ingredient_tuple in ingredient_tuples:
+            name = ingredient_tuple[0]
             name = canonical_ingredient_name(name)
             number = index.ingredient_number(name)
-            amount = amount_associations[triple[1].strip()+triple[2].strip()]
+            amount = amount_associations[ingredient_tuple[1].strip()]
             resulting_matrix[cocktail_number, number] = amount
 
     if normalization is Normalization.EXACT_AMOUNTS:
@@ -219,9 +219,9 @@ def build_amount_parsing_guide():
         for tup in recipe:
             print tup
             print " number: " + str(idx+1)
-            key = tup[1].strip() + tup[2].strip()
+            key = tup[1].strip()
             if key not in associations:
-                print tup[1] + tup[2]
+                print tup[1]
                 user_input = raw_input()
                 if user_input == 'pass':
                     continue

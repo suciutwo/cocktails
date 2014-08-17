@@ -33,7 +33,7 @@ def process_recipes_file():
                 alternative_amount = ''
                 if measure.span:
                     alternative_amount = measure.span.string
-                recipe.append([ingredient, amount, alternative_amount])
+                recipe.append([ingredient, amount.strip()+alternative_amount.strip()])
             additional_steps = soup.findAll('div', {'class': 'recipeDirection'})
             for step in additional_steps:
                 instructions = ''.join([elem.string for elem in step.contents])
@@ -45,8 +45,7 @@ def process_recipes_file():
                     if is_ingredient and not_a_cocktail_shaker and not_a_chaser:
                         ingredient = anchor.string
                         amount = instructions
-                        alternative_amount = ''
-                        recipe.append([ingredient, amount, alternative_amount])
+                        recipe.append([ingredient, amount])
             all_recipes[title] = recipe
         except Exception as exception:  # pylint: disable=W0703
             print exception
