@@ -17,23 +17,40 @@ def process_recipes_file():
     cocktail_pages = pickle.load(open(constants.COCKTAILS_FILENAME))
     all_recipes = {}
     for i, cocktail_page in enumerate(cocktail_pages):
+        if not cocktail_page:
+            print "ERROR: NO PAGE. FAILED TO SCRAPE IT EARLIER."
+            continue
+        if i % 1000 == 0:
+                print 'Parsing recipe ' + str(i)
         try:
             soup = BeautifulSoup(cocktail_page)
             title = soup.findAll('h2')[0].string.strip()
-            measurements = soup.findAll('div', {'class': 'recipeMeasure'})
-            if i % 1000 == 0:
-                print 'Parsing recipe ' + str(i)
             recipe = []
-            for ingredient in measurements:
-                comps = str(ingredient).split('>')
-                amount = comps[1].split('<')[0].strip()
-                ingredient = comps[2].split('<')[0].strip()
-                alternative_amount = comps[4].split('<')[0].strip()
+            measurements = soup.findAll('div', {'class': 'recipeMeasure'})
+            for measure in measurements:
+                amount = measure.contents[0]
+                ingredient = measure.a.string
+                alternative_amount = ''
+                if measure.span:
+                    alternative_amount = measure.span.string
                 recipe.append([ingredient, amount, alternative_amount])
+            additional_steps = soup.findAll('div', {'class': 'recipeDirection'})
+            for step in additional_steps:
+                instructions = ''.join([elem.string for elem in step.contents])
+                anchors = step.findAll('a')
+                for anchor in anchors:
+                    is_ingredient = anchor['href'].find('ingr_detail') >= 0
+                    not_a_cocktail_shaker = anchor['href'].find('id=322') == -1
+                    not_a_chaser = anchor['href'].find('id=383') == -1
+                    if is_ingredient and not_a_cocktail_shaker and not_a_chaser:
+                        ingredient = anchor.string
+                        amount = instructions
+                        alternative_amount = ''
+                        recipe.append([ingredient, amount, alternative_amount])
             all_recipes[title] = recipe
         except Exception as exception:  # pylint: disable=W0703
             print exception
-            print "FAILED TO SCRAPE THIS PAGE EARLIER IN THE PIPELINE"
+            print cocktail_page
             continue
     pickle.dump(all_recipes, open(constants.CLEANED_COCKTAILS_FILENAME, 'wb'))
 
