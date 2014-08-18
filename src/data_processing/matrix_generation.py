@@ -216,9 +216,11 @@ def build_amount_parsing_guide():
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
     for idx, recipe in enumerate(recipes.values()):
+        print "-------" + str(idx + 1) + "-------"
         for tup in recipe:
             print tup
-            print " number: " + str(idx+1)
+        for tup in recipe:
+            print "Give amount for: " + tup[0]
             key = tup[1]
             if key not in associations:
                 print tup[1]
@@ -386,6 +388,7 @@ def print_ingredient_counts():
 
 if __name__ == '__main__':
     print "The only reason you should be running this is for testing purposes."
+    build_amount_parsing_guide()
     #ingredients_flavor_dict()
-    print_ingredient_counts()
+    #print_ingredient_counts()
     #similar_ingredients('lime_juice')
