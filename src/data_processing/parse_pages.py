@@ -46,7 +46,7 @@ def process_recipes_file():
                 not_a_chaser = anchor['href'].find('id=383') == -1
                 if is_ingredient and not_a_cocktail_shaker and not_a_chaser:
                     ingredient = unicode(anchor.string)
-                    recipe.append([ingredient, instructions])
+                    recipe.append([ingredient, ingredient + ' ' + instructions])
         all_recipes[title] = recipe
     pickle.dump(all_recipes, open(constants.CLEANED_COCKTAILS_FILENAME, 'wb'))
 
