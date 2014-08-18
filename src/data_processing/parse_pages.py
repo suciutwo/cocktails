@@ -31,14 +31,14 @@ def process_recipes_file():
             ingredient = unicode(measure.a.string)
             if measure.span:
                 alternative_amount = measure.span.string.strip()
-                amount += ' ' + alternative_amount
+                amount += alternative_amount
             recipe.append([ingredient, amount])
         additional_steps = soup.findAll('div', {'class': 'recipeDirection'})
         glass_size = get_glass_size_string(additional_steps)
         for step in additional_steps:
             instructions = ''.join([elem.string for elem in step.contents])
             if glass_size:
-                instructions += ' (' + glass_size.strip() + ')'
+                instructions += '(' + glass_size.strip() + ')'
             anchors = step.findAll('a')
             for anchor in anchors:
                 is_ingredient = anchor['href'].find('ingr_detail') >= 0
