@@ -215,8 +215,10 @@ def build_amount_parsing_guide():
 
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
-    for idx, recipe in enumerate(recipes.values()):
+    idx = 0
+    for title, recipe in recipes.iteritems():
         print "-------" + str(idx + 1) + "-------"
+        print title
         for tup in recipe:
             print tup
         for tup in recipe:
@@ -241,8 +243,8 @@ def build_amount_parsing_guide():
                 else:
                     associations[key] = float(user_input)
         if idx % 10 == 0:
-            pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
             print "***%f done***" % (idx*1.0/len(recipes))
+        idx += 1
     pickle.dump(associations, open(AMOUNT_PARSING_GUIDE, 'wb'))
 
 
