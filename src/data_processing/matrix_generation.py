@@ -220,9 +220,9 @@ def build_amount_parsing_guide():
         for tup in recipe:
             print tup
         for tup in recipe:
-            print "Give amount for: " + tup[0]
             key = tup[1]
             if key not in associations:
+                print "Give amount for: " + tup[0]
                 print tup[1]
                 user_input = raw_input()
                 if user_input == 'pass':
