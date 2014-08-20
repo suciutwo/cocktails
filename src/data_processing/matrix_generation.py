@@ -7,7 +7,7 @@ recipe_matrix
 # To ignore numpy errors:
 #     pylint: disable=E1101
 import pickle
-import string
+import regex as re
 
 from enum import Enum
 import numpy as np
@@ -411,6 +411,7 @@ def canonical_ingredient_name(string_):
                       u'mount_gay_barbados_rum': u'barbados_rum'}
     #string_ = string_.decode('utf-8')
     string_ = string_.replace('fresh', '').strip()
+    string_ = re.sub(ur"\p{P}+", "", string_)
     #string_ = string_.translate(string.maketrans("", ""), string.punctuation)
     string_ = string_.lower().replace(' ', '_')
     if string_ in correction_map:
