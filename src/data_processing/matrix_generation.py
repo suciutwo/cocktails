@@ -101,7 +101,6 @@ def safe_pickle_load(filename, suggestion):
 
 
 def recipe_matrix(normalization):
-    #TODO: walk through this to make sure it adds things together correctly
     """
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
@@ -111,7 +110,7 @@ def recipe_matrix(normalization):
                                            "run build_amount_parsing_guide")
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
-    index = RecipeNameIndex(recipes)
+    index = RecipeNameIndex(recipes, amount_associations)
     resulting_matrix = np.zeros(
         shape=(index.cocktails_count(), index.ingredients_count()))
     for cocktail_name, ingredient_tuples in recipes.iteritems():
@@ -120,8 +119,10 @@ def recipe_matrix(normalization):
         for ingredient_tuple in ingredient_tuples:
             name = ingredient_tuple[0]
             name = canonical_ingredient_name(name)
+            amount = amount_associations[ingredient_tuple[1]]
+            if amount == 0:
+                continue
             number = index.ingredient_number(name)
-            amount = amount_associations[ingredient_tuple[1].strip()]
             if number in already_seen:
                 resulting_matrix[cocktail_number, number] += amount
             else:
@@ -147,10 +148,12 @@ class RecipeNameIndex(object):
     so that you can understand the data you're working on while not relying
     on column names.
     """
-    def __init__(self, recipe_list):
+    def __init__(self, recipe_list, amount_associations):
         """
         The list of recipes and their ingredients will be used to
         set the assignment of index numbers.
+        :param recipe_list: all recipes
+        :param amount_associations: a mapping from strings to amounts
         """
         self._title_to_number = {}
         self._number_to_title = {}
@@ -165,6 +168,9 @@ class RecipeNameIndex(object):
                 title_idx += 1
             for tup in ingredient_triples:
                 name = tup[0]
+                amount = amount_associations[tup[1].strip()]
+                if amount == 0:
+                    continue
                 name = canonical_ingredient_name(name)
                 if name not in self._ingredient_to_number:
                     self._ingredient_to_number[name] = ingredient_idx
