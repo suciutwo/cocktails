@@ -224,6 +224,40 @@ def build_amount_parsing_guide():
         for tup in recipe:
             key = tup[1]
             if key not in associations:
+                if tup[0] == 'cherry' or tup[0] == 'Maraschino cherry' or tup[0] == 'black cherry' or tup[0] == 'green cherry' or tup[0] == 'red cherry':
+                    associations[key] = .5
+                    continue
+                if tup[0] == 'olive':
+                    associations[key] = .5
+                    continue
+                if tup[0] == 'lemon twist':
+                    associations[key] = .5
+                    continue
+                if tup[0] == 'lemon wedge' or tup[0] == 'lemon slice' or tup[0] == 'slice of lemon':
+                    associations[key] = 1.0
+                    continue
+                if tup[0] == 'pineapple slice':
+                    associations[key] = 1.5
+                    continue
+                if tup[0] == 'pineapple spear':
+                    associations[key] = 3
+                    continue
+                if tup[0] == 'orange slice' or tup[0] == 'slice of orange':
+                    associations[key] = 1.5
+                    continue
+                if tup[0] == 'lime wheel':
+                    associations[key] = 1.0
+                    continue
+                if tup[0] == 'nutmeg' or tup[0] == 'cinnamon':
+                    associations[key] = 0.03125
+                    continue
+                if tup[0] == 'garnish':
+                    associations[key] = 0
+                    continue
+                if key.find('Substitute:') >= 0:
+                    associations[key] = 0
+                    continue
+
                 print "Give amount for: " + tup[0]
                 print tup[1]
                 user_input = raw_input()
