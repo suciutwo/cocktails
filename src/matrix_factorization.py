@@ -44,7 +44,6 @@ def reduce_dimensions(matrix, reduction_type, n_components):
     :return: A matrix whose dimensionality has been reduced.
     """
     reduced_matrix = None
-    model = None
     if reduction_type is ReductionTypes.PCA:
         model = PCA(n_components=n_components, whiten=False)
         reduced_matrix = model.fit_transform(matrix)
