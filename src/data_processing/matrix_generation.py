@@ -412,7 +412,6 @@ def canonical_ingredient_name(string_):
     #string_ = string_.decode('utf-8')
     string_ = string_.replace('fresh', '').strip()
     string_ = re.sub(ur"\p{P}+", "", string_)
-    #string_ = string_.translate(string.maketrans("", ""), string.punctuation)
     string_ = string_.lower().replace(' ', '_')
     if string_ in correction_map:
         return correction_map[string_]
