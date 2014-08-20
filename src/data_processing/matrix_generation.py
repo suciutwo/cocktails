@@ -116,12 +116,17 @@ def recipe_matrix(normalization):
         shape=(index.cocktails_count(), index.ingredients_count()))
     for cocktail_name, ingredient_tuples in recipes.iteritems():
         cocktail_number = index.recipe_title_number(cocktail_name)
+        already_seen = set([])
         for ingredient_tuple in ingredient_tuples:
             name = ingredient_tuple[0]
             name = canonical_ingredient_name(name)
             number = index.ingredient_number(name)
             amount = amount_associations[ingredient_tuple[1].strip()]
-            resulting_matrix[cocktail_number, number] = amount
+            if number in already_seen:
+                resulting_matrix[cocktail_number, number] += amount
+            else:
+                already_seen.add(number)
+                resulting_matrix[cocktail_number, number] = amount
 
     if normalization is Normalization.EXACT_AMOUNTS:
         pass
@@ -424,7 +429,6 @@ def print_ingredient_counts():
 
 if __name__ == '__main__':
     print "The only reason you should be running this is for testing purposes."
-    build_amount_parsing_guide()
+    #build_amount_parsing_guide()
     #ingredients_flavor_dict()
-    #print_ingredient_counts()
-    #similar_ingredients('lime_juice')
+    print_ingredient_counts()
