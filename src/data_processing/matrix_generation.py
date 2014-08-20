@@ -235,7 +235,11 @@ def build_amount_parsing_guide():
         for tup in recipe:
             key = tup[1]
             if key not in associations:
-                if tup[0] == 'cherry' or tup[0] == 'Maraschino cherry' or tup[0] == 'black cherry' or tup[0] == 'green cherry' or tup[0] == 'red cherry':
+                if tup[0] == 'cherry' \
+                        or tup[0] == 'Maraschino cherry' \
+                        or tup[0] == 'black cherry' \
+                        or tup[0] == 'green cherry' \
+                        or tup[0] == 'red cherry':
                     associations[key] = .5
                     continue
                 if tup[0] == 'olive':
@@ -244,7 +248,9 @@ def build_amount_parsing_guide():
                 if tup[0] == 'lemon twist':
                     associations[key] = .5
                     continue
-                if tup[0] == 'lemon wedge' or tup[0] == 'lemon slice' or tup[0] == 'slice of lemon':
+                if tup[0] == 'lemon wedge' \
+                        or tup[0] == 'lemon slice' \
+                        or tup[0] == 'slice of lemon':
                     associations[key] = 1.0
                     continue
                 if tup[0] == 'pineapple slice':

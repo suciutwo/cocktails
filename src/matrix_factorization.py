@@ -158,10 +158,10 @@ def generate_all_components(reduction_type, normalization, values_to_generate):
 
 
 if __name__ == '__main__':
-    values_to_generate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 100]
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 100]
     generate_all_components(ReductionTypes.NMF,
                             Normalization.ROW_SUM_ONE,
-                            values_to_generate)
+                            numbers)
 
     # for reduction in ReductionTypes:
     #    visualize_reduced_dimensions(reduction, Normalization.ROW_SUM_ONE)

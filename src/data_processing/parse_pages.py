@@ -9,6 +9,43 @@ from BeautifulSoup import BeautifulSoup
 import src.constants as constants
 
 
+def append_additional_ingredients(recipe, soup):
+    """
+    Parses the soup for the second round of ingredients and adds them to the
+    recipe.
+    """
+    additional_steps = soup.findAll('div', {'class': 'recipeDirection'})
+    glass_size = get_glass_size_string(additional_steps)
+    for step in additional_steps:
+        instructions = ''.join([elem.string for elem in step.contents])
+        if glass_size:
+            instructions += '(' + glass_size.strip() + ')'
+        anchors = step.findAll('a')
+        for anchor in anchors:
+            is_ingredient = anchor['href'].find('ingr_detail') >= 0
+            not_a_cocktail_shaker = anchor['href'].find('id=322') == -1
+            not_a_chaser = anchor['href'].find('id=383') == -1
+            if is_ingredient and not_a_cocktail_shaker and not_a_chaser:
+                ingredient = unicode(anchor.string)
+                recipe.append([ingredient, ingredient + ' ' + instructions])
+
+
+def get_ingredients(soup):
+    """
+    Parses the soup and extracts the first paragraph of ingredients.
+    """
+    recipe = []
+    measurements = soup.findAll('div', {'class': 'recipeMeasure'})
+    for measure in measurements:
+        amount = measure.contents[0].strip()
+        ingredient = unicode(measure.a.string)
+        if measure.span:
+            alternative_amount = measure.span.string.strip()
+            amount += alternative_amount
+        recipe.append([ingredient, amount])
+    return recipe
+
+
 def process_recipes_file():
     """
     Creates a list of lists that contain the (ingredient, amount)
@@ -21,32 +58,11 @@ def process_recipes_file():
             print "ERROR: NO PAGE. FAILED TO SCRAPE IT EARLIER."
             continue
         if i % 1000 == 0:
-                print 'Parsing recipe ' + str(i)
+            print 'Parsing recipe ' + str(i)
         soup = BeautifulSoup(cocktail_page)
+        recipe = get_ingredients(soup)
+        append_additional_ingredients(recipe, soup)
         title = soup.findAll('h2')[0].string.strip()
-        recipe = []
-        measurements = soup.findAll('div', {'class': 'recipeMeasure'})
-        for measure in measurements:
-            amount = measure.contents[0].strip()
-            ingredient = unicode(measure.a.string)
-            if measure.span:
-                alternative_amount = measure.span.string.strip()
-                amount += alternative_amount
-            recipe.append([ingredient, amount])
-        additional_steps = soup.findAll('div', {'class': 'recipeDirection'})
-        glass_size = get_glass_size_string(additional_steps)
-        for step in additional_steps:
-            instructions = ''.join([elem.string for elem in step.contents])
-            if glass_size:
-                instructions += '(' + glass_size.strip() + ')'
-            anchors = step.findAll('a')
-            for anchor in anchors:
-                is_ingredient = anchor['href'].find('ingr_detail') >= 0
-                not_a_cocktail_shaker = anchor['href'].find('id=322') == -1
-                not_a_chaser = anchor['href'].find('id=383') == -1
-                if is_ingredient and not_a_cocktail_shaker and not_a_chaser:
-                    ingredient = unicode(anchor.string)
-                    recipe.append([ingredient, ingredient + ' ' + instructions])
         all_recipes[title] = recipe
     pickle.dump(all_recipes, open(constants.CLEANED_COCKTAILS_FILENAME, 'wb'))
 

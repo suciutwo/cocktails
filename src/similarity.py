@@ -8,7 +8,7 @@ from src.data_processing.matrix_generation import recipe_matrix, Normalization
 from src.matrix_factorization import reduce_dimensions, ReductionTypes
 
 
-def generate_ingredient_similarity_matrix():
+def generate_ingredient_similarity():
     """
     Builds a matrix that showcases ingredient-ingredient similarity.
     :return:
@@ -28,7 +28,7 @@ def print_similar(index, ingredient, similarity_matrix):
     Prints similar ingredients, using:
     :param index: a RecipeNameIndex
     :param ingredient: the string for the similar ingredient
-    :param similarity_matrix: created via generate_ingredient_similarity_matrix
+    :param similarity_matrix: created via generate_ingredient_similarity
     :return:
     """
     number = index.ingredient_number(ingredient)
@@ -46,7 +46,7 @@ def ingredient_loop():
     Simple loop, asks for strings and prints similarity.
     :return:
     """
-    index, similarity_matrix = generate_ingredient_similarity_matrix()
+    index, similarity_matrix = generate_ingredient_similarity()
 
     while True:
         user_ingredient = raw_input("Ingredient: ")

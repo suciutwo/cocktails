@@ -11,6 +11,8 @@ import numpy as np
 
 from emma.data_formatting import top_ingredient_combinations
 
+THRESHOLD_FOR_ADDING_LINES = 10
+
 
 def print_top_components(components, name_index, flavor_index):
     """
@@ -69,9 +71,8 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
     if add_lines_connecting_pairs:
         ingredient_pairs = top_ingredient_combinations()
         n_lines_plotted = 0
-        threshold = 10
         for pair in ingredient_pairs:
-            if ingredient_pairs[pair] > threshold:
+            if ingredient_pairs[pair] > THRESHOLD_FOR_ADDING_LINES:
                 ingred_one, ingred_two = pair.split('/')
                 ingred_one_idx = name_index.ingredient_number(ingred_one)
                 ingred_two_idx = name_index.ingredient_number(ingred_two)
@@ -81,7 +82,7 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
                          [point[1], endpoint[1]],
                          color='red')
                 n_lines_plotted += 1
-        print 'Threshold for adding lines', threshold
+        print 'Threshold for adding lines', THRESHOLD_FOR_ADDING_LINES
         print 'Number of connections passing threshold', n_lines_plotted
 
     plt.scatter(two_component_matrix[:, 0], two_component_matrix[:, 1])
