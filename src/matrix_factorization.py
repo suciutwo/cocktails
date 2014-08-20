@@ -138,7 +138,7 @@ def inspect_components(reduction_type, normalization):
         print_top_components(components[n_components], name_index, flavor_index)
 
 
-def generate_all_components(reduction_type, normalization, n_components=200):
+def generate_all_components(reduction_type, normalization, values_to_generate):
     """
     Carries out a dimensionality reduction using 1:n_components components.
     All results are saved in a list so that they can be easily inspected later.
@@ -149,7 +149,7 @@ def generate_all_components(reduction_type, normalization, n_components=200):
     matrix, name_index = recipe_matrix(normalization)
     components = [name_index]
     print 'Calculating all components for %s' % reduction_type.name
-    for number in range(1, n_components+1):
+    for number in values_to_generate:
         print 'Calculating component %d' % number
         components.append(calculate_components(matrix, reduction_type, number))
     dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name + '-' + \
@@ -158,7 +158,10 @@ def generate_all_components(reduction_type, normalization, n_components=200):
 
 
 if __name__ == '__main__':
-    generate_all_components(ReductionTypes.NMF, Normalization.ROW_SUM_ONE)
+    values_to_generate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 100]
+    generate_all_components(ReductionTypes.NMF,
+                            Normalization.ROW_SUM_ONE,
+                            values_to_generate)
 
     # for reduction in ReductionTypes:
     #    visualize_reduced_dimensions(reduction, Normalization.ROW_SUM_ONE)
