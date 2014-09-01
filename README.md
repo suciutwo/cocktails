@@ -29,12 +29,10 @@ Puts data in a matrix so you can have fun with numpy
 	of the same name (in src/matrixGeneration) to generate a new one. Be warned,
 	it requires your effort for several hours.
 	
-	2) Now call either one of the matrix generating functions to get the data
-	you want as a matrix. You'll also get back an index which maps from row or
-	column numbers to actual strings and vice versa.
+	2) Now call recipe_data (with the correct arguments) to get a data frame.
 
 
 Matrix Factoring:
-
-	matrixFactorization: currently, this is some code that just plays with NMF
+	matrixFactorization: allows you to factor a matrix with different techniques, look at components, and plot in two directions
+	similarity: some experiments for detecting similar ingredients
 	
