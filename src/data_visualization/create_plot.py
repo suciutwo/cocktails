@@ -14,17 +14,14 @@ from emma.data_formatting import top_ingredient_combinations
 THRESHOLD_FOR_ADDING_LINES = 10
 
 
-def print_top_components(components, name_index, flavor_index):
+def print_top_components(components, ingredients, flavor_index):
     """
     Prints out a summary of the top components of a matrix factorization.
     :param components: a matrix with dimensions (components)x(features).
     Each row is a single component and contains information about which
     features make up that component. This is most typically generated
     as the components_ element of a scikit decomposition model.
-    :param name_index: the RecipeNameIndex corresponding to the matrix
-    that was used to generate these components. It's on you to make sure you're
-    using the right RecipeNameIndex. If not, the mapping between items and
-    names will be wonky and you'll be in tears.
+    :param ingredients: a list of ingredients
     :param flavor_index: mapping from ingredient names to flavors.
     """
     for idx, component in enumerate(components):
@@ -34,7 +31,7 @@ def print_top_components(components, name_index, flavor_index):
         top_n_indices = np.argsort(-1 * np.abs(component))[0:n_to_display]
         weight_of_largest_component = abs(component[top_n_indices[0]])
         for i in top_n_indices:
-            ingredient_name = name_index.ingredient(i)
+            ingredient_name = ingredients[i]
             weight = component[i]
             if abs(weight) < .2 * weight_of_largest_component:
                 pass  # this component is too small, ignore it and future ones
@@ -44,7 +41,7 @@ def print_top_components(components, name_index, flavor_index):
             print '\t %s: %.2f %s' % (ingredient_name, weight, flavors)
 
 
-def plot_2d_points(two_component_matrix, name_index, output_filename,
+def plot_2d_points(two_component_matrix, ingredients, output_filename,
                    replace_values_with_rank=True,
                    add_lines_connecting_pairs=False):
     """
@@ -52,7 +49,7 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
     optionally does some data manipulation so that you can see a prettier graph
 
     :param two_component_matrix: (items)x(2) matrix
-    :param name_index: RecipeNameIndex object used to generate matrix
+    :param ingredients: names of ingredients in a list
     :param output_filename: name of figure (typically .png), will get stomped
     :param replace_values_with_rank: boolean that forces values of each
      component to be replaced with their relative rank (descending).
@@ -66,7 +63,7 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
     plt.figure(figsize=[50, 50])
     for i in range(two_component_matrix.shape[0]):
         point = two_component_matrix[i, :]
-        plt.annotate(name_index.ingredient(i), point)
+        plt.annotate(ingredients[i], point)
 
     if add_lines_connecting_pairs:
         ingredient_pairs = top_ingredient_combinations()
@@ -74,8 +71,9 @@ def plot_2d_points(two_component_matrix, name_index, output_filename,
         for pair in ingredient_pairs:
             if ingredient_pairs[pair] > THRESHOLD_FOR_ADDING_LINES:
                 ingred_one, ingred_two = pair.split('/')
-                ingred_one_idx = name_index.ingredient_number(ingred_one)
-                ingred_two_idx = name_index.ingredient_number(ingred_two)
+
+                ingred_one_idx = ingredients.index(ingred_one)
+                ingred_two_idx = ingredients.index(ingred_two)
                 point = two_component_matrix[ingred_one_idx]
                 endpoint = two_component_matrix[ingred_two_idx]
                 plt.plot([point[0], endpoint[0]],

@@ -15,7 +15,7 @@ from tsne import bh_sne
 
 import src.constants as constants
 from src.data_processing.matrix_generation import ingredients_flavor_dict
-from src.data_processing.matrix_generation import recipe_matrix
+from src.data_processing.matrix_generation import recipe_data
 from src.data_processing.matrix_generation import Normalization
 from src.data_visualization.create_plot import print_top_components
 from src.data_visualization.create_plot import plot_2d_points
@@ -86,20 +86,25 @@ def calculate_components(matrix, reduction_type, n_components):
     return components
 
 
-def visualize_reduced_dimensions(reduction_type, normalization):
+def visualize_reduced_dimensions(reduction_type,
+                                 normalization,
+                                 minimum_occurrences=0):
     """
     Reduces the (drink)x(ingredient) matrix to 2 dimensions
     and makes a plot of the ingredients projected into that space.
     2d only because higher dimensions are harder to visualize.
     :param reduction_type: the way you will reduce dimensionality.
     :param normalization: method to normalize matrix
+    :param minimum_occurrences: minimum required number of ingredient occurrence
     Saves the visualisation as an image file.
     """
-    matrix, name_index = recipe_matrix(normalization)
+    drink_ingredient = recipe_data(normalization, minimum_occurrences)
+    ingredients = list(drink_ingredient.columns)
+    ingredient_drink = drink_ingredient.transpose()
     output_filename = reduction_type.name+'-'+normalization.name
-    two_component_matrix = reduce_dimensions(matrix.transpose(),
+    two_component_matrix = reduce_dimensions(ingredient_drink,
                                              reduction_type, 2)
-    plot_2d_points(two_component_matrix, name_index, output_filename)
+    plot_2d_points(two_component_matrix, ingredients, output_filename)
 
 
 def inspect_components(reduction_type, normalization):
@@ -108,10 +113,10 @@ def inspect_components(reduction_type, normalization):
     :param reduction_type: The type of decomposition to use
     Asks user to enter queries to see components
     """
-    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name + '-' + \
-                    normalization.name
+    dump_filename = COMPONENTS_FILENAME_PREFIX+reduction_type.name + \
+        '-' + normalization.name
     components = pickle.load(open(dump_filename, 'r'))
-    name_index = components[0]
+    names = components[0]
     flavor_index = ingredients_flavor_dict()
     n_components = 1
     while True:
@@ -134,36 +139,46 @@ def inspect_components(reduction_type, normalization):
                 continue
         print '\n\n\n'
         print 'Result for %d components' % n_components
-        print_top_components(components[n_components], name_index, flavor_index)
+        print_top_components(components[n_components], names, flavor_index)
 
 
-def generate_all_components(reduction_type, normalization, values_to_generate):
+def generate_all_components(reduction_type, normalization, values_to_generate,
+                            minimum_occurrences=0):
     """
     Carries out a dimensionality reduction using 1:n_components components.
     All results are saved in a list so that they can be easily inspected later.
     :param reduction_type: The kind of reduction to use.
-    :param n_components: The highest number of components to calculate.
+    :param normalization: How to normalize the matrix before finding components.
+    :param values_to_generate: numbers of components to calculate.
+    :param minimum_occurrences: number of times an ingredient must be found.
     AFTER A VERY LONG TIME this pickles a dictionary of components.
     """
-    matrix, name_index = recipe_matrix(normalization)
-    components = [name_index]
+    data = recipe_data(normalization, minimum_occurrences)
+    names = list(data.columns)
+    components = [names]
     print 'Calculating all components for %s' % reduction_type.name
     for number in values_to_generate:
-        print 'Calculating component %d' % number
-        components.append(calculate_components(matrix, reduction_type, number))
-    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name + '-' + \
-                    normalization.name
+        print 'Calculating components for %d dimensions' % number
+        components.append(calculate_components(data, reduction_type, number))
+    dump_filename = COMPONENTS_FILENAME_PREFIX + reduction_type.name + \
+        '-' + normalization.name
     pickle.dump(components, open(dump_filename, 'w'))
 
 
 if __name__ == '__main__':
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 100]
+    numbers = [1, 3, 5, 10, 20, 50, 100]
+
     generate_all_components(ReductionTypes.NMF,
                             Normalization.ROW_SUM_ONE,
-                            numbers)
+                            numbers,
+                            10)
 
     # for reduction in ReductionTypes:
-    #    visualize_reduced_dimensions(reduction, Normalization.ROW_SUM_ONE)
+    #     if reduction is ReductionTypes.T_SNE:
+    #         continue
+    #     visualize_reduced_dimensions(reduction,
+    #                                  Normalization.ROW_SUM_ONE,
+    #                                  10)
     #
     # for reduction in ReductionTypes:
     #     if reduction is not ReductionTypes.T_SNE:

@@ -12,8 +12,8 @@ import regex as re
 from enum import Enum
 import numpy as np
 import os
+import pandas as pd
 import scipy.sparse as sp
-from sklearn.preprocessing import normalize
 from src import constants
 
 
@@ -65,7 +65,7 @@ def tfidf_recipe_matrix(boolean_matrix):
     Given a boolean recipe matrix, normalizes the recipes using TFIDF
     """
     n_samples, n_features = boolean_matrix.shape
-    document_frequency = np.sum(boolean_matrix, axis=0)
+    document_frequency = boolean_matrix.sum(0)
 
     ## Smooth
     document_frequency += 1
@@ -78,10 +78,9 @@ def tfidf_recipe_matrix(boolean_matrix):
     ## Transform matrix according to IDF
     weighted_matrix = boolean_matrix * idf_diag
     norms = (weighted_matrix * weighted_matrix).sum(axis=1)
-    norms = np.sqrt(norms, norms)
+    norms = np.sqrt(norms.values, norms.values)
     norms[norms == 0.0] = 1.0
-    weighted_matrix /= norms[:, np.newaxis]
-    return weighted_matrix
+    return weighted_matrix.div(norms, axis=0)
 
 
 def safe_pickle_load(filename, suggestion):
@@ -100,118 +99,51 @@ def safe_pickle_load(filename, suggestion):
         raise IOError
 
 
-def recipe_matrix(normalization):
+def recipe_data(normalization, minimum_occurrences=0):
     """
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
     """
-    print "Building recipe_matrix with matrix_generation.py"
+    print "Building recipe_data with matrix_generation.py"
+    print "Requiring ingredients appear in", minimum_occurrences, "recipes"
     amount_associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
                                            "run build_amount_parsing_guide")
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
-    index = RecipeNameIndex(recipes, amount_associations)
-    resulting_matrix = np.zeros(
-        shape=(index.cocktails_count(), index.ingredients_count()))
+
+    recipe_dict = {}
     for cocktail_name, ingredient_tuples in recipes.iteritems():
-        cocktail_number = index.recipe_title_number(cocktail_name)
-        already_seen = set([])
+        recipe = {}
         for ingredient_tuple in ingredient_tuples:
             name = ingredient_tuple[0]
             name = canonical_ingredient_name(name)
             amount = amount_associations[ingredient_tuple[1]]
             if amount == 0:
                 continue
-            number = index.ingredient_number(name)
-            if number in already_seen:
-                resulting_matrix[cocktail_number, number] += amount
+            if name in recipe:
+                recipe[name] += amount
             else:
-                already_seen.add(number)
-                resulting_matrix[cocktail_number, number] = amount
+                recipe[name] = amount
+        recipe_dict[cocktail_name] = recipe
+    dataframe = pd.DataFrame(recipe_dict).fillna(0).transpose()
+
+    if minimum_occurrences > 0:
+        ingredients_with_support = (dataframe > 0).sum(0) >= minimum_occurrences
+        dataframe = dataframe.loc[:, ingredients_with_support]
+        recipes_with_items = (dataframe > 0).sum(1) > 0
+        dataframe = dataframe.loc[recipes_with_items, :]
 
     if normalization is Normalization.EXACT_AMOUNTS:
         pass
     elif normalization is Normalization.BOOLEAN:
-        resulting_matrix[resulting_matrix != 0] = 1.0
+        dataframe[dataframe > 0] = 1.0
     elif normalization is Normalization.ROW_SUM_ONE:
-        resulting_matrix = normalize(resulting_matrix, axis=1, norm='l1')
+        dataframe = dataframe.div(dataframe.sum(axis=1), axis=0)
     elif normalization is Normalization.TFIDF:
-        resulting_matrix[resulting_matrix != 0] = 1.0
-        resulting_matrix = tfidf_recipe_matrix(resulting_matrix)
+        dataframe[dataframe > 0] = 1.0
+        dataframe = tfidf_recipe_matrix(dataframe)
 
-    return resulting_matrix, index
-
-
-class RecipeNameIndex(object):
-    """
-    Allows you to look up recipe names and ingredient names from numbers
-    so that you can understand the data you're working on while not relying
-    on column names.
-    """
-    def __init__(self, recipe_list, amount_associations):
-        """
-        The list of recipes and their ingredients will be used to
-        set the assignment of index numbers.
-        :param recipe_list: all recipes
-        :param amount_associations: a mapping from strings to amounts
-        """
-        self._title_to_number = {}
-        self._number_to_title = {}
-        self._ingredient_to_number = {}
-        self._number_to_ingredient = {}
-        title_idx = 0
-        ingredient_idx = 0
-        for title, ingredient_triples in recipe_list.iteritems():
-            if title not in self._title_to_number:
-                self._title_to_number[title] = title_idx
-                self._number_to_title[str(title_idx)] = title
-                title_idx += 1
-            for tup in ingredient_triples:
-                name = tup[0]
-                amount = amount_associations[tup[1].strip()]
-                if amount == 0:
-                    continue
-                name = canonical_ingredient_name(name)
-                if name not in self._ingredient_to_number:
-                    self._ingredient_to_number[name] = ingredient_idx
-                    self._number_to_ingredient[str(ingredient_idx)] = name
-                    ingredient_idx += 1
-
-    def recipe_title(self, integer_index):
-        """
-        Converts a recipe index into its proper name.
-        """
-        return self._number_to_title[str(integer_index)]
-
-    def ingredient(self, integer_index):
-        """
-        Converts an ingredient index into its proper name.
-        """
-        return self._number_to_ingredient[str(integer_index)]
-
-    def ingredient_number(self, ingred_name):
-        """
-        Converts an ingredient name into the corresponding index.
-        """
-        return self._ingredient_to_number[ingred_name]
-
-    def recipe_title_number(self, title_string):
-        """
-        Converts a recipe name into the corresponding index.
-        """
-        return self._title_to_number[title_string]
-
-    def cocktails_count(self):
-        """
-        Return number of cocktail recipes in the index.
-        """
-        return len(self._title_to_number)
-
-    def ingredients_count(self):
-        """
-        Return number of ingredients in the index.
-        """
-        return len(self._ingredient_to_number)
+    return dataframe
 
 
 def build_amount_parsing_guide():
@@ -307,9 +239,12 @@ def canonical_ingredient_name(string_):
     """
     correction_map = {u'tabasco_sauce': u'tabasco',
                       u'muscatel_wine': u'muscat',
+                      u'rhine_wine': u'red_wine',
+                      u'wine': u'red_wine',
                       u'muscatel': u'muscat',
                       u'rye_whiskey': u'rye',
                       u'yolk_of_egg': u'egg_yolk',
+                      u'yolk_of_an_egg': u'egg_yolk',
                       u'yolk_of__egg': u'egg_yolk',
                       u'whole_egg': u'egg',
                       u'eggs': u'egg',
@@ -369,6 +304,7 @@ def canonical_ingredient_name(string_):
                       u'sugar_lump': u'sugar',
                       u'pimms_cup': u'pimms',
                       u'bitters': u'angostura_bitters',
+                      u'angostura': u'angostura_bitters',
                       u'peychaud':u'peychaud_bitters',
                       u'pernod': u'pastis',
                       u'half_amp_half': u'half_and_half',
@@ -386,6 +322,12 @@ def canonical_ingredient_name(string_):
                       u'french_vermouth': u'dry_vermouth',
                       u'pineapple_chunks': u'pineapple',
                       u'pineapple_spear': u'pineapple',
+                      u'pineapple_chunk': u'pineapple',
+                      u'pineapple_slices': u'pineapple',
+                      u'slice_of_pineapple': u'pineapple',
+                      u'slices_of_pineapple': u'pineapple',
+                      u'pineapple_slice': u'pineapple',
+                      u'piece_of_pineapple': u'pineapple',
                       u'port_wine': u'port',
                       u'kirsch': u'cherry_brandy',
                       u'tia_maria': u'coffee_liqueur',
@@ -415,7 +357,6 @@ def canonical_ingredient_name(string_):
                       u'151_proof_rum': u'151_rum',
                       u'malibu_rum': u'coconut_liqueur',
                       u'mount_gay_barbados_rum': u'barbados_rum'}
-    #string_ = string_.decode('utf-8')
     string_ = string_.replace('fresh', '').strip()
     string_ = re.sub(ur"\p{P}+", "", string_)
     string_ = string_.lower().replace(' ', '_')
@@ -430,13 +371,14 @@ def print_ingredient_counts():
     It was created to help give me a better idea about how much progress
     was being made on merging similar ingredients.
     """
-    bool_matrix, index = recipe_matrix(Normalization.BOOLEAN)
-    names = [index.ingredient(i) for i in range(index.ingredients_count())]
+    bool_matrix = recipe_data(Normalization.BOOLEAN)
+    names = list(bool_matrix.columns)
     ingredient_sums = np.sum(bool_matrix, axis=0)
     ingredient_counts = zip(names, ingredient_sums)
     sorted_ingredient_counts = sorted(ingredient_counts, key=lambda x: x[1])
     for item in sorted_ingredient_counts:
-        print item
+        if 'rose' in item[0]:
+            print item
 
 
 if __name__ == '__main__':
