@@ -168,10 +168,10 @@ def generate_all_components(reduction_type, normalization, values_to_generate,
 if __name__ == '__main__':
     numbers = [1, 3, 5, 10, 20, 50, 100]
 
-    generate_all_components(ReductionTypes.NMF,
-                            Normalization.ROW_SUM_ONE,
-                            numbers,
-                            10)
+    # generate_all_components(ReductionTypes.NMF,
+    #                         Normalization.ROW_SUM_ONE,
+    #                         numbers,
+    #                         10)
 
     # for reduction in ReductionTypes:
     #     if reduction is ReductionTypes.T_SNE:
@@ -183,4 +183,4 @@ if __name__ == '__main__':
     # for reduction in ReductionTypes:
     #     if reduction is not ReductionTypes.T_SNE:
     #         generate_all_components(reduction)
-    inspect_components(ReductionTypes.NMF, Normalization.ROW_SUM_ONE)
+    inspect_components(ReductionTypes.NMF, Normalization.EXACT_AMOUNTS)
