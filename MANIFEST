@@ -14,3 +14,9 @@ src/generative_model.py
 src/matrix_factorization.py
 src/similarity.py
 src/topic_modeling.py
+src/data_processing/__init__.py
+src/data_processing/matrix_generation.py
+src/data_processing/parse_pages.py
+src/data_processing/scrape_cocktails.py
+src/data_visualization/__init__.py
+src/data_visualization/create_plot.py
