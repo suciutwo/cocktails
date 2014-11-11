@@ -92,12 +92,10 @@ def safe_pickle_load(filename, suggestion):
     informs user how to make the file if it cannot be found.
     :return: The object stored in the file.
     """
-    if os.path.isfile(filename):
-        return pickle.load(open(filename, 'rb'))
-    elif os.path.isfile(pkg_resources.resource_string(__name__, filename)):
+    if os.path.isfile(pkg_resources.resource_string(__name__, filename)):
         print "It is a file. Here we go"
         try:
-            return pickle.load(open(pkg_resources.resource_string(__name__, filename)))
+            return pickle.load(open(pkg_resources.resource_string(__name__, filename), 'rb'))
         except Exception as e:
             print e.message
             print e
