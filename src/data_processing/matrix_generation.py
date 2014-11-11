@@ -15,6 +15,7 @@ import os
 import pandas as pd
 import scipy.sparse as sp
 from src import constants
+import pkg_resources
 
 
 AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
@@ -93,8 +94,11 @@ def safe_pickle_load(filename, suggestion):
     """
     if os.path.isfile(filename):
         return pickle.load(open(filename, 'rb'))
+    elif os.path.isfile(pkg_resources.resource_string(__name__, filename)):
+        return pickle.load(open(pkg_resources.resource_string(__name__, filename)))
     else:
         print "Could not open " + filename
+        print "looking from " + os.getcwd()
         print suggestion
         raise IOError
 
