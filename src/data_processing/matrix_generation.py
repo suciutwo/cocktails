@@ -95,7 +95,12 @@ def safe_pickle_load(filename, suggestion):
     if os.path.isfile(filename):
         return pickle.load(open(filename, 'rb'))
     elif os.path.isfile(pkg_resources.resource_string(__name__, filename)):
-        return pickle.load(open(pkg_resources.resource_string(__name__, filename)))
+        print "It is a file. Here we go"
+        try:
+            return pickle.load(open(pkg_resources.resource_string(__name__, filename)))
+        except Exception as e:
+            print e.message
+            print e
     else:
         print "Could not open " + filename
         print "looking from " + os.getcwd()
