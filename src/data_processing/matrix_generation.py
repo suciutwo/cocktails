@@ -92,9 +92,11 @@ def safe_pickle_load(filename, suggestion):
     informs user how to make the file if it cannot be found.
     :return: The object stored in the file.
     """
+    print "trying to load", filename
     if os.path.isfile(pkg_resources.resource_string(__name__, filename)):
         print "It is a file. Here we go"
         try:
+            print "will return"
             return pickle.load(open(pkg_resources.resource_string(__name__, filename), 'rb'))
         except Exception as e:
             print e.message
@@ -115,8 +117,10 @@ def recipe_data(normalization, minimum_occurrences=0):
     print "Requiring ingredients appear in", minimum_occurrences, "recipes"
     amount_associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
                                            "run build_amount_parsing_guide")
+    print "mid"
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
+    print "done"
 
     recipe_dict = {}
     for cocktail_name, ingredient_tuples in recipes.iteritems():
