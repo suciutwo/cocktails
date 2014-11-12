@@ -7,5 +7,5 @@ setup(name='cocktails',
       url='https://github.com/suciutwo/cocktails/',
       packages= ['src', 'src.data_processing', 'src.data_visualization'],
       install_requires=['regex', 'enum34', 'numpy', 'pandas', 'scipy'],
-      include_package_date=True
+      include_package_data=True
 )
