@@ -4,3 +4,4 @@
 !.gitignore
 # And this one. It took way long to make
 !amount_parsing_map
+!__init__.py
