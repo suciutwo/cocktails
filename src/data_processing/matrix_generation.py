@@ -96,12 +96,8 @@ def safe_pickle_load(filename, suggestion):
 
     print pkg_resources.resource_filename('data', filename)
 
-    print "TRYING!!! AAA"
     if os.path.isfile(pkg_resources.resource_filename('data', filename)):
-        print "It is a file. Here we go"
         try:
-            print "will return"
-            print __name__
             return pickle.load(open(pkg_resources.resource_filename('data', filename), 'rb'))
         except Exception as e:
             print e.message
