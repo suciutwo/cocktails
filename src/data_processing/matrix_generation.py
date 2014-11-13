@@ -113,7 +113,7 @@ def recipe_data(normalization, minimum_occurrences=0):
     Processes the result of parsePages and
     returns a cocktails by ingredients matrix (numpy)
     """
-    print "Building recipe_data with matrix_generation.py"
+    print "Building recipe_data object with matrix_generation.py"
     print "Requiring ingredients appear in", minimum_occurrences, "recipes"
     amount_associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
                                            "run build_amount_parsing_guide")
