@@ -93,7 +93,7 @@ def safe_pickle_load(filename, suggestion):
     :return: The object stored in the file.
     """
     print "trying to load", filename
-
+    print "Debug version."
     print pkg_resources.resource_filename('data', filename)
 
     if os.path.isfile(pkg_resources.resource_filename('data', filename)):
