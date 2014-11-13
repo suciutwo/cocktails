@@ -18,8 +18,8 @@ from src import constants
 import pkg_resources
 
 
-AMOUNT_PARSING_GUIDE = constants.DATA_DIRECTORY+'amount_parsing_map'
-INGREDIENT_MERGING_GUIDE = constants.DATA_DIRECTORY+'ingredient_merging_map'
+AMOUNT_PARSING_GUIDE = 'amount_parsing_map'
+INGREDIENT_MERGING_GUIDE = 'ingredient_merging_map'
 
 
 class Normalization(Enum):
@@ -93,17 +93,21 @@ def safe_pickle_load(filename, suggestion):
     :return: The object stored in the file.
     """
     print "trying to load", filename
-    if os.path.isfile(pkg_resources.resource_string(__name__, filename)):
+
+    print pkg_resources.resource_filename('data', filename)
+
+    print "TRYING!!! AAA"
+    if os.path.isfile(pkg_resources.resource_filename('data', filename)):
         print "It is a file. Here we go"
         try:
             print "will return"
-            return pickle.load(open(pkg_resources.resource_string(__name__, filename), 'rb'))
+            print __name__
+            return pickle.load(open(pkg_resources.resource_filename('data', filename), 'rb'))
         except Exception as e:
             print e.message
             print e
     else:
         print "Could not open " + filename
-        print "looking from " + os.getcwd()
         print suggestion
         raise IOError
 
@@ -117,10 +121,8 @@ def recipe_data(normalization, minimum_occurrences=0):
     print "Requiring ingredients appear in", minimum_occurrences, "recipes"
     amount_associations = safe_pickle_load(AMOUNT_PARSING_GUIDE,
                                            "run build_amount_parsing_guide")
-    print "mid"
     recipes = safe_pickle_load(constants.CLEANED_COCKTAILS_FILENAME,
                                "run parsePages to remake this file")
-    print "done"
 
     recipe_dict = {}
     for cocktail_name, ingredient_tuples in recipes.iteritems():

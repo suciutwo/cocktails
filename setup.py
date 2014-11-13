@@ -5,7 +5,7 @@ setup(name='cocktails',
       author='Emma Pierson and Andrew Suciu',
       author_email='suciu@cs.stanford.edu',
       url='https://github.com/suciutwo/cocktails/',
-      packages= ['src', 'src.data_processing', 'src.data_visualization'],
+      packages= ['src', 'src.data_processing', 'src.data_visualization', 'data'],
       install_requires=['regex', 'enum34', 'numpy', 'pandas', 'scipy'],
       include_package_data=True
 )
