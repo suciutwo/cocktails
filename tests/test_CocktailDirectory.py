@@ -1,9 +1,12 @@
 """Test for CocktailDirectory"""
 
-from src.CocktailDirectory import CocktailDirectory
+from src.CocktailDirectory import CocktailDirectory, Cocktail
 
 
 class TestCocktailDirectory:
+
+    martini_recipe = [(u'gin', 2.25), (u'olive', 0.5), (u'lemon twist', 0.5), (u'dry vermouth', 0.25)]
+    martini_cocktail = Cocktail('Martini (extra Dry)', martini_recipe)
 
     def __init__(self):
         self.dir = None
@@ -11,16 +14,21 @@ class TestCocktailDirectory:
     def setup(self):
         self.dir = CocktailDirectory()
 
-    def test_recipe(self):
-        assert self.dir.recipe('martini') is None
-        martini_recipe = [(u'dry vermouth', 0.25), (u'lemon twist', 0.5), (u'olive', 0.5), (u'gin', 2.25)]
-        martini_result = self.dir.recipe('Martini (extra Dry)')
-        assert martini_result[0][0] == 'gin'
-        assert set(martini_result) == set(martini_recipe), martini_result
+    def test_cocktail(self):
+        assert not self.dir.cocktail('martini'), self.dir.cocktail('martini')
+        martini_result = self.dir.cocktail('Martini (extra Dry)')
+        assert martini_result.recipe[0].ingredient == 'gin', martini_result.recipe
+        assert martini_result == self.martini_cocktail, martini_result
+
+    def test_cocktails(self):
+        assert not self.dir.cocktails(['martini', 'blah'])
+        martini_result = self.dir.cocktails(['Martini (extra Dry)'])[0]
+        assert martini_result.recipe[0].ingredient == 'gin', martini_result.recipe
+        assert martini_result == self.martini_cocktail, self.martini_cocktail
 
     def test_random_drinks(self):
-        assert len(self.dir.random_drinks(4)) > 3
-        assert len(self.dir.random_drinks(5)) == 5
+        assert len(self.dir.random_cocktails(4)) > 3
+        assert len(self.dir.random_cocktails(5)) == 5
 
     def test_all_ingredients(self):
         count = len(self.dir.all_ingredients())
@@ -53,8 +61,6 @@ class TestCocktailDirectory:
     def test_flex_search(self):
         d = self.dir
         can_make = d.flexible_search(['gin'], 1)
-        # for thing in can_make:
-        #     print thing
         assert len(can_make) == 33, len(can_make)
         assert set(can_make[0][0]) == {u'sweet vermouth'}, can_make[0][0]
         assert len(can_make[0][1]) == 4, can_make[0][1]
