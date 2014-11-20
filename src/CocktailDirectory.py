@@ -15,7 +15,7 @@ class CocktailDirectory:
         dataframe = recipe_data(None)
         for name, ingredient_series in dataframe.iterrows():
             recipe = []
-            ingredient_series.sort()
+            ingredient_series.sort(ascending=False)
             for ingredient, amount in ingredient_series.iteritems():
                 if amount > 0:
                     ingredient = ingredient.replace('_', ' ')

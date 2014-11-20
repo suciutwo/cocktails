@@ -15,6 +15,7 @@ class TestCocktailDirectory:
         assert self.dir.recipe('martini') is None
         martini_recipe = [(u'dry vermouth', 0.25), (u'lemon twist', 0.5), (u'olive', 0.5), (u'gin', 2.25)]
         martini_result = self.dir.recipe('Martini (extra Dry)')
+        assert martini_result[0][0] == 'gin'
         assert set(martini_result) == set(martini_recipe), martini_result
 
     def test_random_drinks(self):
