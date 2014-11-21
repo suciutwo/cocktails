@@ -14,6 +14,9 @@ class TestCocktailDirectory:
     def setup(self):
         self.dir = CocktailDirectory()
 
+    def test_serialize(self):
+        assert self.martini_cocktail.json() == """{"name": "Martini (extra Dry)", "recipe": [{"ingredient": "gin", "amount": 2.25}, {"ingredient": "olive", "amount": 0.5}, {"ingredient": "lemon twist", "amount": 0.5}, {"ingredient": "dry vermouth", "amount": 0.25}]}"""
+
     def test_cocktail(self):
         assert not self.dir.cocktail('martini'), self.dir.cocktail('martini')
         martini_result = self.dir.cocktail('Martini (extra Dry)')

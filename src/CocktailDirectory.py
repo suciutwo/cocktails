@@ -1,51 +1,31 @@
 """A directory of cocktails for searching."""
+import json
 import random
+
 from data_processing.matrix_generation import recipe_data
+from collections import namedtuple
 
 
-class RecipeInstruction():
-    """ Representation of a single instruction in a recipe.
-        has an ingredient and the amount of that ingredient. """
-
-    def __init__(self, ingredient, amount):
-        self.ingredient = ingredient
-        self.amount = amount
-
-    def __str__(self):
-        return {"ingredient": self.ingredient, "amount": self.amount}.__str__()
-
-    def __repr__(self):
-        return {"ingredient": self.ingredient, "amount": self.amount}.__str__()
-
-    def __eq__(self, other):
-        return (isinstance(other, self.__class__)
-            and self.ingredient == other.ingredient
-            and self.amount == other.amount)
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
+RecipeInstruction = namedtuple("RecipeInstruction", ['ingredient', 'amount'])
 
 
-class Cocktail():
-    """ Representation of a cocktail.
-        Has a name and a recipe. """
+CocktailBase = namedtuple("Cocktail", ['name', 'recipe'])
 
-    def __init__(self, name, ingredient_and_amount_list):
-        self.name = name
-        self.recipe = [RecipeInstruction(ingredient, amount)
-                       for ingredient, amount in ingredient_and_amount_list]
 
-    def __str__(self):
-        recipe_string = [recipe.__str__() for recipe in self.recipe]
-        return {"name": self.name, "recipe": recipe_string}.__str__()
+class Cocktail(CocktailBase):
 
-    def __eq__(self, other):
-        return (isinstance(other, self.__class__)
-            and self.name == other.name
-            and sorted(self.recipe) == sorted(other.recipe))
+    def __new__(cls, name, ingredient_and_amount_list):
+        recipe = [RecipeInstruction(ingredient, amount)
+                for ingredient, amount in ingredient_and_amount_list]
+        self = super(Cocktail, cls).__new__(cls, name, recipe)
+        return self
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+    def _asdict(self):
+        recipe_as_dict = [step._asdict() for step in self.recipe]
+        return CocktailBase(self.name, recipe_as_dict)._asdict()
+
+    def json(self):
+        return json.dumps(self._asdict())
 
 
 class CocktailDirectory:
