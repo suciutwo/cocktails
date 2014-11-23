@@ -66,21 +66,27 @@ class CocktailDirectory:
         """Provide the cocktail object for a single name."""
         return self._dictionary.get(name)
 
-    def search(self, required=None, forbidden=None):
-        """All cocktails without forbidden elements, but with required."""
+    def search(self, owned=None, required=None, forbidden=None):
+        """ All cocktails without forbidden elements, but with required.
+            If owned is not None, all cocktails returned will use only owned ingredients. """
         if required:
             required = {ingredient for ingredient in required
                         if ingredient in self._ingredients}
         if forbidden:
             forbidden = {ingredient for ingredient in forbidden
                          if ingredient in self._ingredients}
-        if not required and not forbidden:
+        if owned:
+            owned = {ingredient for ingredient in owned
+                       if ingredient in self._ingredients}
+        if not owned and not required and not forbidden:
             return self._dictionary.values()
         allowed = []
         for cocktail in self._dictionary.itervalues():
             ingredients = {instruction.ingredient
                            for instruction in cocktail.recipe}
-            if required and not required.intersection(ingredients):
+            if owned and not ingredients.issubset(owned):
+                continue
+            if required and not required.issubset(ingredients):
                 continue
             if forbidden and forbidden.intersection(ingredients):
                 continue

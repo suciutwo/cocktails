@@ -42,6 +42,12 @@ class TestCocktailDirectory:
         all_recipes = d.search()
         assert len(all_recipes) == 4502, len(all_recipes)
 
+
+    def test_search_have(self):
+        d = self.dir
+        results = d.search(owned=['gin', 'dry vermouth', 'olive', 'lemon twist'])
+        assert len(results) == 7, len(results)
+
     def test_search_gin(self):
         d = self.dir
         drinks_with_gin = d.search(required=['gin'])

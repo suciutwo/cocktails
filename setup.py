@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(name='cocktails',
-      version='0.3',
+      version='0.4',
       description='Cocktail Generation and Analysis',
       author='Emma Pierson and Andrew Suciu',
       author_email='suciu@cs.stanford.edu',
