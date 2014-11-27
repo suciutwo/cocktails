@@ -93,28 +93,38 @@ class CocktailDirectory:
             allowed.append(cocktail)
         return allowed
 
-    def flexible_search(self, liquor_on_shelf, allowed_missing_elements=0):
+    def flexible_search(self, owned, required=None, forbidden=None, allowed_missing_elements=0):
         """Return all cocktails that can be made, buying only n ingredients."""
-        if liquor_on_shelf:
-            liquor_on_shelf = {ingredient for ingredient in liquor_on_shelf
+        if owned:
+            owned = {ingredient for ingredient in owned
                                if ingredient in self._ingredients}
         else:
-            liquor_on_shelf = set([])
-        allowed = {}
+            owned = set([])
+        if required:
+            required = {ingredient for ingredient in required
+                        if ingredient in self._ingredients}
+        if forbidden:
+            forbidden = {ingredient for ingredient in forbidden
+                        if ingredient in self._ingredients}
+        result_dictionary = {}
         for name, cocktail in self._dictionary.iteritems():
             ingredients = {instruction.ingredient for instruction in cocktail.recipe}
-            missing = ingredients - liquor_on_shelf
-            if len(missing) == allowed_missing_elements:
-                missing = list(missing)
-                missing.sort()
-                key = '*^*'.join(missing)
-                if key not in allowed:
-                    allowed[key] = set([])
-                allowed[key].add(name)
+            if required and not required.issubset(ingredients):
+                continue
+            if forbidden and forbidden.intersection(ingredients):
+                continue
+            missing_ingredients = ingredients - owned
+            if 0 < len(missing_ingredients) <= allowed_missing_elements:
+                missing_ingredients = list(missing_ingredients)
+                missing_ingredients.sort()
+                missing_ingredients = '*^*'.join(missing_ingredients)
+                if missing_ingredients not in result_dictionary:
+                    result_dictionary[missing_ingredients] = set([])
+                result_dictionary[missing_ingredients].add(name)
 
-        sorted_keys = sorted(allowed, reverse=True, key=lambda k: len(allowed[k]))
+        sorted_missing_ingredients = sorted(result_dictionary, reverse=True, key=lambda k: len(result_dictionary[k]))
         result = []
-        for key in sorted_keys:
+        for key in sorted_missing_ingredients:
             ingredients = key.split('*^*')
-            result.append((ingredients, allowed[key]))
+            result.append((ingredients, result_dictionary[key]))
         return result

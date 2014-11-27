@@ -14,6 +14,8 @@ class TestCocktailDirectory:
     def setup(self):
         self.dir = CocktailDirectory()
 
+
+
     def test_serialize(self):
         assert self.martini_cocktail.json() == """{"name": "Martini (extra Dry)", "recipe": [{"ingredient": "gin", "amount": 2.25}, {"ingredient": "olive", "amount": 0.5}, {"ingredient": "lemon twist", "amount": 0.5}, {"ingredient": "dry vermouth", "amount": 0.25}]}"""
 
@@ -69,7 +71,16 @@ class TestCocktailDirectory:
 
     def test_flex_search(self):
         d = self.dir
-        can_make = d.flexible_search(['gin'], 1)
-        assert len(can_make) == 33, len(can_make)
-        assert set(can_make[0][0]) == {u'sweet vermouth'}, can_make[0][0]
-        assert len(can_make[0][1]) == 4, can_make[0][1]
+        can_make = d.flexible_search(['gin'], allowed_missing_elements=2)
+        assert len(can_make) == 506, len(can_make)
+        assert set(can_make[0][0]) == {u'cream', u'creme de cacao'}, can_make[0][0]
+        assert len(can_make[0][1]) == 7, can_make[0][1]
+        can_make = d.flexible_search(['gin'], allowed_missing_elements=0)
+        assert len(can_make) == 0, len(can_make)
+
+    def test_flex_search_required(self):
+        d = self.dir
+        can_make = d.flexible_search(['gin'], required=['gin'], allowed_missing_elements=2)
+        assert len(can_make) == 274, len(can_make)
+        assert set(can_make[0][0]) == {u'egg white', u'grenadine'}, can_make[0][0]
+        assert len(can_make[0][1]) == 6, can_make[0][1]
