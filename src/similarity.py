@@ -29,7 +29,7 @@ def print_similar(ingredient, similarity_matrix, names):
     Prints similar ingredients, using:
     :param ingredient: the string for the similar ingredient
     :param similarity_matrix: created via generate_ingredient_similarity
-    :param list of ingredient names
+    :param names: list of ingredient names
     :return:
     """
     print "Looking for things similar to", ingredient
