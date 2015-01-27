@@ -14,6 +14,23 @@ from emma.data_formatting import top_ingredient_combinations
 THRESHOLD_FOR_ADDING_LINES = 10
 
 
+def print_component(component, ingredients, flavor_index, idx):
+    print '-----------'
+    print 'Component %d' % (idx + 1)
+    n_to_display = min(10, len(component))
+    top_n_indices = np.argsort(-1 * np.abs(component))[0:n_to_display]
+    weight_of_largest_component = abs(component[top_n_indices[0]])
+    for i in top_n_indices:
+        ingredient_name = ingredients[i]
+        weight = component[i]
+        if abs(weight) < .2 * weight_of_largest_component:
+            pass  # this component is too small, ignore it and future ones
+        flavors = ''
+        if ingredient_name in flavor_index:
+            flavors = '(%s)' % flavor_index[ingredient_name]
+        print '\t %s: %.2f %s' % (ingredient_name, weight, flavors)
+
+
 def print_top_components(components, ingredients, flavor_index):
     """
     Prints out a summary of the top components of a matrix factorization.
@@ -25,20 +42,7 @@ def print_top_components(components, ingredients, flavor_index):
     :param flavor_index: mapping from ingredient names to flavors.
     """
     for idx, component in enumerate(components):
-        print '-----------'
-        print 'Component %d' % (idx + 1)
-        n_to_display = min(10, len(component))
-        top_n_indices = np.argsort(-1 * np.abs(component))[0:n_to_display]
-        weight_of_largest_component = abs(component[top_n_indices[0]])
-        for i in top_n_indices:
-            ingredient_name = ingredients[i]
-            weight = component[i]
-            if abs(weight) < .2 * weight_of_largest_component:
-                pass  # this component is too small, ignore it and future ones
-            flavors = ''
-            if ingredient_name in flavor_index:
-                flavors = '(%s)' % flavor_index[ingredient_name]
-            print '\t %s: %.2f %s' % (ingredient_name, weight, flavors)
+        print_component(component, ingredients, flavor_index, idx)
 
 
 def plot_2d_points(two_component_matrix, ingredients, output_filename,
