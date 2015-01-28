@@ -1,13 +1,13 @@
 """
-Constructs a tree that classifies drinks
+Constructs a tree that classifies drinks, saves it as JSON
 """
 
 
 import src.data_processing.matrix_generation as generator
 from src.data_processing.matrix_generation import Normalization
 from src.matrix_factorization import calculate_components, ReductionTypes
-
 from src.data_visualization.create_plot import print_top_components, print_component
+
 
 class HierarchyNode:
     """
@@ -15,22 +15,14 @@ class HierarchyNode:
     """
     def __init__(self):
         self.question = None
-        self.answers = []
-        self.drinks = None
-     
-        
-class Answer:
-    """
-    Data that points to the next node and names it.
-    """
-    def __init__(self):
         self.title = None
-        self.node = None
+        self.children = []
+        self.drinks = None
 
 
 def is_too_small(matrix):
     return len(matrix) < 20
-#Tocheck
+# to be reconsidered
 
 
 def nmf_factors(matrix, n_factors):
@@ -43,17 +35,21 @@ def get_all_drinks(frame):
 
 def split_matrix_into_nodes(frame, depth, parent_answers):
     print "NEW CALL TO SPLIT", frame.shape
-    if is_too_small(frame) or depth > 2:
-        terminal_node = HierarchyNode()
-        terminal_node.is_terminal = True
-        terminal_node.question = parent_answers[-1]
-        terminal_node.drinks = get_all_drinks(frame)
-        return terminal_node
+    if is_too_small(frame) or depth > 1:
+        return None
     
     root = HierarchyNode()
-    factors = nmf_factors(frame, 5)
-    print_top_components(factors, frame.columns, {})
-    root.question = raw_input("Overall name for question? (" + ' '.join(parent_answers) + ") ")
+    n_factors = 5
+    while True:
+        factors = nmf_factors(frame, n_factors)
+        print_top_components(factors, frame.columns, {})
+        root.question = raw_input("Overall name for question? (" + ' '.join(parent_answers) + ") ")
+        if root.question.isdigit():
+            n_factors = int(root.question)
+            print "RERUNNING WITH", n_factors, "FACTORS INSTEAD"
+        else:
+            break
+            
 
     final_factors = []
     for index, factor in enumerate(factors):
@@ -84,17 +80,40 @@ def split_matrix_into_nodes(frame, depth, parent_answers):
                 break
 
     for data in final_factors:
-        answer = Answer()
-        answer.title = data['label']
+        child = HierarchyNode()
+        child.title = data['label']
         relevant_rows = frame.ix[data['indices'], :]
         print "RECURSIVE CALL FOR", relevant_rows.shape
         current_answers = list(parent_answers)
         current_answers.append(root.question)
-        current_answers.append(answer.title)
-        answer.node = split_matrix_into_nodes(relevant_rows, depth + 1, current_answers)
+        current_answers.append(child.title)
+        grandchild = split_matrix_into_nodes(relevant_rows, depth + 1, current_answers)
+        if grandchild:
+            child.children.append(grandchild)
+        else:
+            child.drinks = get_all_drinks(relevant_rows)
+        root.children.append(child)
     
     return root
         
-        
-matrix = generator.recipe_data(Normalization.EXACT_AMOUNTS)
-tree = split_matrix_into_nodes(matrix, 0, [])
+
+def run():
+    # Safely load tree from disk (or recreate)
+    import pickle
+    try:
+        tree = pickle.load(open('tree.pickle', 'rb'))
+    except:
+        matrix = generator.recipe_data(Normalization.EXACT_AMOUNTS)
+        tree = split_matrix_into_nodes(matrix, 0, [])
+        pickle.dump(tree, open('tree.pickle', 'wb'))
+    
+    # Save it as JSON
+    import jsonpickle
+    jsonpickle.set_encoder_options('simplejson', sort_keys=True, indent=2)
+    f = open('tree.json', 'wb')
+    f.write(jsonpickle.encode(tree))
+    
+if __name__ == '__main__':
+    run()
+
+
