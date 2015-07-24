@@ -23,7 +23,7 @@ class HierarchyNode:
 
 
 def is_too_small(matrix):
-    return len(matrix) < 20
+    return len(matrix) < 50
 
 
 # to be reconsidered
@@ -37,9 +37,52 @@ def get_all_drinks(frame):
     return [name for name in frame.index]
 
 
+def any_are_substring(target, options):
+    for option in options:
+        if option in target:
+            return True
+    return False
+
+
+def get_ingredient_indices(frame, using_words, without_words):
+    indices = []
+    for index, ingredient in enumerate(list(frame.columns)):
+        if any_are_substring(ingredient, using_words):
+            if any_are_substring(ingredient, without_words):
+                continue
+            indices.append(index)
+    return indices
+
+
+def build_hierarchy(matrix):
+    root = HierarchyNode()
+    top_elements = [['gin'], 
+                    ['rum'],
+                    ['whiskey', 'whiskey', 'bourbon', 'scotch'],
+                    ['tequila'],
+                    ['wine']
+                    
+    ]
+    root.question = "Base?"
+    for search_terms in top_elements:
+        gin_indices = get_ingredient_indices(matrix, search_terms, [])
+        has_gin = (matrix.ix[:, gin_indices] > 0).sum(1) > 0
+        gin_only_recipes = matrix.loc[has_gin, :]
+        child = HierarchyNode()
+        child.title = search_terms[0]
+        current_answers = [root.question, child.title]
+        grandchild = split_matrix_into_nodes(gin_only_recipes, 0, current_answers)
+        if grandchild:
+            child.children.append(grandchild)
+        else:
+            child.drinks = get_all_drinks(gin_only_recipes)
+        root.children.append(child)
+    return root
+
+
 def split_matrix_into_nodes(frame, depth, parent_answers):
     print "NEW CALL TO SPLIT", frame.shape
-    if is_too_small(frame) or depth > 2:
+    if is_too_small(frame) or depth > 3:
         return None
 
     root = HierarchyNode()
@@ -120,7 +163,7 @@ def run():
         tree = pickle.load(open('tree.pickle', 'rb'))
     except:
         matrix = generator.recipe_data(Normalization.EXACT_AMOUNTS)
-        tree = split_matrix_into_nodes(matrix, 0, [])
+        tree = build_hierarchy(matrix)
         pickle.dump(tree, open('tree.pickle', 'wb'))
 
     # Save it as JSON
